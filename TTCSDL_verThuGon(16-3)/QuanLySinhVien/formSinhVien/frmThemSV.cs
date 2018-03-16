@@ -74,7 +74,7 @@ namespace QuanLySinhVien
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            //try { 
+            try { 
             string TenLop;
             TenLop = cbxTenLop.SelectedItem.ToString();
             cmd.CommandText = "select* from Lop where TenLop =N'" + TenLop + "'";
@@ -96,11 +96,11 @@ namespace QuanLySinhVien
                     MessageBox.Show("THÊM MỚI THÀNH CÔNG", "THÔNG BÁO");
                 }
                 con.Close();
-           // }
-           // catch (Exception)
-           // {
-           //     MessageBox.Show("Kiểm tra lại thông tin nhập..Có thể bạn quên chưa nhập 1 trường nào đó ^^!", "Thông Báo !");
-            //}
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Kiểm tra lại thông tin nhập..Có thể bạn quên chưa nhập 1 trường nào đó ^^!", "Thông Báo !");
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
