@@ -29,41 +29,14 @@ namespace QuanLySinhVien
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
         
-            MessageBox.Show("CẬP NHẬT DỮ LIỆU THÀNH CÔNG");
-           this.Close();
-            frmThemSV frm = new frmThemSV(Lop_ID);
-            frm.Show();
-           
-            
-
-        }
-
-        private void textBox27_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox24_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox23_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox8_Enter(object sender, EventArgs e)
-        {
-
+           // MessageBox.Show("CẬP NHẬT DỮ LIỆU THÀNH CÔNG");
+            //this.Close();
+            //frmThemSV frm = new frmThemSV(Lop_ID);
+            //frm.Show();
+                   
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -83,7 +56,6 @@ namespace QuanLySinhVien
                 this.cbxTenLop.Items.Add(td.Rows[i][1]);
             }
             con.Close();
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -94,18 +66,18 @@ namespace QuanLySinhVien
             
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             int sex;
-
             SqlConnection con = new SqlConnection();
             con.ConnectionString = KetNoi.str;
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
+            //try { 
             string TenLop;
             TenLop = cbxTenLop.SelectedItem.ToString();
-            cmd.CommandText = "select* from Lop where TenLop ='" + TenLop + "'";
+            cmd.CommandText = "select* from Lop where TenLop =N'" + TenLop + "'";
             SqlDataReader rd;
             rd = cmd.ExecuteReader();
             DataTable td = new DataTable();
@@ -115,22 +87,24 @@ namespace QuanLySinhVien
                 sex = 0;
             else
                 sex = 1;
-            
-            cmd.CommandText = "INSERT INTO SinhVien VALUES('" + txtmaSV.Text + "','" + txtTenSV.Text + "'," + sex + ",'" + mskNgaySinh.Text + "','" + txtNoiS.Text + "','" + txtTT.Text + "','" + txtKH.Text + "','" + txtLL.Text + "','" + MaLop + "','"+hinhanh+"')";
-            cmd.ExecuteNonQuery();
-            con.Close();
-            string strmasv;
-            string strtensv;
-            strtensv = txtTenSV.Text;
-            strmasv = txtmaSV.Text;
-            //frmthemkqSV frm = new frmthemkqSV(strmasv,strtensv);
-            //frm.Show();
-
+            cmd.CommandText = "insert into SinhVien values ('"+txtmaSV.Text+"',N'"+txtTen.Text+"','" + txtCMND.Text + "'," + sex + ",'" + DateTime.Parse(mskNgaySinh.Text) + "',N'" + txtQueQuan.Text + "','" + txtSDT.Text + "','" + MaLop + "','" + hinhanh + "','')";
+                DialogResult result;
+                result = MessageBox.Show("BẠN CÓ MUỐN THÊM MỚI SINH VIÊN NÀY KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("THÊM MỚI THÀNH CÔNG", "THÔNG BÁO");
+                }
+                con.Close();
+           // }
+           // catch (Exception)
+           // {
+           //     MessageBox.Show("Kiểm tra lại thông tin nhập..Có thể bạn quên chưa nhập 1 trường nào đó ^^!", "Thông Báo !");
+            //}
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-
             OpenFileDialog dl = new OpenFileDialog();
             dl.InitialDirectory = Application.StartupPath + @"hinhanh/";
             if (dl.ShowDialog() == DialogResult.OK)
@@ -139,6 +113,16 @@ namespace QuanLySinhVien
                 pictureBox1.Image = new Bitmap(Application.StartupPath + @"\hinhanh\" + hinhanh);
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mskNgaySinh_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

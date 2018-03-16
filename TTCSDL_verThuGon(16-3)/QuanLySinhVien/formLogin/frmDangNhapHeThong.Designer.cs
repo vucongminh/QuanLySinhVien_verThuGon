@@ -111,7 +111,6 @@
             this.btnDangNhap.Size = new System.Drawing.Size(100, 31);
             this.btnDangNhap.TabIndex = 2;
             this.btnDangNhap.Text = "Đăng Nhập";
-            this.btnDangNhap.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDangNhap.UseVisualStyleBackColor = true;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 

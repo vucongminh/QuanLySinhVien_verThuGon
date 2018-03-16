@@ -64,7 +64,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label1.Location = new System.Drawing.Point(196, 21);
+            this.label1.Location = new System.Drawing.Point(218, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(388, 26);
             this.label1.TabIndex = 0;
@@ -77,7 +77,7 @@
             this.btnSua.ForeColor = System.Drawing.Color.Blue;
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
             this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSua.Location = new System.Drawing.Point(324, 339);
+            this.btnSua.Location = new System.Drawing.Point(618, 348);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(91, 28);
             this.btnSua.TabIndex = 2;
@@ -92,7 +92,7 @@
             this.btnThoat.ForeColor = System.Drawing.Color.Red;
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(437, 339);
+            this.btnThoat.Location = new System.Drawing.Point(731, 348);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(91, 28);
             this.btnThoat.TabIndex = 2;

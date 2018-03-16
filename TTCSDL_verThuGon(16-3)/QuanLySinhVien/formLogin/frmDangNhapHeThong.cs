@@ -37,6 +37,7 @@ namespace QuanLySinhVien
                     
                 
                 MessageBox.Show("Đăng Nhập Thành Công","Thông Báo");
+
                 frmDSSV.username = txtTenDangNhap.Text;
                 frmDSSV.pass = txtMatKhau.Text;
 
