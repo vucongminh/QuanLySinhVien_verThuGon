@@ -10,14 +10,14 @@ namespace QuanLySinhVien
     {
         public bool DangNhap(string TenDangNhap, string MatKhau)
         {
-            string str;
-            str = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLySV24;Integrated Security=True";
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = str;
+            con.ConnectionString = KetNoi.str;
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT * FROM QuanLyNguoiDung WHERE TenDangNhap='" + TenDangNhap + "' and MatKhau='" + MatKhau + "' and QuyenHan='admin'";
+            cmd.CommandText = "SELECT * FROM QuanLyNguoiDung WHERE TenDangNhap=@TenDN and MatKhau=@MK and QuyenHan='admin'";
+            cmd.Parameters.AddWithValue("@TenDN", TenDangNhap);
+            cmd.Parameters.AddWithValue("@MK", MatKhau);
             SqlDataReader rd;
             rd = cmd.ExecuteReader();
             if (rd.Read())

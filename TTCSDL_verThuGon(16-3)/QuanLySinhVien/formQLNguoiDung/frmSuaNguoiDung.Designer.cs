@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSuaNguoiDung));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtGmail = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,7 +41,10 @@
             this.txtTenDangNhap = new System.Windows.Forms.TextBox();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.ptAvatar = new System.Windows.Forms.PictureBox();
+            this.btnChange = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptAvatar)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -47,7 +52,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(27, 9);
+            this.label1.Location = new System.Drawing.Point(79, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(309, 28);
             this.label1.TabIndex = 0;
@@ -55,24 +60,44 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtGmail);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtQuyenHan);
             this.groupBox1.Controls.Add(this.txtMatKhau);
             this.groupBox1.Controls.Add(this.txtTenDangNhap);
-            this.groupBox1.Location = new System.Drawing.Point(12, 53);
+            this.groupBox1.Location = new System.Drawing.Point(158, 68);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(336, 147);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // txtGmail
+            // 
+            this.txtGmail.Location = new System.Drawing.Point(127, 113);
+            this.txtGmail.Name = "txtGmail";
+            this.txtGmail.Size = new System.Drawing.Size(203, 20);
+            this.txtGmail.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Blue;
+            this.label5.Location = new System.Drawing.Point(6, 116);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 17);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "-Email:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(6, 110);
+            this.label4.Location = new System.Drawing.Point(6, 86);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 17);
             this.label4.TabIndex = 1;
@@ -83,7 +108,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(6, 67);
+            this.label3.Location = new System.Drawing.Point(6, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 17);
             this.label3.TabIndex = 1;
@@ -102,17 +127,17 @@
             // 
             // txtQuyenHan
             // 
-            this.txtQuyenHan.Location = new System.Drawing.Point(127, 107);
+            this.txtQuyenHan.Location = new System.Drawing.Point(127, 83);
             this.txtQuyenHan.Name = "txtQuyenHan";
-            this.txtQuyenHan.Size = new System.Drawing.Size(146, 20);
+            this.txtQuyenHan.Size = new System.Drawing.Size(203, 20);
             this.txtQuyenHan.TabIndex = 0;
             // 
             // txtMatKhau
             // 
             this.txtMatKhau.BackColor = System.Drawing.Color.White;
-            this.txtMatKhau.Location = new System.Drawing.Point(127, 64);
+            this.txtMatKhau.Location = new System.Drawing.Point(127, 51);
             this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.Size = new System.Drawing.Size(146, 20);
+            this.txtMatKhau.Size = new System.Drawing.Size(203, 20);
             this.txtMatKhau.TabIndex = 1;
             // 
             // txtTenDangNhap
@@ -120,7 +145,7 @@
             this.txtTenDangNhap.BackColor = System.Drawing.Color.White;
             this.txtTenDangNhap.Location = new System.Drawing.Point(127, 19);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
-            this.txtTenDangNhap.Size = new System.Drawing.Size(146, 20);
+            this.txtTenDangNhap.Size = new System.Drawing.Size(203, 20);
             this.txtTenDangNhap.TabIndex = 0;
             this.txtTenDangNhap.TextChanged += new System.EventHandler(this.txtTenDangNhap_TextChanged);
             // 
@@ -130,9 +155,9 @@
             this.btnSua.ForeColor = System.Drawing.Color.Blue;
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
             this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSua.Location = new System.Drawing.Point(94, 215);
+            this.btnSua.Location = new System.Drawing.Point(202, 234);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(67, 26);
+            this.btnSua.Size = new System.Drawing.Size(112, 26);
             this.btnSua.TabIndex = 1;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
@@ -144,20 +169,44 @@
             this.btnThoat.ForeColor = System.Drawing.Color.Red;
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(180, 215);
+            this.btnThoat.Location = new System.Drawing.Point(338, 234);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(67, 26);
+            this.btnThoat.Size = new System.Drawing.Size(112, 26);
             this.btnThoat.TabIndex = 2;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // ptAvatar
+            // 
+            this.ptAvatar.Location = new System.Drawing.Point(12, 78);
+            this.ptAvatar.Name = "ptAvatar";
+            this.ptAvatar.Size = new System.Drawing.Size(130, 137);
+            this.ptAvatar.TabIndex = 3;
+            this.ptAvatar.TabStop = false;
+            this.ptAvatar.Click += new System.EventHandler(this.ptAvatar_Click);
+            // 
+            // btnChange
+            // 
+            this.btnChange.BackColor = System.Drawing.Color.White;
+            this.btnChange.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnChange.ForeColor = System.Drawing.Color.Blue;
+            this.btnChange.Location = new System.Drawing.Point(29, 234);
+            this.btnChange.Name = "btnChange";
+            this.btnChange.Size = new System.Drawing.Size(94, 26);
+            this.btnChange.TabIndex = 4;
+            this.btnChange.Text = "Change";
+            this.btnChange.UseVisualStyleBackColor = false;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // frmSuaNguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(367, 265);
+            this.ClientSize = new System.Drawing.Size(506, 276);
+            this.Controls.Add(this.btnChange);
+            this.Controls.Add(this.ptAvatar);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.groupBox1);
@@ -169,6 +218,7 @@
             this.Load += new System.EventHandler(this.frmSuaNguoiDung_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptAvatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,5 +236,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.PictureBox ptAvatar;
+        private System.Windows.Forms.Button btnChange;
+        private System.Windows.Forms.TextBox txtGmail;
+        private System.Windows.Forms.Label label5;
     }
 }

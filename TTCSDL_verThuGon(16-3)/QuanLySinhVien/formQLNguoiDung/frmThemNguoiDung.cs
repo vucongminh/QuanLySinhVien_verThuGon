@@ -13,6 +13,7 @@ namespace QuanLySinhVien
 {
     public partial class frmThemNguoiDung : Form
     {
+        string hinhAnh;
         public frmThemNguoiDung()
         {
             InitializeComponent();
@@ -59,7 +60,7 @@ namespace QuanLySinhVien
             cmd.Connection = con;
             string QuyenHan;
             QuyenHan = this.cboQuyenHan.SelectedItem.ToString();
-            cmd.CommandText = "INSERT INTO QuanLyNguoiDung VALUES('" + txtTenDangNhap.Text + "','" + txtMatKhau.Text + "','" + QuyenHan + "','','')";
+            cmd.CommandText = "INSERT INTO QuanLyNguoiDung VALUES('" + txtTenDangNhap.Text + "','" + txtMatKhau.Text + "','" + QuyenHan + "','"+hinhAnh+"','"+txtGmail.Text+"')";
             cmd.ExecuteNonQuery();
             con.Close();
             MessageBox.Show("Thêm Dữ Liệu Thành Công");
@@ -72,6 +73,24 @@ namespace QuanLySinhVien
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dl = new OpenFileDialog();
+            dl.InitialDirectory = Application.StartupPath + @"hinhanh/";
+            if (dl.ShowDialog() == DialogResult.OK)
+            {
+                hinhAnh = dl.FileName.Substring(dl.FileName.LastIndexOf("\\") + 1, dl.FileName.Length - dl.FileName.LastIndexOf("\\") - 1);
+                ptAvatar.Image = new Bitmap(Application.StartupPath + @"\hinhanh\" + hinhAnh);
+                ptAvatar.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+        }
+
+        private void frmThemNguoiDung_Load(object sender, EventArgs e)
+        {
+            this.ptAvatar.Image = new Bitmap(Application.StartupPath + @"\hinhanh\vodien.jpg");
+            ptAvatar.SizeMode = PictureBoxSizeMode.StretchImage;
         }
     }
     }

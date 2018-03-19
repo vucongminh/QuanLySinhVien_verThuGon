@@ -15,7 +15,9 @@ namespace QuanLySinhVien
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT TenDangNhap,MatKhau FROM QuanLyNguoiDung WHERE TenDangNhap='"+TenDangNhap+"' AND MatKhau='"+MatKhau+"' ";
+            cmd.CommandText = "SELECT TenDangNhap,MatKhau FROM QuanLyNguoiDung WHERE TenDangNhap=@TenDN AND MatKhau=@MK";
+            cmd.Parameters.AddWithValue("@TenDN",TenDangNhap);
+            cmd.Parameters.AddWithValue("@MK",MatKhau);
             SqlDataReader rd;
             rd = cmd.ExecuteReader();
             if (rd.Read())
