@@ -1,6 +1,6 @@
 ﻿namespace QuanLySinhVien
 {
-    partial class frmXoaKhoa
+    partial class frmXoaBoMon
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmXoaKhoa));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmXoaBoMon));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTenKhoa = new System.Windows.Forms.TextBox();
@@ -47,9 +47,9 @@
             this.label1.ForeColor = System.Drawing.Color.Blue;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(219, 17);
+            this.label1.Size = new System.Drawing.Size(238, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "THÔNG TIN KHOA CẦN XOÁ";
+            this.label1.Text = "THÔNG TIN BO MON CẦN XOÁ";
             // 
             // groupBox1
             // 
@@ -138,7 +138,7 @@
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // frmXoaKhoa
+            // frmXoaBoMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -149,7 +149,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmXoaKhoa";
+            this.Name = "frmXoaBoMon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xóa Bộ Môn";
             this.Load += new System.EventHandler(this.frmXoaKhoa_Load);

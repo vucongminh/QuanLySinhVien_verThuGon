@@ -10,10 +10,10 @@ using System.Data.SqlClient;
 
 namespace QuanLySinhVien
 {
-    public partial class frmSuaMonHoc : Form
+    public partial class frmSuaHocPhan : Form
     {
         string MaMonHoc;
-        public frmSuaMonHoc(string Ma)
+        public frmSuaHocPhan(string Ma)
         {
             MaMonHoc = Ma;
             InitializeComponent();
@@ -21,8 +21,6 @@ namespace QuanLySinhVien
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            try
-            {
             SqlConnection con = new SqlConnection();
             con.ConnectionString = KetNoi.str;
             con.Open();
@@ -32,7 +30,7 @@ namespace QuanLySinhVien
             int HocKy;
             SoTrinh = Convert.ToInt16(txtSoTrinh.Text);
             HocKy = Convert.ToInt16(txtHocKy.Text);
-            cmd.CommandText = "UPDATE HOCPHAN SET TenHP='" +txtTenMonHoc.Text + "',MaBM='" + txtMaBoMon.Text + "',SoTC=" + SoTrinh+ ",HocKy=" + HocKy + "WHERE MaHP='" +MaMonHoc + "'";
+            cmd.CommandText = "UPDATE HOCPHAN SET TenHP='" +txtTenMonHoc.Text + "',MaBM='" + txtMaBoMon.Text + "',SoTC=" + SoTrinh+ ",SoHK=" + HocKy + "WHERE MaHP='" +MaMonHoc + "'";
             DialogResult result;
             result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
@@ -41,21 +39,16 @@ namespace QuanLySinhVien
                 con.Close();
                 MessageBox.Show("CẬP NHẬT DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO");
                 this.Close();
-                frmDSMonHoc frm = new frmDSMonHoc();
+                frmDSHocPhan frm = new frmDSHocPhan();
                 frm.Show();
             }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
-            }
-
+            
 
         }
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmDSMonHoc frm = new frmDSMonHoc();
+            frmDSHocPhan frm = new frmDSHocPhan();
             frm.Show();
         }
 
@@ -66,7 +59,7 @@ namespace QuanLySinhVien
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT MaHP,TenHP,SoTC,HocKy,MaBM FROM HOCPHAN WHERE MaHP='" + MaMonHoc + "'";
+            cmd.CommandText = "SELECT MaHP,TenHP,SoTC,HocKy,MaBM FROM HOCPHAN WHERE MaHP='" +MaMonHoc + "'";
             SqlDataReader rd;
             rd = cmd.ExecuteReader();
             DataTable td = new DataTable();
@@ -82,7 +75,7 @@ namespace QuanLySinhVien
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmDSMonHoc frm = new frmDSMonHoc();
+            frmDSHocPhan frm = new frmDSHocPhan();
             frm.Show();
         }
 

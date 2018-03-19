@@ -1,6 +1,6 @@
 ﻿namespace QuanLySinhVien
 {
-    partial class frmThemMonHoc
+    partial class frmThemHocPhan
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemMonHoc));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemHocPhan));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtHocKy = new System.Windows.Forms.TextBox();
@@ -157,7 +157,6 @@
             this.txtTenMonHoc.Name = "txtTenMonHoc";
             this.txtTenMonHoc.Size = new System.Drawing.Size(154, 20);
             this.txtTenMonHoc.TabIndex = 1;
-            this.txtTenMonHoc.TextChanged += new System.EventHandler(this.txtTenMonHoc_TextChanged);
             // 
             // txtMaMonHoc
             // 
@@ -197,7 +196,7 @@
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // frmThemMonHoc
+            // frmThemHocPhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -208,10 +207,9 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmThemMonHoc";
+            this.Name = "frmThemHocPhan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm Học Phần";
-            this.Load += new System.EventHandler(this.frmThemMonHoc_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

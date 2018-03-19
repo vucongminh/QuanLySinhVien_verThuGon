@@ -79,8 +79,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formHocPhan\frmDSHocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formHocPhan\frmDSHocPhan.designer.cs">
+      <DependentUpon>frmDSHocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formHocPhan\frmSuaHocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formHocPhan\frmSuaHocPhan.designer.cs">
+      <DependentUpon>frmSuaHocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formHocPhan\frmThemHocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formHocPhan\frmThemHocPhan.designer.cs">
+      <DependentUpon>frmThemHocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formHocPhan\frmXoaHocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formHocPhan\frmXoaHocPhan.designer.cs">
+      <DependentUpon>frmXoaHocPhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLogin\DangNhapHeThong.cs" />
     <Compile Include="formLogin\DangNhapNguoiDung.cs" />
+    <Compile Include="formLopHP\frmDSLopHocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formLopHP\frmDSLopHocPhan.designer.cs">
+      <DependentUpon>frmDSLopHocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formLopHP\frmSuaLopHocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formLopHP\frmSuaLopHocPhan.designer.cs">
+      <DependentUpon>frmSuaLopHocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formLopHP\frmThemLopHocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formLopHP\frmThemLopHocPhan.designer.cs">
+      <DependentUpon>frmThemLopHocPhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formLopHP\frmXoaLopHocPhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formLopHP\frmXoaLopHocPhan.designer.cs">
+      <DependentUpon>frmXoaLopHocPhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="formMain\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,12 +177,6 @@
     <Compile Include="formSinhVien\frmThemSV.Designer.cs">
       <DependentUpon>frmThemSV.cs</DependentUpon>
     </Compile>
-    <Compile Include="formHocPhan\frmDSHocPhan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formHocPhan\frmDSHocPhan.Designer.cs">
-      <DependentUpon>frmDSHocPhan.cs</DependentUpon>
-    </Compile>
     <Compile Include="formSinhVien\frmKetQuaHocTap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,12 +206,6 @@
     </Compile>
     <Compile Include="formLop\frmSuaLop.Designer.cs">
       <DependentUpon>frmSuaLop.cs</DependentUpon>
-    </Compile>
-    <Compile Include="formHocPhan\frmSuaHocPhan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formHocPhan\frmSuaHocPhan.Designer.cs">
-      <DependentUpon>frmSuaHocPhan.cs</DependentUpon>
     </Compile>
     <Compile Include="formQLNguoiDung\frmSuaNguoiDung.cs">
       <SubType>Form</SubType>
@@ -201,12 +237,6 @@
     <Compile Include="formLop\frmThemLop.Designer.cs">
       <DependentUpon>frmThemLop.cs</DependentUpon>
     </Compile>
-    <Compile Include="formHocPhan\frmThemHocPhan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formHocPhan\frmThemHocPhan.Designer.cs">
-      <DependentUpon>frmThemHocPhan.cs</DependentUpon>
-    </Compile>
     <Compile Include="formQLNguoiDung\frmThemNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,12 +261,6 @@
     <Compile Include="formLop\frmXoaLop.Designer.cs">
       <DependentUpon>frmXoaLop.cs</DependentUpon>
     </Compile>
-    <Compile Include="formHocPhan\frmXoaHocPhan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formHocPhan\frmXoaHocPhan.Designer.cs">
-      <DependentUpon>frmXoaHocPhan.cs</DependentUpon>
-    </Compile>
     <Compile Include="KetNoi.cs" />
     <Compile Include="formSinhVien\frmChonLop.cs">
       <SubType>Form</SubType>
@@ -246,6 +270,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formHocPhan\frmDSHocPhan.resx">
+      <DependentUpon>frmDSHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formHocPhan\frmSuaHocPhan.resx">
+      <DependentUpon>frmSuaHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formHocPhan\frmThemHocPhan.resx">
+      <DependentUpon>frmThemHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formHocPhan\frmXoaHocPhan.resx">
+      <DependentUpon>frmXoaHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formLopHP\frmDSLopHocPhan.resx">
+      <DependentUpon>frmDSLopHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formLopHP\frmSuaLopHocPhan.resx">
+      <DependentUpon>frmSuaLopHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formLopHP\frmThemLopHocPhan.resx">
+      <DependentUpon>frmThemLopHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formLopHP\frmXoaLopHocPhan.resx">
+      <DependentUpon>frmXoaLopHocPhan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formMain\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -277,10 +325,6 @@
     <EmbeddedResource Include="formSinhVien\frmThemSV.resx">
       <DependentUpon>frmThemSV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formHocPhan\frmDSHocPhan.resx">
-      <DependentUpon>frmDSHocPhan.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="formSinhVien\frmKetQuaHocTap.resx">
       <DependentUpon>frmKetQuaHocTap.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -299,10 +343,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formLop\frmSuaLop.resx">
       <DependentUpon>frmSuaLop.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formHocPhan\frmSuaHocPhan.resx">
-      <DependentUpon>frmSuaHocPhan.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="formQLNguoiDung\frmSuaNguoiDung.resx">
@@ -325,10 +365,6 @@
       <DependentUpon>frmThemLop.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="formHocPhan\frmThemHocPhan.resx">
-      <DependentUpon>frmThemHocPhan.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="formQLNguoiDung\frmThemNguoiDung.resx">
       <DependentUpon>frmThemNguoiDung.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -343,10 +379,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formLop\frmXoaLop.resx">
       <DependentUpon>frmXoaLop.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formHocPhan\frmXoaHocPhan.resx">
-      <DependentUpon>frmXoaHocPhan.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="formSinhVien\frmChonLop.resx">

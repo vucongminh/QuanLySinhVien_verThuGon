@@ -10,11 +10,11 @@ using System.Data.SqlClient;
 
 namespace QuanLySinhVien
 {
-    public partial class frmDSMonHoc : Form
+    public partial class frmDSHocPhan : Form
     {
         public static string username = string.Empty;
         public static string pass = string.Empty;
-        public frmDSMonHoc()
+        public frmDSHocPhan()
         {
             InitializeComponent();
             DangNhapHeThong DangNhap = new DangNhapHeThong();
@@ -64,7 +64,8 @@ namespace QuanLySinhVien
         private void btnThem_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmThemMonHoc frm = new frmThemMonHoc();
+            frmThemHocPhan frm = new frmThemHocPhan();
+            
             frm.Show();
             
         }
@@ -74,42 +75,28 @@ namespace QuanLySinhVien
             string str;
             int row = this.listView1.SelectedItems[0].Index;
             str = this.listView1.Items[row].SubItems[0].Text;
-            frmSuaMonHoc frm = new frmSuaMonHoc(str);
+            frmSuaHocPhan frm = new frmSuaHocPhan(str);
 
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string str;
-                int row = this.listView1.SelectedItems[0].Index;
-                str = this.listView1.Items[row].SubItems[0].Text;
-                this.Close();
-                frmSuaMonHoc frm = new frmSuaMonHoc(str);
-                frm.Show();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Hãy Chọn Học Phần Muốn Sửa !", "Thông Báo");
-            }
+            string str;
+            int row = this.listView1.SelectedItems[0].Index;
+            str = this.listView1.Items[row].SubItems[0].Text;
+            this.Close();
+            frmSuaHocPhan frm = new frmSuaHocPhan(str);
+            frm.Show();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string str;
-                int row = this.listView1.SelectedItems[0].Index;
-                str = this.listView1.Items[row].SubItems[0].Text;
-                this.Close();
-                frmXoaMonHoc frm = new frmXoaMonHoc(str);
-                frm.Show();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Hãy Chọn Học Phần Muốn Sửa !", "Thông Báo");
-            }
+            string str;
+            int row = this.listView1.SelectedItems[0].Index;
+            str = this.listView1.Items[row].SubItems[0].Text;
+            this.Close();
+            frmXoaHocPhan frm = new frmXoaHocPhan(str);
+            frm.Show();
 
         }
 

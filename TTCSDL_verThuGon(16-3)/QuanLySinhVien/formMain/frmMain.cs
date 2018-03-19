@@ -29,7 +29,7 @@ namespace QuanLySinhVien
 
         private void khoaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmKhoa frm = new frmKhoa();
+            frmDSBoMon frm = new frmDSBoMon();
             frm.MdiParent = this;
             frm.Show();
         }
@@ -54,7 +54,7 @@ namespace QuanLySinhVien
 
         private void họcPhầnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmDSMonHoc frm = new frmDSMonHoc();
+            frmDSHocPhan frm = new frmDSHocPhan();
             frm.MdiParent = this;
             frm.Show();
         }
