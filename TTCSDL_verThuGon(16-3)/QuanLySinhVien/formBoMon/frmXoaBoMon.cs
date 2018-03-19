@@ -10,10 +10,10 @@ using System.Data.SqlClient;
 
 namespace QuanLySinhVien
 {
-    public partial class frmXoaBoMon : Form
+    public partial class frmXoaKhoa : Form
     {
         string MaKhoa;
-        public frmXoaBoMon(string Ma)
+        public frmXoaKhoa(string Ma)
         {
             MaKhoa = Ma;
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace QuanLySinhVien
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmDSBoMon frm = new frmDSBoMon();
+            frmKhoa frm = new frmKhoa();
             frm.Show();
         }
 
@@ -60,7 +60,7 @@ namespace QuanLySinhVien
                 con.Close();
                 MessageBox.Show("XÓA THÀNH CÔNG", "THÔNG BÁO");
                 this.Close();
-                frmDSBoMon frm = new frmDSBoMon();
+                frmKhoa frm = new frmKhoa();
                 frm.Show();
             }
             } 

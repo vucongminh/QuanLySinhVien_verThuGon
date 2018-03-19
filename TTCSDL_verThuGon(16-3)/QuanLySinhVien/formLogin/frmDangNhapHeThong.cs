@@ -37,15 +37,17 @@ namespace QuanLySinhVien
                     
                 
                 MessageBox.Show("Đăng Nhập Thành Công","Thông Báo");
-
                 frmDSSV.username = txtTenDangNhap.Text;
                 frmDSSV.pass = txtMatKhau.Text;
 
-                frmDSBoMon.username = txtTenDangNhap.Text;
-                frmDSBoMon.pass = txtMatKhau.Text;
+                frmKhoa.username = txtTenDangNhap.Text;
+                frmKhoa.pass = txtMatKhau.Text;
 
-                frmDSHocPhan.username = txtTenDangNhap.Text;
-                frmDSHocPhan.pass = txtMatKhau.Text;
+                frmDSMonHoc.username = txtTenDangNhap.Text;
+                frmDSMonHoc.pass = txtMatKhau.Text;
+
+                frmDSLopHocPhan.username = txtTenDangNhap.Text;
+                frmDSLopHocPhan.pass = txtMatKhau.Text;
 
                 frmDSLop.username = txtTenDangNhap.Text;
                 frmDSLop.pass = txtMatKhau.Text;

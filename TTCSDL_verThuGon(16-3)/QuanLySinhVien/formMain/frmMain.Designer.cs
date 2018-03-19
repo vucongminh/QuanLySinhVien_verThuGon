@@ -41,6 +41,8 @@
             this.khoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lớpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mônHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.họcPhầnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lớpHọcPhầnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tìmKiếmSinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trợGiúpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,8 +51,6 @@
             this.trợGiupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.họcPhầnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lớpHọcPhầnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -168,6 +168,22 @@
             this.mônHọcToolStripMenuItem.Text = "Học Phần";
             this.mônHọcToolStripMenuItem.Click += new System.EventHandler(this.mônHọcToolStripMenuItem_Click);
             // 
+            // họcPhầnToolStripMenuItem
+            // 
+            this.họcPhầnToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("họcPhầnToolStripMenuItem.Image")));
+            this.họcPhầnToolStripMenuItem.Name = "họcPhầnToolStripMenuItem";
+            this.họcPhầnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.họcPhầnToolStripMenuItem.Text = "Học Phần";
+            this.họcPhầnToolStripMenuItem.Click += new System.EventHandler(this.họcPhầnToolStripMenuItem_Click);
+            // 
+            // lớpHọcPhầnToolStripMenuItem
+            // 
+            this.lớpHọcPhầnToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("lớpHọcPhầnToolStripMenuItem.Image")));
+            this.lớpHọcPhầnToolStripMenuItem.Name = "lớpHọcPhầnToolStripMenuItem";
+            this.lớpHọcPhầnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.lớpHọcPhầnToolStripMenuItem.Text = "Lớp Học Phần";
+            this.lớpHọcPhầnToolStripMenuItem.Click += new System.EventHandler(this.lớpHọcPhầnToolStripMenuItem_Click);
+            // 
             // trợGiúpToolStripMenuItem
             // 
             this.trợGiúpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -225,20 +241,6 @@
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "Chương Trình Quản Lý Sinh Viên";
             this.notifyIcon1.Visible = true;
-            // 
-            // họcPhầnToolStripMenuItem
-            // 
-            this.họcPhầnToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("họcPhầnToolStripMenuItem.Image")));
-            this.họcPhầnToolStripMenuItem.Name = "họcPhầnToolStripMenuItem";
-            this.họcPhầnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.họcPhầnToolStripMenuItem.Text = "Học Phần";
-            // 
-            // lớpHọcPhầnToolStripMenuItem
-            // 
-            this.lớpHọcPhầnToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("lớpHọcPhầnToolStripMenuItem.Image")));
-            this.lớpHọcPhầnToolStripMenuItem.Name = "lớpHọcPhầnToolStripMenuItem";
-            this.lớpHọcPhầnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.lớpHọcPhầnToolStripMenuItem.Text = "Lớp Học Phần";
             // 
             // frmMain
             // 

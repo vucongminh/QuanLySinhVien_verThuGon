@@ -11,29 +11,15 @@ namespace QuanLySinhVien
 {
     public partial class frmThemLop : Form
     {
-        //string Khoa_ID;
+       
         public frmThemLop()
-        {
-            //Khoa_ID = Ma;
+        {           
             InitializeComponent();
         }
 
         private void frmThemLop_Load(object sender, EventArgs e)
         {
-            //SqlConnection con = new SqlConnection();
-            //con.ConnectionString = KetNoi.str;
-            //con.Open();
-            //SqlCommand cmd = new SqlCommand();
-            //cmd.Connection = con;
-            //cmd.CommandText = "SELECT * FROM LOP";
-            //SqlDataReader rd;
-            //rd = cmd.ExecuteReader();
-            //DataTable td = new DataTable();
-            //td.Load(rd);
-            //for (int i = 0; i < td.Rows.Count; i++)
-            //{
-            //    this.txtMaLop.Items.Add(td.Rows[i][1]);
-            //}
+            
         }
 
         private void btnThemLop_Click(object sender, EventArgs e)

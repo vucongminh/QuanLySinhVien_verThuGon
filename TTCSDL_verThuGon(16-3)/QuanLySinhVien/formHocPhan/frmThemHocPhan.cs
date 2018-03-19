@@ -10,9 +10,9 @@ using System.Data.SqlClient;
 
 namespace QuanLySinhVien
 {
-    public partial class frmThemHocPhan : Form
+    public partial class frmThemMonHoc : Form
     {
-        public frmThemHocPhan()
+        public frmThemMonHoc()
         {
             InitializeComponent();
         }
@@ -26,18 +26,26 @@ namespace QuanLySinhVien
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                int SoTrinh;
-                int HocKy;
-                SoTrinh = Convert.ToInt16(txtSoTrinh.Text);
-                HocKy = Convert.ToInt16(txtHocKy.Text);
-                cmd.CommandText = "INSERT INTO HOCPHAN VALUES('" + txtMaMonHoc.Text + "','" + txtTenMonHoc.Text + "','" + txtMaBoMon.Text + "'," + SoTrinh + "," + HocKy + ")";
-                cmd.ExecuteNonQuery();
+            int SoTrinh;
+            int HocKy;
+            SoTrinh = Convert.ToInt16(txtSoTrinh.Text);
+            HocKy = Convert.ToInt16(txtHocKy.Text);
+            cmd.CommandText = "INSERT INTO HOCPHAN VALUES('" + txtMaMonHoc.Text + "','" + txtTenMonHoc.Text + "','" + txtMaBoMon.Text + "'," + SoTrinh + "," + HocKy + ")";
+            //cmd.CommandText = "InsertDataIntoHocPhan";
+            //cmd.CommandType = CommandType.StoredProcedure;
+            //cmd.Parameters.AddWithValue("MaHP", txtMaMonHoc.Text);
+            //cmd.Parameters.AddWithValue("TenHP", txtTenMonHoc.Text);
+            //cmd.Parameters.AddWithValue("SoTC", txtSoTrinh.Text);
+            //cmd.Parameters.AddWithValue("HocKy", txtHocKy.Text);
+            //cmd.Parameters.AddWithValue("MaBM", txtMaBoMon.Text);
+
+            cmd.ExecuteNonQuery();
                 DialogResult result;
                 result = MessageBox.Show("THÊM DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK)
                 {
                     this.Close();
-                    frmThemHocPhan frm = new frmThemHocPhan();
+                    frmThemMonHoc frm = new frmThemMonHoc();
                     frm.Show();
                 }
             //}
@@ -50,9 +58,19 @@ namespace QuanLySinhVien
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmDSHocPhan frm = new frmDSHocPhan();
+            frmDSMonHoc frm = new frmDSMonHoc();
             frm.Show();
             
+        }
+
+        private void txtTenMonHoc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmThemMonHoc_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
