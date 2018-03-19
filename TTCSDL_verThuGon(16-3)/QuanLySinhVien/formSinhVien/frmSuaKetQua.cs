@@ -12,13 +12,15 @@ namespace QuanLySinhVien
 {
     public partial class frmSuaKetQua : Form
     {
-        string SinhVien_ID, MonHoc_ID;
         int LanThi;
-        public frmSuaKetQua(string MaSinhVien,string MaMonHoc,int Thi)
+        string SinhVien_ID;
+        string LopHocPhan_ID;
+        public frmSuaKetQua(string MaSinhVien,string MaLHP,int lanthi)
+
         {
-            SinhVien_ID = MaSinhVien;
-            MonHoc_ID = MaMonHoc;
-            LanThi = Thi;
+            LanThi = lanthi;
+            LopHocPhan_ID = MaLHP;
+            SinhVien_ID = MaSinhVien;           
             InitializeComponent();
         }
 
@@ -30,22 +32,29 @@ namespace QuanLySinhVien
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText="SELECT DiemThi,DiemTongKet FROM KetQua WHERE ID_SinhVien='"+SinhVien_ID+"' AND ID_MonHoc='"+MonHoc_ID+"' AND LanThi="+LanThi+"";
-            SqlDataReader rd,rd1;
+            cmd.CommandText = "SELECT h.TenHP,h.SoTC,b.LanThi,DiemKT,DiemKTGiuaKy,DiemThi,DiemTongKet,GhiChu FROM BANGDIEM as b,LOPHOCPHAN as l,HOCPHAN as h WHERE b.MaSV ='" + SinhVien_ID + "' and b.LanThi ='"+LanThi+"' and b.MaLHP='"+LopHocPhan_ID+"'and l.MaLHP=b.MaLHP and l.MaHP=h.MaHP";
+            SqlDataReader rd;
             rd = cmd.ExecuteReader();
             DataTable td = new DataTable();
             td.Load(rd);
-            this.txtDiemThi.Text = td.Rows[0][0].ToString();
-            this.txtDiemTongKet.Text = td.Rows[0][1].ToString();
-            this.txtLanThi.Text = LanThi.ToString();
-            cmd.CommandText = "SELECT TenMonHoc FROM MonHoc WHERE MonHoc_ID='" + MonHoc_ID + "'";
+            this.cboMonHoc.Text = td.Rows[0][0].ToString();
+            this.cbLHP.Text = LopHocPhan_ID;
+            this.txtLanThi.Text = td.Rows[0][2].ToString();
+            this.txtDiemCC.Text = td.Rows[0][3].ToString();
+            this.txtDiemTX.Text = td.Rows[0][4].ToString();
+            this.txtDiemThi.Text = td.Rows[0][5].ToString();
+            this.txtDiemTB.Text = td.Rows[0][6].ToString();
+            this.cbGhiChu.Text = td.Rows[0][7].ToString();                   
+            cmd.CommandText = "SELECT * FROM LOPHOCPHAN as l,HocPhan as h WHERE l.MaHP=h.MaHP and h.TenHp=N'" + cboMonHoc.Text + "'";
+            SqlDataReader rd1;
             rd1 = cmd.ExecuteReader();
             DataTable td1 = new DataTable();
             td1.Load(rd1);
-            this.txtTenMonHoc.Text = td1.Rows[0][0].ToString();
+            for (int i = 0; i < td1.Rows.Count; i++)
+            {
+                this.cbLHP.Items.Add(td1.Rows[i][0]);
+            }
             con.Close();
-            
-
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -57,18 +66,20 @@ namespace QuanLySinhVien
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-
+            try {
+            string MaLHP;
+            MaLHP=cbLHP.SelectedItem.ToString();
+            float diemCC = float.Parse(txtDiemCC.Text);
+            float diemTX = float.Parse(txtDiemTX.Text);
+            float diemThi = float.Parse(txtDiemThi.Text);
+            float diemTB = float.Parse(txtDiemTB.Text);
+            string GhiChu = cbGhiChu.SelectedItem.ToString();
             SqlConnection con = new SqlConnection();
             con.ConnectionString = KetNoi.str;
             con.Open();
             SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            
-            double DiemThi;
-            DiemThi = Convert.ToDouble(txtDiemThi.Text);
-            double TongKet;
-            TongKet = Convert.ToDouble(txtDiemTongKet.Text);
-            cmd.CommandText = "UPDATE KetQua SET DiemThi=" + DiemThi + ",DiemTongKet=" + TongKet + " WHERE ID_SinhVien='" + SinhVien_ID+ "' AND ID_MonHoc='" + MonHoc_ID + "' AND LanThi="+LanThi+"";
+            cmd.Connection = con;           
+            cmd.CommandText = "UPDATE BANGDIEM SET MaLHP='" + MaLHP + "',DiemKT=" + diemCC + ",DiemKTGiuaKy="+diemTX+",DiemThi="+diemThi+",DiemTongKet="+diemTB+",Lanthi="+txtLanThi.Text+",Ghichu =N'"+GhiChu+"' WHERE MaSV='" + SinhVien_ID+ "' AND MaLHP='" + LopHocPhan_ID + "' AND LanThi="+LanThi+"";
             DialogResult result;
             result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
@@ -80,6 +91,17 @@ namespace QuanLySinhVien
             this.Close();
             frmKetQuaHocTap frm = new frmKetQuaHocTap(SinhVien_ID);
             frm.Show();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Đảm bảo rằng bạn đã nhập đủ các trường", "THÔNG BÁO");
+            }
+
+
+        }
+
+        private void cbLHP_SelectedIndexChanged(object sender, EventArgs e)
+        {
             
         }
     }

@@ -136,6 +136,7 @@
             this.DiemTK,
             this.GhiChu});
             this.listView1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(6, 13);
             this.listView1.Name = "listView1";
@@ -144,7 +145,6 @@
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             this.listView1.Click += new System.EventHandler(this.listView1_Click);
             // 
             // MonThi
@@ -216,7 +216,6 @@
             this.labeTen.Size = new System.Drawing.Size(32, 16);
             this.labeTen.TabIndex = 5;
             this.labeTen.Text = "None";
-            this.labeTen.Click += new System.EventHandler(this.labeTen_Click);
             // 
             // label4
             // 

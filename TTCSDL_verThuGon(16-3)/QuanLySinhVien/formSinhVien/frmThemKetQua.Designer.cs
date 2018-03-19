@@ -57,11 +57,12 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label1.Location = new System.Drawing.Point(88, 9);
+            this.label1.Location = new System.Drawing.Point(150, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 24);
+            this.label1.Size = new System.Drawing.Size(113, 24);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Thêm Kết Quả Học Tập";
+            this.label1.Text = "Thêm Điểm";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // groupBox1
             // 
@@ -131,9 +132,9 @@
             this.label8.ForeColor = System.Drawing.Color.Blue;
             this.label8.Location = new System.Drawing.Point(19, 263);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 19);
+            this.label8.Size = new System.Drawing.Size(69, 19);
             this.label8.TabIndex = 6;
-            this.label8.Text = "GhiChu:";
+            this.label8.Text = "Ghi Chú:";
             // 
             // label7
             // 
@@ -152,7 +153,7 @@
             this.txtDiemThi.Name = "txtDiemThi";
             this.txtDiemThi.Size = new System.Drawing.Size(165, 20);
             this.txtDiemThi.TabIndex = 4;
-            this.txtDiemThi.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            
             // 
             // label6
             // 
@@ -237,6 +238,7 @@
             this.cboMonHoc.Name = "cboMonHoc";
             this.cboMonHoc.Size = new System.Drawing.Size(165, 21);
             this.cboMonHoc.TabIndex = 0;
+            this.cboMonHoc.SelectedIndexChanged += new System.EventHandler(this.cboMonHoc_SelectedIndexChanged);
             // 
             // btnThem
             // 

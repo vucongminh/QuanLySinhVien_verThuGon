@@ -66,7 +66,6 @@ namespace QuanLySinhVien
         {
             frmThemSV frmthem = new frmThemSV(MaLop);
             frmthem.Show();
-
             this.Close();
         }
 
@@ -80,23 +79,7 @@ namespace QuanLySinhVien
             this.Close();
             frmChonLop frm = new frmChonLop();
             frm.Show();
-        }
-
-        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void listView1_Click(object sender, EventArgs e)
-        {
-            string str;
-            int row = this.listView1.SelectedItems[0].Index;
-            str = this.listView1.Items[row].SubItems[0].Text;
-            frmSuaThongTinSinhVien frm = new frmSuaThongTinSinhVien(str);
-        }
-
-
+        }      
         private void button2_Click_1(object sender, EventArgs e)
         {
             try
@@ -121,10 +104,25 @@ namespace QuanLySinhVien
             {
                 string str;
                 int row = this.listView1.SelectedItems[0].Index;
-                str = this.listView1.Items[row].SubItems[0].Text;
-                //frmxoaSV frm = new frmxoaSV(str, MaLop);
-                //frm.Show();
-                this.Close();
+                str = this.listView1.Items[row].SubItems[0].Text;      // MaSV
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = KetNoi.str;
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "DELETE FROM SinhVien WHERE MaSV='" + str + "'";
+                DialogResult result;
+                result = MessageBox.Show("BẠN CÓ MUỐN XOÁ SINH VIÊN NÀY KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("XÓA THÀNH CÔNG", "THÔNG BÁO");
+                    this.Close();
+                    frmDSSV frm = new frmDSSV(MaLop);
+                    frm.Show();
+                }
+                
             }
             catch (Exception)
             {
@@ -141,6 +139,7 @@ namespace QuanLySinhVien
                 int row = this.listView1.SelectedItems[0].Index;
                 str = this.listView1.Items[row].SubItems[0].Text;
                 frmChiTietSinhVien frm = new frmChiTietSinhVien(str);
+               
                 frm.Show();
             }
             catch (Exception)

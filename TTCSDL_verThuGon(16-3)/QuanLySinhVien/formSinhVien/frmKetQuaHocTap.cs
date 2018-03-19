@@ -39,7 +39,7 @@ namespace QuanLySinhVien
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT h.TenHP,h.SoTC,b.LanThi,DiemKT,DiemKTGiuaKy,DiemThi,DiemTongKet,GhiChu,s.TenSV,b.MaSV,s.MaLop FROM BANGDIEM as b,LOPHOCPHAN as l,HOCPHAN as h,SINHVIEN as s WHERE b.MaSV ='"+SinhVien_ID+"' and b.MaLHP=l.MaLHP and l.MaHP=h.MaHP and b.MaSV=s.MaSV";
+            cmd.CommandText = "SELECT h.TenHP,h.SoTC,b.LanThi,DiemKT,DiemKTGiuaKy,DiemThi,DiemTongKet,GhiChu,s.TenSV,s.MaSV,s.MaLop FROM BANGDIEM as b,LOPHOCPHAN as l,HOCPHAN as h,SINHVIEN as s WHERE s.MaSV ='"+SinhVien_ID+"' and b.MaLHP=l.MaLHP and l.MaHP=h.MaHP and b.MaSV=s.MaSV";
             SqlDataReader rd;
             rd = cmd.ExecuteReader();
             DataTable td = new DataTable();
@@ -59,10 +59,9 @@ namespace QuanLySinhVien
                 labelMaSV.Text=  td.Rows[i][9].ToString();
                 labelMaLop.Text = td.Rows[i][10].ToString();
             }
-            con.Close();
             
-
-
+            con.Close();
+           
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -74,16 +73,11 @@ namespace QuanLySinhVien
         }
 
         private void listView1_Click(object sender, EventArgs e)
-        {
-          int LanThi;
-          
-          string TenMonHoc;
+        {                   
+          string TenHocPhan;
           int row;
-          row = this.listView1.SelectedItems[0].Index;
-          LanThi =Convert.ToInt16( this.listView1.Items[row].SubItems[2].Text);
-          TenMonHoc = this.listView1.Items[row].SubItems[0].Text;
-         
-
+          row = this.listView1.SelectedItems[0].Index;          
+          TenHocPhan = this.listView1.Items[row].SubItems[0].Text;       
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -95,51 +89,56 @@ namespace QuanLySinhVien
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            try {
             int LanThi;
-            string MonHoc_ID;
-            string TenMonHoc;
+            string TenHocPhan;
+            string LopHocPhan_ID;
             int row;
             row = this.listView1.SelectedItems[0].Index;
             LanThi = Convert.ToInt16(this.listView1.Items[row].SubItems[2].Text);
-            TenMonHoc = this.listView1.Items[row].SubItems[0].Text;
+            TenHocPhan = this.listView1.Items[row].SubItems[0].Text;
             SqlConnection con = new SqlConnection();
             con.ConnectionString = KetNoi.str;
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT MonHoc_ID FROM MonHoc WHERE TenMonHoc='" + TenMonHoc + "' ";
+            cmd.CommandText = "SELECT l.MaLHP from BANGDIEM as b, LOPHOCPHAN as l,HOCPHAN as h where b.MaSV='"+SinhVien_ID+"'and h.TenHP=N'"+TenHocPhan+"'and b.MaLHP=l.MaLHP and l.MaHP= h.MaHP";
             SqlDataReader rd;
             rd = cmd.ExecuteReader();
             DataTable td = new DataTable();
             td.Load(rd);
-            MonHoc_ID = td.Rows[0][0].ToString();
-            con.Close();
+            LopHocPhan_ID = td.Rows[0][0].ToString();
             this.Close();
-            frmSuaKetQua frm = new frmSuaKetQua(SinhVien_ID,MonHoc_ID,LanThi);
+            frmSuaKetQua frm = new frmSuaKetQua(SinhVien_ID,LopHocPhan_ID,LanThi);
             frm.Show();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy chọn một hàng mà bạn muốn sửa ^^! ", "THÔNG BÁO");
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
             int LanThi;
-            string MonHoc_ID;
-            string TenMonHoc;
+            string TenHocPhan;
+            string LopHocPhan_ID;
             int row;
             row = this.listView1.SelectedItems[0].Index;
             LanThi = Convert.ToInt16(this.listView1.Items[row].SubItems[2].Text);
-            TenMonHoc = this.listView1.Items[row].SubItems[0].Text;
+            TenHocPhan = this.listView1.Items[row].SubItems[0].Text;
             SqlConnection con = new SqlConnection();
             con.ConnectionString = KetNoi.str;
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT MonHoc_ID FROM MonHoc WHERE TenMonHoc='" + TenMonHoc + "' ";
+            cmd.CommandText = "SELECT l.MaLHP from BANGDIEM as b, LOPHOCPHAN as l,HOCPHAN as h where b.MaSV='" + SinhVien_ID + "'and h.TenHP=N'" + TenHocPhan + "'and b.MaLHP=l.MaLHP and l.MaHP= h.MaHP";
             SqlDataReader rd;
             rd = cmd.ExecuteReader();
             DataTable td = new DataTable();
             td.Load(rd);
-            MonHoc_ID = td.Rows[0][0].ToString();
-            cmd.CommandText = "DELETE FROM KetQua WHERE ID_SinhVien='" + SinhVien_ID + "' AND ID_MonHoc='"+MonHoc_ID+"' AND LanThi="+LanThi+" ";
+            LopHocPhan_ID = td.Rows[0][0].ToString();
+            cmd.CommandText = "DELETE FROM BANGDIEM WHERE MaSV='" + SinhVien_ID + "' AND MaLHP='"+LopHocPhan_ID+"' AND LanThi="+LanThi+" ";
             DialogResult result;
             result = MessageBox.Show("BẠN CÓ MUỐN XOÁ KẾT QUẢ KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
@@ -156,14 +155,6 @@ namespace QuanLySinhVien
 
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labeTen_Click(object sender, EventArgs e)
-        {
-
-        }
+            
     }
 }

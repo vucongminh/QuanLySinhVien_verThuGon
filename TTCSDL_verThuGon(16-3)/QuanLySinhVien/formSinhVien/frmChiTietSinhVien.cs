@@ -22,11 +22,9 @@ namespace QuanLySinhVien
             DangNhapHeThong DangNhap = new DangNhapHeThong();
             if (DangNhap.checkOnlyRead(username, pass) == true)
             {
-                Color hic = Color.FromArgb(54, 54, 54);
-                
+                Color hic = Color.FromArgb(54, 54, 54);               
                 button4.BackColor = hic;
-                button4.Enabled = false;
-                
+                button4.Enabled = false;                
             }
         }
 

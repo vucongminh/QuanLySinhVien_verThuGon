@@ -19,26 +19,6 @@ namespace QuanLySinhVien
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-        
-           // MessageBox.Show("CẬP NHẬT DỮ LIỆU THÀNH CÔNG");
-            //this.Close();
-            //frmThemSV frm = new frmThemSV(Lop_ID);
-            //frm.Show();
-                   
-        }
-
         private void Form3_Load(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
@@ -94,6 +74,9 @@ namespace QuanLySinhVien
                 {
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("THÊM MỚI THÀNH CÔNG", "THÔNG BÁO");
+                    this.Close();
+                    frmDSSV frm = new frmDSSV(Lop_ID);
+                    frm.Show();
                 }
                 con.Close();
             }

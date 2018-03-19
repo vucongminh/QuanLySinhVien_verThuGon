@@ -71,10 +71,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.mskNgaySinh = new System.Windows.Forms.MaskedTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -83,6 +83,7 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.txtTen = new System.Windows.Forms.TextBox();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.txtQueQuan = new System.Windows.Forms.TextBox();
             this.txtCMND = new System.Windows.Forms.TextBox();
@@ -91,8 +92,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtTen = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -351,7 +350,6 @@
             this.label1.Size = new System.Drawing.Size(271, 26);
             this.label1.TabIndex = 2;
             this.label1.Text = "THÊM MỚI SINH VIÊN";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // groupBox4
             // 
@@ -475,7 +473,6 @@
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.button4);
-            this.groupBox8.Controls.Add(this.button3);
             this.groupBox8.Controls.Add(this.mskNgaySinh);
             this.groupBox8.Controls.Add(this.pictureBox1);
             this.groupBox8.Controls.Add(this.label12);
@@ -497,7 +494,6 @@
             this.groupBox8.Size = new System.Drawing.Size(760, 263);
             this.groupBox8.TabIndex = 0;
             this.groupBox8.TabStop = false;
-            
             // 
             // button4
             // 
@@ -514,28 +510,6 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(129, 129);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Blue;
-            this.button3.Location = new System.Drawing.Point(562, 138);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(186, 58);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Kết Qủa Học Tập";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // mskNgaySinh
             // 
             this.mskNgaySinh.Location = new System.Drawing.Point(282, 100);
@@ -545,6 +519,15 @@
             this.mskNgaySinh.TabIndex = 2;
             this.mskNgaySinh.ValidatingType = typeof(System.DateTime);
             this.mskNgaySinh.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskNgaySinh_MaskInputRejected);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Location = new System.Drawing.Point(13, 21);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(129, 129);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // label12
             // 
@@ -556,7 +539,17 @@
             this.label12.Size = new System.Drawing.Size(39, 17);
             this.label12.TabIndex = 5;
             this.label12.Text = "Lớp:";
-            this.label12.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Blue;
+            this.label10.Location = new System.Drawing.Point(476, 22);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(63, 17);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Họ Tên:";
             // 
             // label9
             // 
@@ -590,7 +583,6 @@
             this.label6.Size = new System.Drawing.Size(82, 17);
             this.label6.TabIndex = 5;
             this.label6.Text = "Ngày  Sinh:";
-           
             // 
             // label5
             // 
@@ -645,13 +637,19 @@
             this.radioButton8.Text = "Nữ";
             this.radioButton8.UseVisualStyleBackColor = true;
             // 
+            // txtTen
+            // 
+            this.txtTen.Location = new System.Drawing.Point(562, 19);
+            this.txtTen.Name = "txtTen";
+            this.txtTen.Size = new System.Drawing.Size(186, 20);
+            this.txtTen.TabIndex = 5;
+            // 
             // txtSDT
             // 
             this.txtSDT.Location = new System.Drawing.Point(282, 176);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(174, 20);
             this.txtSDT.TabIndex = 4;
-            
             // 
             // txtQueQuan
             // 
@@ -666,7 +664,6 @@
             this.txtCMND.Name = "txtCMND";
             this.txtCMND.Size = new System.Drawing.Size(174, 20);
             this.txtCMND.TabIndex = 1;
-            
             // 
             // txtmaSV
             // 
@@ -720,26 +717,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Blue;
-            this.label10.Location = new System.Drawing.Point(476, 22);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(63, 17);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Họ Tên:";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // txtTen
-            // 
-            this.txtTen.Location = new System.Drawing.Point(562, 19);
-            this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(186, 20);
-            this.txtTen.TabIndex = 5;
-            
-            // 
             // frmThemSV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -757,7 +734,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm Sinh Viên";
             this.Load += new System.EventHandler(this.Form3_Load);
-            
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
@@ -839,7 +817,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.MaskedTextBox mskNgaySinh;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;

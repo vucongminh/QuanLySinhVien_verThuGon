@@ -81,7 +81,7 @@
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
+            
             // 
             // columnHeader1
             // 
@@ -237,7 +237,7 @@
             this.MaximumSize = new System.Drawing.Size(719, 483);
             this.Name = "frmDSSV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Thông Tin Sinh Viên";
+            this.Text = "Danh Sách Sinh Viên";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
