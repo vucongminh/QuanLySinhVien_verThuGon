@@ -37,6 +37,8 @@ INSERT INTO HOCPHAN(MaHP,TenHP,SoTC,HocKy,MaBM)
 VALUES ( @mahp, @tenhp, @sotc,@hocky,@mabm) 
 END
 drop proc InsertDataIntoHocPhan
+
+
 CREATE PROCEDURE InsertDataIntoLopHocPhan
 @malhp nvarchar(50),
 @mahp varchar(50),
@@ -48,5 +50,4 @@ BEGIN
 INSERT INTO LOPHOCPHAN(MaLHP, MaHP, MaGV,DiaDiemTCHP,SoTC) 
 VALUES ( @malhp, @mahp, @magv,@diadiemtchp,@sotc) 
 END
-
 drop proc InsertDataIntoLopHocPhan
