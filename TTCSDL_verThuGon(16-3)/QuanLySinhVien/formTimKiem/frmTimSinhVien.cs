@@ -46,7 +46,7 @@ namespace QuanLySinhVien
             if (KiemTra() == 1)
             {
 
-                cmd.CommandText = "SELECT SinhVien.SinhVien_ID,SinhVien.TenSinhVien,Lop.TenLop,Khoa.TenKhoa FROM SinhVien,Lop,Khoa WHERE Lop.Lop_ID=SinhVien.ID_Lop AND Khoa.Khoa_ID=Lop.ID_Khoa AND SinhVien.SinhVien_ID='" + txtTuKhoa.Text + "'";
+                cmd.CommandText = "Select distinct MaSV,TenSV,TenLop,TenGV from SINHVIEN, GIAOVIEN, LOP where SINHVIEN.MaLop = LOP.MaLop and LOP.MaGVCN = GIAOVIEN.MaGV AND SINHVIEN.MaSV='" + txtTuKhoa.Text + "'";
                 SqlDataReader rd;
                 rd = cmd.ExecuteReader();
 
@@ -62,11 +62,11 @@ namespace QuanLySinhVien
                     listView1.Items.Add(item);
                 }
                 else
-                    MessageBox.Show("Không Có Sinh Viên Có Mã " + txtTuKhoa.Text);
+                    MessageBox.Show("Không Tồn Tại Sinh Viên Có Mã " + txtTuKhoa.Text);
             }
             else if (KiemTra() == 2)
             {
-                cmd.CommandText = "SELECT SinhVien.SinhVien_ID,SinhVien.TenSinhVien,Lop.TenLop,Khoa.TenKhoa FROM SinhVien,Lop,Khoa WHERE Lop.Lop_ID=SinhVien.ID_Lop AND Khoa.Khoa_ID=Lop.ID_Khoa AND SinhVien.TenSinhVien like '%" + txtTuKhoa.Text + "%'";
+                cmd.CommandText = "Select distinct MaSV,TenSV,TenLop,TenGV from SINHVIEN, GIAOVIEN, LOP where SINHVIEN.MaLop = LOP.MaLop and LOP.MaGVCN = GIAOVIEN.MaGV AND SINHVIEN.TenSV like '%" + txtTuKhoa.Text + "%'";
                 SqlDataReader rd;
                 rd = cmd.ExecuteReader();
 
@@ -84,10 +84,10 @@ namespace QuanLySinhVien
                     }
                 }
                 else
-                    MessageBox.Show("Không Có Sinh Viên Có Tên " + txtTuKhoa.Text);
+                    MessageBox.Show("Không Tồn Tại Sinh Viên Có Tên " + txtTuKhoa.Text);
             }
             else
-                MessageBox.Show("Chọn Chức Năng Tìm Kiếm");
+                MessageBox.Show("Hãy Chọn Chức Năng Tìm Kiếm !");
         }
 
         private void listView1_Click(object sender, EventArgs e)
@@ -101,15 +101,30 @@ namespace QuanLySinhVien
 
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
-            string str;
-            int row;
-            row = this.listView1.SelectedItems[0].Index;
-            str = this.listView1.Items[row].SubItems[0].Text;
+            try
+            {
+                string str;
+                int row;
+                row = this.listView1.SelectedItems[0].Index;
+                str = this.listView1.Items[row].SubItems[0].Text;
 
-            frmChiTietSinhVien frm = new frmChiTietSinhVien(str);
-            this.Close();
-            frm.Show();
+                frmChiTietSinhVien frm = new frmChiTietSinhVien(str);
+                this.Close();
+                frm.Show();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy Chọn Sinh Viên Muốn Xem !", "Thông Báo");
+            }
         }
-            
+
+        private void txtTuKhoa_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void txtTuKhoa_Enter(object sender, EventArgs e)
+        {
+            ((TextBox)sender).SelectAll();
+        }
     }
 }

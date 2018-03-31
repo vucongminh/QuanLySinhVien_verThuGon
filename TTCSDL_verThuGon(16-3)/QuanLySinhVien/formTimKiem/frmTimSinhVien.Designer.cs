@@ -40,7 +40,7 @@
             this.MaSV = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TenSinhVien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Lop = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TenKhoa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TenGVCN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnChiTiet = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -49,29 +49,32 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(78, 9);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(252, 28);
+            this.label1.Size = new System.Drawing.Size(261, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "TÌM KIẾM SINH VIÊN";
             // 
             // txtTuKhoa
             // 
-            this.txtTuKhoa.Location = new System.Drawing.Point(49, 57);
+            this.txtTuKhoa.Location = new System.Drawing.Point(17, 94);
             this.txtTuKhoa.Name = "txtTuKhoa";
             this.txtTuKhoa.Size = new System.Drawing.Size(196, 20);
             this.txtTuKhoa.TabIndex = 1;
+            this.txtTuKhoa.TextChanged += new System.EventHandler(this.txtTuKhoa_TextChanged);
+
+
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(49, 94);
+            this.groupBox1.Location = new System.Drawing.Point(17, 38);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(196, 50);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tìm Kiếm Theo";
             // 
@@ -101,15 +104,15 @@
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.BackColor = System.Drawing.Color.White;
+            this.btnTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnTimKiem.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimKiem.ForeColor = System.Drawing.Color.Blue;
             this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
             this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTimKiem.Location = new System.Drawing.Point(309, 51);
+            this.btnTimKiem.Location = new System.Drawing.Point(219, 86);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(96, 28);
-            this.btnTimKiem.TabIndex = 3;
+            this.btnTimKiem.TabIndex = 2;
             this.btnTimKiem.Text = "Tìm Kiếm";
             this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTimKiem.UseVisualStyleBackColor = false;
@@ -118,11 +121,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(110, 161);
+            this.label2.Location = new System.Drawing.Point(232, 126);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 19);
+            this.label2.Size = new System.Drawing.Size(136, 19);
             this.label2.TabIndex = 4;
             this.label2.Text = "Kết Qủa Tìm Kiếm";
             // 
@@ -132,12 +135,12 @@
             this.MaSV,
             this.TenSinhVien,
             this.Lop,
-            this.TenKhoa});
+            this.TenGVCN});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(2, 192);
+            this.listView1.Location = new System.Drawing.Point(12, 157);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(423, 125);
+            this.listView1.Size = new System.Drawing.Size(570, 173);
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView1.TabIndex = 5;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -153,47 +156,49 @@
             // 
             this.TenSinhVien.Text = "Họ Và Tên Sinh Viên";
             this.TenSinhVien.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TenSinhVien.Width = 120;
+            this.TenSinhVien.Width = 162;
             // 
             // Lop
             // 
             this.Lop.Text = "Tên Lớp";
             this.Lop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Lop.Width = 80;
+            this.Lop.Width = 160;
             // 
-            // TenKhoa
+            // TenGVCN
             // 
-            this.TenKhoa.Text = "Tên Khoa";
-            this.TenKhoa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TenKhoa.Width = 135;
+            this.TenGVCN.Text = "Tên GVCN";
+            this.TenGVCN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TenGVCN.Width = 166;
             // 
             // btnChiTiet
             // 
+            this.btnChiTiet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnChiTiet.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChiTiet.ForeColor = System.Drawing.Color.Blue;
             this.btnChiTiet.Image = ((System.Drawing.Image)(resources.GetObject("btnChiTiet.Image")));
             this.btnChiTiet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChiTiet.Location = new System.Drawing.Point(114, 336);
+            this.btnChiTiet.Location = new System.Drawing.Point(414, 336);
             this.btnChiTiet.Name = "btnChiTiet";
             this.btnChiTiet.Size = new System.Drawing.Size(73, 24);
             this.btnChiTiet.TabIndex = 6;
             this.btnChiTiet.Text = "Chi Tiết";
             this.btnChiTiet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnChiTiet.UseVisualStyleBackColor = true;
+            this.btnChiTiet.UseVisualStyleBackColor = false;
             this.btnChiTiet.Click += new System.EventHandler(this.btnChiTiet_Click);
             // 
             // btnThoat
             // 
+            this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.ForeColor = System.Drawing.Color.Red;
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(204, 336);
+            this.btnThoat.Location = new System.Drawing.Point(504, 336);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 24);
             this.btnThoat.TabIndex = 6;
             this.btnThoat.Text = "Thoát";
-            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.button3_Click);
             // 
             // frmTimSinhVien
@@ -201,7 +206,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(426, 372);
+            this.ClientSize = new System.Drawing.Size(594, 372);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnChiTiet);
             this.Controls.Add(this.listView1);
@@ -213,7 +218,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmTimSinhVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmTimSinhVien";
+            this.Text = "Tìm Kiếm Sinh Viên";
             this.Load += new System.EventHandler(this.frmTimSinhVien_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -237,6 +242,6 @@
         private System.Windows.Forms.ColumnHeader MaSV;
         private System.Windows.Forms.ColumnHeader TenSinhVien;
         private System.Windows.Forms.ColumnHeader Lop;
-        private System.Windows.Forms.ColumnHeader TenKhoa;
+        private System.Windows.Forms.ColumnHeader TenGVCN;
     }
 }

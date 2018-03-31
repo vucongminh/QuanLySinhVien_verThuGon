@@ -51,3 +51,10 @@ INSERT INTO LOPHOCPHAN(MaLHP, MaHP, MaGV,DiaDiemTCHP,SoTC)
 VALUES ( @malhp, @mahp, @magv,@diadiemtchp,@sotc) 
 END
 drop proc InsertDataIntoLopHocPhan
+
+
+
+
+Select distinct MaSV,TenSV,TenLop,TenGV
+from SINHVIEN,GIAOVIEN,LOP
+where SINHVIEN.MaLop = LOP.MaLop and LOP.MaGVCN = GIAOVIEN.MaGV

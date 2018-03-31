@@ -101,7 +101,9 @@ namespace QuanLySinhVien
             tìmKiếmSinhViênToolStripMenuItem.Enabled = true;
             đăngNhậpToolStripMenuItem.Enabled = false;
             đăngXuấtToolStripMenuItem.Enabled = true;
-            quảnLýNgườiDùngToolStripMenuItem.Enabled = true;   
+            quảnLýNgườiDùngToolStripMenuItem.Enabled = true;
+            saoLưuDữLiệuToolStripMenuItem.Enabled = true;
+            phụcHồiDữLiệuToolStripMenuItem.Enabled = true;
         }
         public void MenuForOnlyRead()
         {
@@ -113,6 +115,8 @@ namespace QuanLySinhVien
             đăngNhậpToolStripMenuItem.Enabled = false;
             đăngXuấtToolStripMenuItem.Enabled = true;
             quảnLýNgườiDùngToolStripMenuItem.Enabled = false;
+            saoLưuDữLiệuToolStripMenuItem.Enabled = false;
+            phụcHồiDữLiệuToolStripMenuItem.Enabled = false;
         }
         public void DisableMenu()
         {
@@ -123,7 +127,8 @@ namespace QuanLySinhVien
             lớpToolStripMenuItem.Enabled = false;
             mônHọcToolStripMenuItem.Enabled = false;
             tìmKiếmSinhViênToolStripMenuItem.Enabled = false;
-           
+            saoLưuDữLiệuToolStripMenuItem.Enabled = false;
+            phụcHồiDữLiệuToolStripMenuItem.Enabled = false;
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -148,7 +153,7 @@ namespace QuanLySinhVien
                     con.Open();
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = con;
-                    cmd.CommandText = "BACKUP DATABASE [QuanLySV24] TO DISK='E:\\backup.bak'";
+                    cmd.CommandText = "BACKUP DATABASE [QuanLySV24] TO DISK='E:\\QLSV24.bak'";
                     cmd.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show("Backup Database Quản Lý Sinh Viên Thành Công!","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
@@ -169,7 +174,7 @@ namespace QuanLySinhVien
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = KetNoi.str;
                 con.Open();
-                string strpath = "E:\\backup.bak";
+                string strpath = "E:\\QLSV24.bak";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 cmd.CommandText = "USE master RESTORE DATABASE [QuanLySV24] FROM DISK='" + strpath + "'";
@@ -183,6 +188,7 @@ namespace QuanLySinhVien
                 return;
             }
         }
+
 
         private void frmMain_Load(object sender, EventArgs e)
         {
