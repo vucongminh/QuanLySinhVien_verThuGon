@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDSHocPhan));
             this.label1 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.MaMonHoc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TenMonHoc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.SoTrinh = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.MaHP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TenHP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SoTC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.HocKy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TenBoMon = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnThem = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.HocKy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -56,9 +56,9 @@
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.MaMonHoc,
-            this.TenMonHoc,
-            this.SoTrinh,
+            this.MaHP,
+            this.TenHP,
+            this.SoTC,
             this.HocKy,
             this.TenBoMon});
             this.listView1.FullRowSelect = true;
@@ -73,22 +73,27 @@
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             this.listView1.Click += new System.EventHandler(this.listView1_Click);
             // 
-            // MaMonHoc
+            // MaHP
             // 
-            this.MaMonHoc.Text = "Mã Học Phần";
-            this.MaMonHoc.Width = 80;
+            this.MaHP.Text = "Mã Học Phần";
+            this.MaHP.Width = 80;
             // 
-            // TenMonHoc
+            // TenHP
             // 
-            this.TenMonHoc.Text = "Tên Học Phần";
-            this.TenMonHoc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TenMonHoc.Width = 200;
+            this.TenHP.Text = "Tên Học Phần";
+            this.TenHP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TenHP.Width = 200;
             // 
-            // SoTrinh
+            // SoTC
             // 
-            this.SoTrinh.Text = "Số Tín Chỉ";
-            this.SoTrinh.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.SoTrinh.Width = 73;
+            this.SoTC.Text = "Số Tín Chỉ";
+            this.SoTC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SoTC.Width = 73;
+            // 
+            // HocKy
+            // 
+            this.HocKy.Text = "Học Kỳ";
+            this.HocKy.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TenBoMon
             // 
@@ -156,12 +161,7 @@
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // HocKy
-            // 
-            this.HocKy.Text = "Học Kỳ";
-            this.HocKy.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // frmDSMonHoc
+            // frmDSHocPhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -174,7 +174,7 @@
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmDSMonHoc";
+            this.Name = "frmDSHocPhan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh Sách Học Phần";
             this.Load += new System.EventHandler(this.frmDSMonHoc_Load);
@@ -187,9 +187,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader MaMonHoc;
-        private System.Windows.Forms.ColumnHeader TenMonHoc;
-        private System.Windows.Forms.ColumnHeader SoTrinh;
+        private System.Windows.Forms.ColumnHeader MaHP;
+        private System.Windows.Forms.ColumnHeader TenHP;
+        private System.Windows.Forms.ColumnHeader SoTC;
         private System.Windows.Forms.ColumnHeader TenBoMon;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnSua;

@@ -33,8 +33,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtTenMonHoc = new System.Windows.Forms.TextBox();
-            this.txtMaMonHoc = new System.Windows.Forms.TextBox();
+            this.txtTenHP = new System.Windows.Forms.TextBox();
+            this.txtMaHP = new System.Windows.Forms.TextBox();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -55,8 +55,8 @@
             // 
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtTenMonHoc);
-            this.groupBox1.Controls.Add(this.txtMaMonHoc);
+            this.groupBox1.Controls.Add(this.txtTenHP);
+            this.groupBox1.Controls.Add(this.txtMaHP);
             this.groupBox1.Location = new System.Drawing.Point(12, 31);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(299, 134);
@@ -70,9 +70,9 @@
             this.label3.ForeColor = System.Drawing.Color.Blue;
             this.label3.Location = new System.Drawing.Point(4, 76);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 19);
+            this.label3.Size = new System.Drawing.Size(108, 19);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Tên Môn Học:";
+            this.label3.Text = "Tên Học Phần:";
             // 
             // label2
             // 
@@ -81,27 +81,27 @@
             this.label2.ForeColor = System.Drawing.Color.Blue;
             this.label2.Location = new System.Drawing.Point(6, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 19);
+            this.label2.Size = new System.Drawing.Size(106, 19);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Mã Môn Học:";
+            this.label2.Text = "Mã Học Phần:";
             // 
-            // txtTenMonHoc
+            // txtTenHP
             // 
-            this.txtTenMonHoc.BackColor = System.Drawing.Color.White;
-            this.txtTenMonHoc.Location = new System.Drawing.Point(117, 74);
-            this.txtTenMonHoc.Name = "txtTenMonHoc";
-            this.txtTenMonHoc.ReadOnly = true;
-            this.txtTenMonHoc.Size = new System.Drawing.Size(153, 20);
-            this.txtTenMonHoc.TabIndex = 0;
+            this.txtTenHP.BackColor = System.Drawing.Color.White;
+            this.txtTenHP.Location = new System.Drawing.Point(117, 74);
+            this.txtTenHP.Name = "txtTenHP";
+            this.txtTenHP.ReadOnly = true;
+            this.txtTenHP.Size = new System.Drawing.Size(153, 20);
+            this.txtTenHP.TabIndex = 0;
             // 
-            // txtMaMonHoc
+            // txtMaHP
             // 
-            this.txtMaMonHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txtMaMonHoc.Location = new System.Drawing.Point(117, 27);
-            this.txtMaMonHoc.Name = "txtMaMonHoc";
-            this.txtMaMonHoc.ReadOnly = true;
-            this.txtMaMonHoc.Size = new System.Drawing.Size(153, 20);
-            this.txtMaMonHoc.TabIndex = 0;
+            this.txtMaHP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txtMaHP.Location = new System.Drawing.Point(117, 27);
+            this.txtMaHP.Name = "txtMaHP";
+            this.txtMaHP.ReadOnly = true;
+            this.txtMaHP.Size = new System.Drawing.Size(153, 20);
+            this.txtMaHP.TabIndex = 0;
             // 
             // btnXoa
             // 
@@ -161,8 +161,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtTenMonHoc;
-        private System.Windows.Forms.TextBox txtMaMonHoc;
+        private System.Windows.Forms.TextBox txtTenHP;
+        private System.Windows.Forms.TextBox txtMaHP;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThoat;
     }

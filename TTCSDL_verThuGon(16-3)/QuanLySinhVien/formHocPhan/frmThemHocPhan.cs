@@ -21,23 +21,24 @@ namespace QuanLySinhVien
         {
             //try
             //{
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = KetNoi.str;
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = KetNoi.str;
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
             //int SoTrinh;
-            //int HocKy;
+            int HocKy;
             //SoTrinh = Convert.ToInt16(txtSoTrinh.Text);
-            //HocKy = Convert.ToInt16(txtHocKy.Text);
+            HocKy = Convert.ToInt16(txtHocKy.Text);
             //cmd.CommandText = "INSERT INTO HOCPHAN VALUES('" + txtMaMonHoc.Text + "','" + txtTenMonHoc.Text + "','" + txtMaBoMon.Text + "'," + SoTrinh + "," + HocKy + ")";
             cmd.CommandText = "InsertDataIntoHocPhan";
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("MaHP", txtMaMonHoc.Text);
-            cmd.Parameters.AddWithValue("TenHP", txtTenMonHoc.Text);
-            cmd.Parameters.AddWithValue("SoTC", txtSoTrinh.Text);
-            cmd.Parameters.AddWithValue("HocKy", txtHocKy.Text);
-            cmd.Parameters.AddWithValue("MaBM", txtMaBoMon.Text);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@mahp", txtMaHP.Text);
+            cmd.Parameters.AddWithValue("@tenhp", txtTenHP.Text);
+            cmd.Parameters.AddWithValue("@mabm", txtMaBoMon.Text);
+            cmd.Parameters.AddWithValue("@sotc", txtSoTC.Text);
+            cmd.Parameters.AddWithValue("@hocky", HocKy);
+            
 
             cmd.ExecuteNonQuery();
                 DialogResult result;
@@ -61,6 +62,11 @@ namespace QuanLySinhVien
             frmDSHocPhan frm = new frmDSHocPhan();
             frm.Show();
             
+        }
+
+        private void txtMaMonHoc_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

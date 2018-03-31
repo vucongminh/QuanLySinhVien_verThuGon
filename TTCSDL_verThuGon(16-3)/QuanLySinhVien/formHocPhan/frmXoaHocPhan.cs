@@ -31,8 +31,8 @@ namespace QuanLySinhVien
             rd = cmd.ExecuteReader();
             DataTable td = new DataTable();
             td.Load(rd);
-            this.txtMaMonHoc.Text = td.Rows[0][0].ToString();
-            this.txtTenMonHoc.Text = td.Rows[0][1].ToString();
+            this.txtMaHP.Text = td.Rows[0][0].ToString();
+            this.txtTenHP.Text = td.Rows[0][1].ToString();
             con.Close();
         }
 

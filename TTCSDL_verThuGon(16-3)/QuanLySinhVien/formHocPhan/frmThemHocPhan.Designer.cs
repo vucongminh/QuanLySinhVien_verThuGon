@@ -37,10 +37,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtSoTrinh = new System.Windows.Forms.TextBox();
+            this.txtSoTC = new System.Windows.Forms.TextBox();
             this.txtMaBoMon = new System.Windows.Forms.TextBox();
-            this.txtTenMonHoc = new System.Windows.Forms.TextBox();
-            this.txtMaMonHoc = new System.Windows.Forms.TextBox();
+            this.txtTenHP = new System.Windows.Forms.TextBox();
+            this.txtMaHP = new System.Windows.Forms.TextBox();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -65,10 +65,10 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtSoTrinh);
+            this.groupBox1.Controls.Add(this.txtSoTC);
             this.groupBox1.Controls.Add(this.txtMaBoMon);
-            this.groupBox1.Controls.Add(this.txtTenMonHoc);
-            this.groupBox1.Controls.Add(this.txtMaMonHoc);
+            this.groupBox1.Controls.Add(this.txtTenHP);
+            this.groupBox1.Controls.Add(this.txtMaHP);
             this.groupBox1.Location = new System.Drawing.Point(16, 31);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(295, 245);
@@ -122,9 +122,9 @@
             this.label3.ForeColor = System.Drawing.Color.Blue;
             this.label3.Location = new System.Drawing.Point(6, 66);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 19);
+            this.label3.Size = new System.Drawing.Size(108, 19);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Tên Môn Học:";
+            this.label3.Text = "Tên Học Phần:";
             // 
             // label2
             // 
@@ -133,38 +133,40 @@
             this.label2.ForeColor = System.Drawing.Color.Blue;
             this.label2.Location = new System.Drawing.Point(5, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 19);
+            this.label2.Size = new System.Drawing.Size(106, 19);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Mã Môn Học:";
+            this.label2.Text = "Mã Học Phần:";
             // 
-            // txtSoTrinh
+            // txtSoTC
             // 
-            this.txtSoTrinh.Location = new System.Drawing.Point(116, 102);
-            this.txtSoTrinh.Name = "txtSoTrinh";
-            this.txtSoTrinh.Size = new System.Drawing.Size(154, 20);
-            this.txtSoTrinh.TabIndex = 2;
+            this.txtSoTC.Location = new System.Drawing.Point(116, 102);
+            this.txtSoTC.Name = "txtSoTC";
+            this.txtSoTC.Size = new System.Drawing.Size(154, 20);
+            this.txtSoTC.TabIndex = 2;
             // 
             // txtMaBoMon
             // 
+            this.txtMaBoMon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txtMaBoMon.Location = new System.Drawing.Point(116, 176);
             this.txtMaBoMon.Name = "txtMaBoMon";
             this.txtMaBoMon.Size = new System.Drawing.Size(154, 20);
             this.txtMaBoMon.TabIndex = 4;
             // 
-            // txtTenMonHoc
+            // txtTenHP
             // 
-            this.txtTenMonHoc.Location = new System.Drawing.Point(116, 67);
-            this.txtTenMonHoc.Name = "txtTenMonHoc";
-            this.txtTenMonHoc.Size = new System.Drawing.Size(154, 20);
-            this.txtTenMonHoc.TabIndex = 1;
+            this.txtTenHP.Location = new System.Drawing.Point(116, 67);
+            this.txtTenHP.Name = "txtTenHP";
+            this.txtTenHP.Size = new System.Drawing.Size(154, 20);
+            this.txtTenHP.TabIndex = 1;
             // 
-            // txtMaMonHoc
+            // txtMaHP
             // 
-            this.txtMaMonHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txtMaMonHoc.Location = new System.Drawing.Point(116, 30);
-            this.txtMaMonHoc.Name = "txtMaMonHoc";
-            this.txtMaMonHoc.Size = new System.Drawing.Size(154, 20);
-            this.txtMaMonHoc.TabIndex = 0;
+            this.txtMaHP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txtMaHP.Location = new System.Drawing.Point(116, 30);
+            this.txtMaHP.Name = "txtMaHP";
+            this.txtMaHP.Size = new System.Drawing.Size(154, 20);
+            this.txtMaHP.TabIndex = 0;
+            this.txtMaHP.TextChanged += new System.EventHandler(this.txtMaMonHoc_TextChanged);
             // 
             // btnThem
             // 
@@ -225,10 +227,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtSoTrinh;
+        private System.Windows.Forms.TextBox txtSoTC;
         private System.Windows.Forms.TextBox txtMaBoMon;
-        private System.Windows.Forms.TextBox txtTenMonHoc;
-        private System.Windows.Forms.TextBox txtMaMonHoc;
+        private System.Windows.Forms.TextBox txtTenHP;
+        private System.Windows.Forms.TextBox txtMaHP;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Label label6;

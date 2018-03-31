@@ -28,13 +28,13 @@ drop proc InsertDataIntoLop
 CREATE PROCEDURE InsertDataIntoHocPhan
 @mahp nvarchar(50),
 @tenhp nvarchar(50),
+@mabm varchar(50),
 @sotc int,
-@hocky int,
-@mabm varchar(50)
+@hocky int
 AS
 BEGIN
-INSERT INTO HOCPHAN(MaHP,TenHP,SoTC,HocKy,MaBM)
-VALUES ( @mahp, @tenhp, @sotc,@hocky,@mabm) 
+INSERT INTO HOCPHAN(MaHP,TenHP,MaBM,SoTC,HocKy)
+VALUES ( @mahp, @tenhp,@mabm, @sotc,@hocky) 
 END
 drop proc InsertDataIntoHocPhan
 

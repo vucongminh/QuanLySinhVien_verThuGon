@@ -28,9 +28,9 @@ namespace QuanLySinhVien
             cmd.Connection = con;
             int SoTrinh;
             int HocKy;
-            SoTrinh = Convert.ToInt16(txtSoTrinh.Text);
+            SoTrinh = Convert.ToInt16(txtSoTC.Text);
             HocKy = Convert.ToInt16(txtHocKy.Text);
-            cmd.CommandText = "UPDATE HOCPHAN SET TenHP='" +txtTenMonHoc.Text + "',MaBM='" + txtMaBoMon.Text + "',SoTC=" + SoTrinh+ ",SoHK=" + HocKy + "WHERE MaHP='" +MaMonHoc + "'";
+            cmd.CommandText = "UPDATE HOCPHAN SET TenHP='" +txtTenHP.Text + "',MaBM='" + txtMaBoMon.Text + "',SoTC=" + SoTrinh+ ",HocKy=" + HocKy + "WHERE MaHP='" +MaMonHoc + "'";
             DialogResult result;
             result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
@@ -64,9 +64,9 @@ namespace QuanLySinhVien
             rd = cmd.ExecuteReader();
             DataTable td = new DataTable();
             td.Load(rd);
-            this.txtMaMonHoc.Text = td.Rows[0][0].ToString();
-            this.txtTenMonHoc.Text = td.Rows[0][1].ToString();
-            this.txtSoTrinh.Text = td.Rows[0][2].ToString();
+            this.txtMaHP.Text = td.Rows[0][0].ToString();
+            this.txtTenHP.Text = td.Rows[0][1].ToString();
+            this.txtSoTC.Text = td.Rows[0][2].ToString();
             this.txtHocKy.Text = td.Rows[0][3].ToString();
             this.txtMaBoMon.Text = td.Rows[0][4].ToString();
             con.Close();
