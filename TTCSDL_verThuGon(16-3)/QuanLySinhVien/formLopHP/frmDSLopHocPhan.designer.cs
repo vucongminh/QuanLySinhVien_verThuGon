@@ -121,6 +121,7 @@
             // 
             // listView1
             // 
+            this.listView1.BackColor = System.Drawing.Color.White;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.MaLopHocPhan,
             this.MaMonHoc,

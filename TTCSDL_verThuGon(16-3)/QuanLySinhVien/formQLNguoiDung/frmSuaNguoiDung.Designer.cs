@@ -50,11 +50,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(79, 22);
+            this.label1.Location = new System.Drawing.Point(8, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(309, 28);
+            this.label1.Size = new System.Drawing.Size(257, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "THÔNG TIN NGƯỜI DÙNG ";
             // 
@@ -68,7 +68,7 @@
             this.groupBox1.Controls.Add(this.txtQuyenHan);
             this.groupBox1.Controls.Add(this.txtMatKhau);
             this.groupBox1.Controls.Add(this.txtTenDangNhap);
-            this.groupBox1.Location = new System.Drawing.Point(158, 68);
+            this.groupBox1.Location = new System.Drawing.Point(158, 34);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(336, 147);
             this.groupBox1.TabIndex = 1;
@@ -88,9 +88,9 @@
             this.label5.ForeColor = System.Drawing.Color.Blue;
             this.label5.Location = new System.Drawing.Point(6, 116);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 17);
+            this.label5.Size = new System.Drawing.Size(50, 17);
             this.label5.TabIndex = 2;
-            this.label5.Text = "-Email:";
+            this.label5.Text = "Email:";
             // 
             // label4
             // 
@@ -99,9 +99,9 @@
             this.label4.ForeColor = System.Drawing.Color.Blue;
             this.label4.Location = new System.Drawing.Point(6, 86);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 17);
+            this.label4.Size = new System.Drawing.Size(87, 17);
             this.label4.TabIndex = 1;
-            this.label4.Text = "-Quyền Hạn:";
+            this.label4.Text = "Quyền Hạn:";
             // 
             // label3
             // 
@@ -110,9 +110,9 @@
             this.label3.ForeColor = System.Drawing.Color.Blue;
             this.label3.Location = new System.Drawing.Point(6, 54);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 17);
+            this.label3.Size = new System.Drawing.Size(79, 17);
             this.label3.TabIndex = 1;
-            this.label3.Text = "-Mật Khẩu:";
+            this.label3.Text = "Mật Khẩu:";
             // 
             // label2
             // 
@@ -121,9 +121,9 @@
             this.label2.ForeColor = System.Drawing.Color.Blue;
             this.label2.Location = new System.Drawing.Point(6, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 17);
+            this.label2.Size = new System.Drawing.Size(115, 17);
             this.label2.TabIndex = 1;
-            this.label2.Text = "-Tên Đăng Nhập:";
+            this.label2.Text = "Tên Đăng Nhập:";
             // 
             // txtQuyenHan
             // 
@@ -151,49 +151,53 @@
             // 
             // btnSua
             // 
+            this.btnSua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnSua.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.Blue;
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
             this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSua.Location = new System.Drawing.Point(202, 234);
+            this.btnSua.Location = new System.Drawing.Point(246, 201);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(112, 26);
             this.btnSua.TabIndex = 1;
             this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThoat
             // 
+            this.btnThoat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.ForeColor = System.Drawing.Color.Red;
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(338, 234);
+            this.btnThoat.Location = new System.Drawing.Point(382, 201);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(112, 26);
             this.btnThoat.TabIndex = 2;
             this.btnThoat.Text = "Thoát";
-            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // ptAvatar
             // 
-            this.ptAvatar.Location = new System.Drawing.Point(12, 78);
+            this.ptAvatar.Location = new System.Drawing.Point(12, 34);
             this.ptAvatar.Name = "ptAvatar";
-            this.ptAvatar.Size = new System.Drawing.Size(130, 137);
+            this.ptAvatar.Size = new System.Drawing.Size(130, 147);
             this.ptAvatar.TabIndex = 3;
             this.ptAvatar.TabStop = false;
             this.ptAvatar.Click += new System.EventHandler(this.ptAvatar_Click);
             // 
             // btnChange
             // 
-            this.btnChange.BackColor = System.Drawing.Color.White;
+            this.btnChange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnChange.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnChange.ForeColor = System.Drawing.Color.Blue;
-            this.btnChange.Location = new System.Drawing.Point(29, 234);
+            this.btnChange.Image = ((System.Drawing.Image)(resources.GetObject("btnChange.Image")));
+            this.btnChange.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChange.Location = new System.Drawing.Point(12, 201);
             this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(94, 26);
+            this.btnChange.Size = new System.Drawing.Size(130, 26);
             this.btnChange.TabIndex = 4;
             this.btnChange.Text = "Change";
             this.btnChange.UseVisualStyleBackColor = false;
@@ -204,7 +208,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(506, 276);
+            this.ClientSize = new System.Drawing.Size(506, 247);
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.ptAvatar);
             this.Controls.Add(this.btnThoat);
@@ -214,7 +218,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSuaNguoiDung";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmSuaNguoiDung";
+            this.Text = "Sửa Người Dùng";
             this.Load += new System.EventHandler(this.frmSuaNguoiDung_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

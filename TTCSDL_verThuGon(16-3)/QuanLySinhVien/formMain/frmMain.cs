@@ -104,6 +104,7 @@ namespace QuanLySinhVien
             quảnLýNgườiDùngToolStripMenuItem.Enabled = true;
             saoLưuDữLiệuToolStripMenuItem.Enabled = true;
             phụcHồiDữLiệuToolStripMenuItem.Enabled = true;
+            đăngKýToolStripMenuItem.Enabled = true;
         }
         public void MenuForOnlyRead()
         {
@@ -117,6 +118,7 @@ namespace QuanLySinhVien
             quảnLýNgườiDùngToolStripMenuItem.Enabled = false;
             saoLưuDữLiệuToolStripMenuItem.Enabled = false;
             phụcHồiDữLiệuToolStripMenuItem.Enabled = false;
+            đăngKýToolStripMenuItem.Enabled = true;
         }
         public void DisableMenu()
         {
@@ -129,6 +131,7 @@ namespace QuanLySinhVien
             tìmKiếmSinhViênToolStripMenuItem.Enabled = false;
             saoLưuDữLiệuToolStripMenuItem.Enabled = false;
             phụcHồiDữLiệuToolStripMenuItem.Enabled = false;
+            đăngKýToolStripMenuItem.Enabled = false;
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -189,12 +192,19 @@ namespace QuanLySinhVien
             }
         }
 
-
         private void frmMain_Load(object sender, EventArgs e)
         {
 
         }
 
-        
+        private void dDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void đăngKýToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
