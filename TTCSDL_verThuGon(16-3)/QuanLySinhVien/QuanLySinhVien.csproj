@@ -79,6 +79,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formDangKi\frmDangKi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formDangKi\frmDangKi.Designer.cs">
+      <DependentUpon>frmDangKi.cs</DependentUpon>
+    </Compile>
     <Compile Include="formHocPhan\frmDSHocPhan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +276,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="formDangKi\frmDangKi.resx">
+      <DependentUpon>frmDangKi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formHocPhan\frmDSHocPhan.resx">
       <DependentUpon>frmDSHocPhan.cs</DependentUpon>
     </EmbeddedResource>

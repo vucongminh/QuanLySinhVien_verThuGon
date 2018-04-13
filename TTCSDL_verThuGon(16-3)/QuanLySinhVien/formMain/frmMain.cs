@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using QuanLySinhVien.formDangKi;
+
 namespace QuanLySinhVien
 {
     public partial class frmMain : Form
@@ -204,7 +206,8 @@ namespace QuanLySinhVien
 
         private void đăngKýToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmDangKi frm = new frmDangKi();
+            frm.Show();
         }
     }
 }
