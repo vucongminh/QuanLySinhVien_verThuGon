@@ -8,8 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
-using QuanLySinhVien.formDangKi;
-
 namespace QuanLySinhVien
 {
     public partial class frmMain : Form
@@ -87,6 +85,8 @@ namespace QuanLySinhVien
             frm.Show();
         }
 
+        
+
         private void đăngNhậpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDangNhapHeThong frm = new frmDangNhapHeThong();
@@ -107,6 +107,13 @@ namespace QuanLySinhVien
             saoLưuDữLiệuToolStripMenuItem.Enabled = true;
             phụcHồiDữLiệuToolStripMenuItem.Enabled = true;
             đăngKýToolStripMenuItem.Enabled = true;
+            tìmKiếmLớpToolStripMenuItem.Enabled = true;
+            báoCáoToolStripMenuItem.Enabled = true;
+            inBảngĐiểmToolStripMenuItem.Enabled = true;
+            inBảnĐăngKýToolStripMenuItem.Enabled = true;
+            saoLưuDữLiệuToolStripMenuItem.Enabled = true;
+            phụcHồiDữLiệuToolStripMenuItem.Enabled = true;
+            đăngKýToolStripMenuItem.Enabled = true;
         }
         public void MenuForOnlyRead()
         {
@@ -121,6 +128,13 @@ namespace QuanLySinhVien
             saoLưuDữLiệuToolStripMenuItem.Enabled = false;
             phụcHồiDữLiệuToolStripMenuItem.Enabled = false;
             đăngKýToolStripMenuItem.Enabled = true;
+            tìmKiếmLớpToolStripMenuItem.Enabled = true;
+            báoCáoToolStripMenuItem.Enabled = true;
+            inBảngĐiểmToolStripMenuItem.Enabled = true;
+            inBảnĐăngKýToolStripMenuItem.Enabled = true;
+            đăngKýToolStripMenuItem.Enabled = true;
+
+
         }
         public void DisableMenu()
         {
@@ -134,6 +148,14 @@ namespace QuanLySinhVien
             saoLưuDữLiệuToolStripMenuItem.Enabled = false;
             phụcHồiDữLiệuToolStripMenuItem.Enabled = false;
             đăngKýToolStripMenuItem.Enabled = false;
+            tìmKiếmLớpToolStripMenuItem.Enabled = false; 
+            báoCáoToolStripMenuItem.Enabled = false;
+            đăngKýToolStripMenuItem.Enabled = false;
+            //thôngTinToolStripMenuItem.Enabled = false;
+            //tìmKiếmToolStripMenuItem.Enabled = false;
+            //trợGiúpToolStripMenuItem1.Enabled = false;
+
+
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -206,8 +228,19 @@ namespace QuanLySinhVien
 
         private void đăngKýToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmDangKi frm = new frmDangKi();
+
+        }
+
+        private void tìmKiếmLớpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTimLop frm = new frmTimLop();
+            frm.MdiParent = this;
             frm.Show();
+        }
+
+        private void tìmKiếmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
