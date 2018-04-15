@@ -33,9 +33,8 @@ namespace QuanLySinhVien
                 else if (DangNhap.checkOnlyRead(txtTenDangNhap.Text, txtMatKhau.Text) == true)
                 {
                     Main.MenuForOnlyRead();
-                } else { Main.MenuForOnlyRead(); }
-                    
-                
+                } else { Main.MenuForReadWrite(); }
+                                   
                 MessageBox.Show("Đăng Nhập Thành Công","Thông Báo");
                 frmDSSV.username = txtTenDangNhap.Text;
                 frmDSSV.pass = txtMatKhau.Text;
@@ -61,9 +60,7 @@ namespace QuanLySinhVien
                 
             }
             else
-                MessageBox.Show("Thông Tin Đăng Nhập Không Đúng.Vui Lòng Kiểm Tra Lại", "Lỗi Đăng Nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            
+                MessageBox.Show("Thông Tin Đăng Nhập Không Đúng.Vui Lòng Kiểm Tra Lại", "Lỗi Đăng Nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);         
         }
     }
 }
