@@ -38,7 +38,7 @@ namespace QuanLySinhVien
         private void frmTimLop_Load(object sender, EventArgs e)
         {
             this.txtTuKhoa.GotFocus += new EventHandler(textBox1_Focus); // enter event==get focus event 
-            this.txtTuKhoa.Text = "Ví Dụ: HTTT14 / Nguyễn Văn A";
+            this.txtTuKhoa.Text = "Ví Dụ: HTTT14 / Hệ Thống Thông Tin";
 
             txtTuKhoa.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             txtTuKhoa.AutoCompleteSource = AutoCompleteSource.CustomSource;

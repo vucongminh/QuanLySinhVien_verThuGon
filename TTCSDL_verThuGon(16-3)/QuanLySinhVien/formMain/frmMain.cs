@@ -252,9 +252,9 @@ namespace QuanLySinhVien
 
         private void tìmKiếmLớpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //frmTimLop frm = new frmTimLop();
-            //frm.MdiParent = this;
-            //frm.Show();
+            frmTimLop frm = new frmTimLop();
+            frm.MdiParent = this;
+            frm.Show();
         }
 
         private void tìmKiếmToolStripMenuItem_Click(object sender, EventArgs e)
