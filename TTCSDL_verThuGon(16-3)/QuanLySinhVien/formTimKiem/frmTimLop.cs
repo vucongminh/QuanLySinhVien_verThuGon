@@ -42,6 +42,27 @@ namespace QuanLySinhVien
 
             txtTuKhoa.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             txtTuKhoa.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = KetNoi.str;
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "Select distinct LOP.MaLop,TenLop,MaSV,TenSV,MaGV,TenGV from SINHVIEN, GIAOVIEN, LOP where LOP.MaLopTruong=SINHVIEN.MaSV and SINHVIEN.MaLop = LOP.MaLop and LOP.MaGVCN = GIAOVIEN.MaGV";
+            SqlDataReader rd;
+            rd = cmd.ExecuteReader();
+            DataTable td = new DataTable();
+            td.Load(rd);
+            for (int i = 0; i < td.Rows.Count; i++)
+            {
+                ListViewItem item = new ListViewItem(td.Rows[i][0].ToString());
+                item.SubItems.Add(td.Rows[i][1].ToString());
+                item.SubItems.Add(td.Rows[i][2].ToString());
+                item.SubItems.Add(td.Rows[i][3].ToString());
+                listView1.Items.Add(item);
+
+            }
+            con.Close();
         }
 
         private void getData(AutoCompleteStringCollection dataCollection)
@@ -145,6 +166,7 @@ namespace QuanLySinhVien
                     else
                     {
                         MessageBox.Show("Không Tồn Tại Lớp Có Mã " + txtTuKhoa.Text);
+                        frmTimLop_Load(sender, e);
 
                     }
                     this.txtTuKhoa.GotFocus += new EventHandler(textBox1_Focus); // enter event==get focus event 
@@ -177,15 +199,22 @@ namespace QuanLySinhVien
                     else
                     {
                         MessageBox.Show("Không Tồn Tại Lớp Có Tên " + txtTuKhoa.Text);
+                        frmTimLop_Load(sender, e);
                     }
                     //this.txtTuKhoa.GotFocus += new EventHandler(textBox1_Focus); // enter event==get focus event 
                     //this.txtTuKhoa.Text = "Ví Dụ: SV0000 / Nguyễn Văn A";
                 }
                 else
+                {
                     MessageBox.Show("Hãy Chọn Chức Năng Tìm Kiếm !");
+                    frmTimLop_Load(sender, e);
+                }
             }
             else
+            {
                 MessageBox.Show("Hãy Nhập Từ Khóa !");
+                frmTimLop_Load(sender, e);
+            }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
