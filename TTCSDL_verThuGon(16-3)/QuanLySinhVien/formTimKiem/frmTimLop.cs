@@ -118,7 +118,7 @@ namespace QuanLySinhVien
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            if (txtTuKhoa.Text != " " && txtTuKhoa.Text != "Ví Dụ: SV0000 / Nguyễn Văn A")
+            if (txtTuKhoa.Text != " " && txtTuKhoa.Text != "Ví Dụ: HTTT14 / Hệ Thống Thông Tin")
             {
 
                 if (KiemTra() == 1)
@@ -144,10 +144,11 @@ namespace QuanLySinhVien
                     }
                     else
                     {
-                        MessageBox.Show("Không Tồn Tại Sinh Viên Có Mã " + txtTuKhoa.Text);
+                        MessageBox.Show("Không Tồn Tại Lớp Có Mã " + txtTuKhoa.Text);
+
                     }
                     this.txtTuKhoa.GotFocus += new EventHandler(textBox1_Focus); // enter event==get focus event 
-                    this.txtTuKhoa.Text = "Ví Dụ: SV0000 / Nguyễn Văn A";
+                    this.txtTuKhoa.Text = "Ví Dụ: HTTT14 / Hệ Thống Thông Tin";
                 }
                 else if (KiemTra() == 2)
                 {
@@ -175,7 +176,7 @@ namespace QuanLySinhVien
                     }
                     else
                     {
-                        MessageBox.Show("Không Tồn Tại Sinh Viên Có Tên " + txtTuKhoa.Text);
+                        MessageBox.Show("Không Tồn Tại Lớp Có Tên " + txtTuKhoa.Text);
                     }
                     //this.txtTuKhoa.GotFocus += new EventHandler(textBox1_Focus); // enter event==get focus event 
                     //this.txtTuKhoa.Text = "Ví Dụ: SV0000 / Nguyễn Văn A";
@@ -238,6 +239,16 @@ namespace QuanLySinhVien
             AutoCompleteStringCollection DataCollection = new AutoCompleteStringCollection();
             getData2(DataCollection);
             txtTuKhoa.AutoCompleteCustomSource = DataCollection;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTuKhoa_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

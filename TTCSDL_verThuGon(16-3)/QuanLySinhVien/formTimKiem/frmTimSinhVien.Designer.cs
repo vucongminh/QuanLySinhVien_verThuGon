@@ -59,13 +59,13 @@
             // 
             // txtTuKhoa
             // 
+            this.txtTuKhoa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtTuKhoa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtTuKhoa.Location = new System.Drawing.Point(17, 94);
             this.txtTuKhoa.Name = "txtTuKhoa";
             this.txtTuKhoa.Size = new System.Drawing.Size(196, 20);
             this.txtTuKhoa.TabIndex = 1;
             this.txtTuKhoa.TextChanged += new System.EventHandler(this.txtTuKhoa_TextChanged);
-
-
             // 
             // groupBox1
             // 
@@ -89,6 +89,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Tên Sinh Viên";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
@@ -101,6 +102,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Mã Sinh Viên";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // btnTimKiem
             // 
@@ -145,6 +147,7 @@
             this.listView1.TabIndex = 5;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             this.listView1.Click += new System.EventHandler(this.listView1_Click);
             // 
             // MaSV
@@ -203,6 +206,7 @@
             // 
             // frmTimSinhVien
             // 
+            this.AcceptButton = this.btnTimKiem;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;

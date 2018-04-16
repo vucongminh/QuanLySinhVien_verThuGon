@@ -34,6 +34,8 @@
             this.MaLop = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TenLop = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.MaLopTruong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TenLopTruong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.MaGVCN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TenGVCN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.btnTimKiem = new System.Windows.Forms.Button();
@@ -42,8 +44,6 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.txtTuKhoa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.TenLopTruong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.MaGVCN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,6 +99,18 @@
             this.MaLopTruong.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.MaLopTruong.Width = 94;
             // 
+            // TenLopTruong
+            // 
+            this.TenLopTruong.Text = "Tên Lớp Trưởng";
+            this.TenLopTruong.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TenLopTruong.Width = 123;
+            // 
+            // MaGVCN
+            // 
+            this.MaGVCN.Text = "Mã GVCN";
+            this.MaGVCN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.MaGVCN.Width = 67;
+            // 
             // TenGVCN
             // 
             this.TenGVCN.Text = "Tên GVCN";
@@ -142,6 +154,7 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tìm Kiếm Theo";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // radioButton2
             // 
@@ -175,6 +188,7 @@
             this.txtTuKhoa.Name = "txtTuKhoa";
             this.txtTuKhoa.Size = new System.Drawing.Size(196, 20);
             this.txtTuKhoa.TabIndex = 9;
+            this.txtTuKhoa.TextChanged += new System.EventHandler(this.txtTuKhoa_TextChanged);
             // 
             // label1
             // 
@@ -186,18 +200,6 @@
             this.label1.Size = new System.Drawing.Size(329, 26);
             this.label1.TabIndex = 8;
             this.label1.Text = "TÌM KIẾM THÔNG TIN LỚP";
-            // 
-            // TenLopTruong
-            // 
-            this.TenLopTruong.Text = "Tên Lớp Trưởng";
-            this.TenLopTruong.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TenLopTruong.Width = 123;
-            // 
-            // MaGVCN
-            // 
-            this.MaGVCN.Text = "Mã GVCN";
-            this.MaGVCN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.MaGVCN.Width = 67;
             // 
             // frmTimLop
             // 
