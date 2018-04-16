@@ -159,7 +159,7 @@ namespace QuanLySinhVien
             this.Close();
             frmChonLop frm = new frmChonLop();
             frm.Show();
-        }
+        }      
         private void button2_Click_1(object sender, EventArgs e)
         {
             try
@@ -175,7 +175,7 @@ namespace QuanLySinhVien
             {
                 MessageBox.Show("Vui lòng chọn một hàng bạn muốn thao tác ^^!", "THÔNG BÁO");
             }
-
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -202,7 +202,7 @@ namespace QuanLySinhVien
                     frmDSSV frm = new frmDSSV(MaLop);
                     frm.Show();
                 }
-
+                
             }
             catch (Exception)
             {
@@ -219,7 +219,7 @@ namespace QuanLySinhVien
                 int row = this.listView1.SelectedItems[0].Index;
                 str = this.listView1.Items[row].SubItems[0].Text;
                 frmChiTietSinhVien frm = new frmChiTietSinhVien(str);
-
+               
                 frm.Show();
             }
             catch (Exception)
@@ -330,16 +330,14 @@ namespace QuanLySinhVien
                     //this.txtTuKhoa.GotFocus += new EventHandler(textBox1_Focus); // enter event==get focus event 
                     //this.txtTuKhoa.Text = "Ví Dụ: SV0000 / Nguyễn Văn A";
                 }
-                else
-                {
+                else { 
                     MessageBox.Show("Hãy Chọn Chức Năng Tìm Kiếm !");
-                    Form2_Load(sender, e);
-                }
+                    Form2_Load(sender, e);}
             }
             else
             {
                 MessageBox.Show("Hãy Nhập Từ Khóa !");
-                Form2_Load(sender, e);
+                Form2_Load( sender,  e);
             }
         }
     }
