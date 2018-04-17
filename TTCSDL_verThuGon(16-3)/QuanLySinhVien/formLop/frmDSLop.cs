@@ -239,7 +239,7 @@ namespace QuanLySinhVien
                     }
                     else
                     {
-                        MessageBox.Show("Không Tồn Tại Sinh Viên Có Mã " + txtTuKhoa.Text);
+                        MessageBox.Show("Không Tồn Tại Lớp Có Mã " + txtTuKhoa.Text);
                         frmDSLop_Load(sender, e);
                     }
                     this.txtTuKhoa.GotFocus += new EventHandler(textBox1_Focus); // enter event==get focus event 
@@ -270,7 +270,7 @@ namespace QuanLySinhVien
                     }
                     else
                     {
-                        MessageBox.Show("Không Tồn Tại Sinh Viên Có Tên " + txtTuKhoa.Text);
+                        MessageBox.Show("Không Tồn Tại Lớp Có Tên " + txtTuKhoa.Text);
                         frmDSLop_Load(sender, e);
                     }
                     //this.txtTuKhoa.GotFocus += new EventHandler(textBox1_Focus); // enter event==get focus event 
