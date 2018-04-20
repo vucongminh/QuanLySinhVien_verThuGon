@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,25 +40,14 @@
             this.btnIn = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gv2 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gv1 = new System.Windows.Forms.DataGridView();
+            this.btnGhiNhan = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gv2)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gv1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -138,6 +129,7 @@
             this.btnIn.TabIndex = 9;
             this.btnIn.Text = "In";
             this.btnIn.UseVisualStyleBackColor = true;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
             // btnThoat
             // 
@@ -150,7 +142,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.listView1);
+            this.groupBox2.Controls.Add(this.gv2);
             this.groupBox2.ForeColor = System.Drawing.Color.Blue;
             this.groupBox2.Location = new System.Drawing.Point(24, 316);
             this.groupBox2.Name = "groupBox2";
@@ -159,68 +151,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Môn học đã đăng kí";
             // 
-            // listView1
+            // gv2
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader10,
-            this.columnHeader11,
-            this.columnHeader12,
-            this.columnHeader13,
-            this.columnHeader14});
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(7, 19);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(775, 140);
-            this.listView1.TabIndex = 9;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "STT";
-            this.columnHeader8.Width = 48;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Mã Học Phần";
-            this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader9.Width = 113;
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "Tên Học Phần";
-            this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader10.Width = 168;
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.Text = "Số TC";
-            this.columnHeader11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader11.Width = 62;
-            // 
-            // columnHeader12
-            // 
-            this.columnHeader12.Text = "Trạng Thái";
-            this.columnHeader12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader12.Width = 98;
-            // 
-            // columnHeader13
-            // 
-            this.columnHeader13.Text = "Mã LHP";
-            this.columnHeader13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader13.Width = 126;
-            // 
-            // columnHeader14
-            // 
-            this.columnHeader14.Text = "Địa Điểm";
-            this.columnHeader14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader14.Width = 152;
+            this.gv2.AllowUserToAddRows = false;
+            this.gv2.AllowUserToDeleteRows = false;
+            this.gv2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gv2.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.gv2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gv2.DefaultCellStyle = dataGridViewCellStyle3;
+            this.gv2.Location = new System.Drawing.Point(7, 13);
+            this.gv2.Name = "gv2";
+            this.gv2.ReadOnly = true;
+            this.gv2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gv2.Size = new System.Drawing.Size(774, 150);
+            this.gv2.TabIndex = 0;
+            this.gv2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gv2_CellClick);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.listView2);
+            this.groupBox1.Controls.Add(this.gv1);
             this.groupBox1.ForeColor = System.Drawing.Color.Blue;
             this.groupBox1.Location = new System.Drawing.Point(24, 74);
             this.groupBox1.Name = "groupBox1";
@@ -229,73 +185,44 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Môn học đăng kí";
             // 
-            // listView2
+            // gv1
             // 
-            this.listView2.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listView2.AllowDrop = true;
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7});
-            this.listView2.FullRowSelect = true;
-            this.listView2.GridLines = true;
-            this.listView2.Location = new System.Drawing.Point(7, 19);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(774, 210);
-            this.listView2.TabIndex = 0;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            this.listView2.ItemActivate += new System.EventHandler(this.listView2_ItemActivate);           
+            this.gv1.AllowUserToAddRows = false;
+            this.gv1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gv1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.gv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gv1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.gv1.Location = new System.Drawing.Point(7, 20);
+            this.gv1.MultiSelect = false;
+            this.gv1.Name = "gv1";
+            this.gv1.RowTemplate.ReadOnly = true;
+            this.gv1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gv1.Size = new System.Drawing.Size(774, 210);
+            this.gv1.TabIndex = 0;
+            this.gv1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gv1_CellClick);
             // 
-            // columnHeader1
+            // btnGhiNhan
             // 
-            this.columnHeader1.Text = "STT";
-            this.columnHeader1.Width = 44;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Mã Học Phần";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 106;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Tên Học Phần";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 170;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Số TC";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Trạng Thái";
-            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader5.Width = 101;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Mã LHP";
-            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader6.Width = 128;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Địa Điểm";
-            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader7.Width = 162;
+            this.btnGhiNhan.Location = new System.Drawing.Point(521, 491);
+            this.btnGhiNhan.Name = "btnGhiNhan";
+            this.btnGhiNhan.Size = new System.Drawing.Size(92, 23);
+            this.btnGhiNhan.TabIndex = 13;
+            this.btnGhiNhan.Text = "Ghi nhận";
+            this.btnGhiNhan.UseVisualStyleBackColor = true;
             // 
             // frmDangKi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(827, 526);
+            this.Controls.Add(this.btnGhiNhan);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnThoat);
@@ -308,10 +235,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmDangKi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Kí Học Phần";
             this.Load += new System.EventHandler(this.frmDangKi_Load);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gv2)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gv1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,22 +259,9 @@
         private System.Windows.Forms.Button btnIn;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.ColumnHeader columnHeader10;
-        private System.Windows.Forms.ColumnHeader columnHeader11;
-        private System.Windows.Forms.ColumnHeader columnHeader12;
-        private System.Windows.Forms.ColumnHeader columnHeader13;
-        private System.Windows.Forms.ColumnHeader columnHeader14;
+        private System.Windows.Forms.Button btnGhiNhan;
+        private System.Windows.Forms.DataGridView gv2;
+        private System.Windows.Forms.DataGridView gv1;
     }
 }

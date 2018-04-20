@@ -8,16 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace QuanLySinhVien.formDangKi
 {
     public partial class frmDangKi : Form
     {
-        int temp = 1;
+       
         public frmDangKi()
         {
             InitializeComponent();
-            
+          
+
         }
+
 
         private void frmDangKi_Load(object sender,EventArgs e)
         {
@@ -31,29 +34,77 @@ namespace QuanLySinhVien.formDangKi
             rd = cmd.ExecuteReader();
             DataTable td = new DataTable();
             td.Load(rd);
-            for (int i = 0; i < td.Rows.Count; i++)
-            {
-                ListViewItem item = new ListViewItem((i+1).ToString());
-                item.SubItems.Add(td.Rows[i][0].ToString());
-                item.SubItems.Add(td.Rows[i][1].ToString());
-                item.SubItems.Add(td.Rows[i][2].ToString());
-                item.SubItems.Add(td.Rows[i][2].ToString());
-                item.SubItems.Add(td.Rows[i][3].ToString());
-                item.SubItems.Add(td.Rows[i][4].ToString());
-                listView2.Items.Add(item);
-            }
             con.Close();
-        }
-        private void listView2_ItemActivate(object sender,EventArgs e)
-        {
-            ListViewItem item = (ListViewItem)listView2.SelectedItems[0].Clone();
-            item.SubItems[0].Text = temp.ToString();
-            listView1.Items.Add(item);
-            listView2.SelectedItems[0].Remove();
-            temp = temp + 1;
-                 
+            gv1.DataSource = td;
+            DataGridViewCheckBoxColumn checkcolumn1 = new DataGridViewCheckBoxColumn();
+            checkcolumn1.AutoSizeMode =
+                DataGridViewAutoSizeColumnMode.DisplayedCells;
+            checkcolumn1.CellTemplate = new DataGridViewCheckBoxCell();
+            checkcolumn1.HeaderText = "Đăng Kí";
+            checkcolumn1.Name = "CheckBoxes";          
+            gv1.Columns.Add(checkcolumn1);          
+            gv2.Columns.Add("MaMH", "Mã Học Phần");
+            gv2.Columns.Add("TenHP", "Tên Học Phần");
+            gv2.Columns.Add("SoTC", "Số TC");
+            gv2.Columns.Add("MaLHP", "Mã Lớp Học Phần");
+            gv2.Columns.Add("DiaDiem", "Địa Điểm");
+
+            foreach (DataGridViewRow item in gv1.Rows)
+            {
+                item.Cells[5].Value = false;
+            }
+
+
+            DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+            buttonColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            buttonColumn.HeaderText = "Delete";
+            buttonColumn.Name = "button";
+            buttonColumn.Text = "Xóa";
+            buttonColumn.UseColumnTextForButtonValue=true;
+
+           gv2.Columns.Add(buttonColumn);
+
         }
 
-        
+        private void gv1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            if (e.ColumnIndex == 5)
+            {
+                if ((bool)gv1.Rows[e.RowIndex].Cells[5].Value == false) {
+                    int n = gv2.Rows.Add();
+                    gv1.Rows[e.RowIndex].Cells[5].Value = true;
+                    gv1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow;
+                    DataGridViewRow ThemMoi = gv1.CurrentRow;
+                    for (int i = 0; i < ThemMoi.Cells.Count - 1; i++)
+                    {
+                        gv2.Rows[n].Cells[i].Value = ThemMoi.Cells[i].Value.ToString();
+                    }
+                }
+               
+            }
+        }
+
+        private void gv2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 5)
+            {
+                gv2.Rows[e.RowIndex].Visible = false;
+                string value1 = gv2.Rows[e.RowIndex].Cells[3].Value.ToString();
+               for(int i = 0; i < gv1.Rows.Count; i++)
+                {
+                    if (value1 == gv1.Rows[i].Cells[3].Value.ToString())
+                    {
+                        gv1.Rows[i].Cells[5].Value = false;
+                        gv1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                    }
+                }
+            }
+        }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
