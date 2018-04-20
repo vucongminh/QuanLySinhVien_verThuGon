@@ -15,5 +15,11 @@ namespace QuanLySinhVien
         {
             InitializeComponent();
         }
+
+        private void ReportInDangKi_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+        }
     }
 }
