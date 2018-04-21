@@ -2,41 +2,22 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-
 
 namespace QuanLySinhVien
 {
-    public partial class frmXoaLopHocPhan : Form
+    public partial class frmXoaGV : Form
     {
-        string MaLopHocPhan;
-        public frmXoaLopHocPhan(string Ma)
+        string MaGV;
+        public frmXoaGV(string Ma)
         {
-            MaLopHocPhan = Ma;
+            
+            MaGV = Ma;
             InitializeComponent();
-        }
-
-        private void frmXoaLopHocPhan_Load(object sender, EventArgs e)
-        {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = KetNoi.str;
-            con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "SELECT MaLHP, TenHP, LOPHOCPHAN.MaGV,TenGV FROM LOPHOCPHAN, HOCPHAN, GIAOVIEN WHERE LOPHOCPHAN.MaGV = GIAOVIEN.MaGV and LOPHOCPHAN.MaHP = HOCPHAN.MaHP and MaLHP='" + MaLopHocPhan + "'";
-            SqlDataReader rd;
-            rd = cmd.ExecuteReader();
-            DataTable td = new DataTable();
-            td.Load(rd);
-            this.txtMaLHP.Text = td.Rows[0][0].ToString();
-            this.txtTenHP.Text = td.Rows[0][1].ToString();
-            this.txtMaGV.Text = td.Rows[0][2].ToString();
-            this.txtTenGV.Text = td.Rows[0][3].ToString();
-            con.Close();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -46,12 +27,12 @@ namespace QuanLySinhVien
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = KetNoi.str;
                 con.Open();
-               
+
                 SqlCommand cmd1 = new SqlCommand();
-                
+
                 cmd1.Connection = con;
-                
-                cmd1.CommandText = "DELETE FROM LOPHOCPHAN Where MaLHP='" + MaLopHocPhan + "'";
+
+                cmd1.CommandText = "DELETE FROM GIAOVIEN Where MaGV='" + MaGV + "'";
                 DialogResult result;
                 result = MessageBox.Show("BẠN CÓ MUỐN XÓA THÔNG TIN KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
@@ -71,15 +52,27 @@ namespace QuanLySinhVien
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void frmXoaGV_Load(object sender, EventArgs e)
         {
-
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = KetNoi.str;
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "SELECT TenGV FROM GIAOVIEN WHERE MaGV='" + MaGV + "'";
+            SqlDataReader rd;
+            rd = cmd.ExecuteReader();
+            DataTable td = new DataTable();
+            td.Load(rd);
+            this.txtMaLop.Text = MaGV;
+            this.txtTenLop.Text = td.Rows[0][0].ToString();
+            con.Close();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmDSLopHocPhan frm = new frmDSLopHocPhan();
+            frmDSGiaoVien frm = new frmDSGiaoVien();
             frm.Show();
         }
     }

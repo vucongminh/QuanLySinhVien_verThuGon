@@ -30,7 +30,7 @@ namespace QuanLySinhVien
             int HocKy;
             SoTrinh = Convert.ToInt16(txtSoTC.Text);
             HocKy = Convert.ToInt16(txtHocKy.Text);
-            cmd.CommandText = "UPDATE HOCPHAN SET TenHP='" +txtTenHP.Text + "',MaBM='" + txtMaBoMon.Text + "',SoTC=" + SoTrinh+ ",HocKy=" + HocKy + "WHERE MaHP='" +MaMonHoc + "'";
+            cmd.CommandText = "UPDATE HOCPHAN SET TenHP=N'" +txtTenHP.Text + "',MaBM='" + txtMaBoMon.Text + "',SoTC=" + SoTrinh+ ",HocKy=" + HocKy + "WHERE MaHP='" +MaMonHoc + "'";
             DialogResult result;
             result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)

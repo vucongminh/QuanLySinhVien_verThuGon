@@ -302,6 +302,11 @@ namespace QuanLySinhVien
             getData(DataCollection);
             txtTuKhoa.AutoCompleteCustomSource = DataCollection;
         }
+
+        private void txtTuKhoa_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

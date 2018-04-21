@@ -45,7 +45,7 @@ namespace QuanLySinhVien
         }
 
         private void frmTimSinhVien_Load(object sender, EventArgs e)
-        {             
+        {
             //txtTuKhoa.Text = "Nhập Từ Khoá?";
             this.txtTuKhoa.GotFocus += new EventHandler(textBox1_Focus); // enter event==get focus event 
             this.txtTuKhoa.Text = "Ví Dụ: SV0000 / Nguyễn Văn A";
@@ -53,6 +53,26 @@ namespace QuanLySinhVien
             txtTuKhoa.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             txtTuKhoa.AutoCompleteSource = AutoCompleteSource.CustomSource;
             //AutoCompleteStringCollection DataCollection = new AutoCompleteStringCollection();
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = KetNoi.str;
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+           
+            cmd.CommandText = "Select distinct MaSV,TenSV,TenLop,TenGV from SINHVIEN, GIAOVIEN, LOP where SINHVIEN.MaLop = LOP.MaLop and LOP.MaGVCN = GIAOVIEN.MaGV ";
+            SqlDataReader rd;
+            rd = cmd.ExecuteReader();
+            DataTable td = new DataTable();
+            td.Load(rd);
+            for (int i = 0; i < td.Rows.Count; i++)
+            {
+                ListViewItem item = new ListViewItem(td.Rows[i][0].ToString());
+                item.SubItems.Add(td.Rows[i][1].ToString());
+                item.SubItems.Add(td.Rows[i][2].ToString());
+                item.SubItems.Add(td.Rows[i][3].ToString());
+                listView1.Items.Add(item);
+            }
+            con.Close();
         }
 
 
@@ -71,8 +91,8 @@ namespace QuanLySinhVien
             //SqlDataReader rd;
             //rd = cmd.ExecuteReader();
 
-            
-           // td.Load(rd);
+
+            // td.Load(rd);
 
             //if (td.Rows.Count != 0)
             //{
@@ -100,7 +120,7 @@ namespace QuanLySinhVien
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataSet ds = new DataSet();
             connetionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLySV24;Integrated Security=True";
-            string sql = "Select TenSV from SINHVIEN";
+            string sql = "Select TenSV from SINHVIEN ";
 
             connection = new SqlConnection(connetionString);
             try
@@ -115,7 +135,7 @@ namespace QuanLySinhVien
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
                     dataCollection.Add(row[0].ToString());
-                    
+
                 }
             }
             catch (Exception ex)
@@ -156,12 +176,12 @@ namespace QuanLySinhVien
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-           
+
             for (int i = 0; i < listView1.Items.Count; i++)
             {
                 listView1.Items[i].Remove();
                 i--;
-            }            
+            }
             SqlConnection con = new SqlConnection();
             con.ConnectionString = KetNoi.str;
             con.Open();
@@ -192,6 +212,7 @@ namespace QuanLySinhVien
                     else
                     {
                         MessageBox.Show("Không Tồn Tại Sinh Viên Có Mã " + txtTuKhoa.Text);
+                        frmTimSinhVien_Load(sender, e);
                     }
                     this.txtTuKhoa.GotFocus += new EventHandler(textBox1_Focus); // enter event==get focus event 
                     this.txtTuKhoa.Text = "Ví Dụ: SV0000 / Nguyễn Văn A";
@@ -204,7 +225,7 @@ namespace QuanLySinhVien
 
                     DataTable td = new DataTable();
                     td.Load(rd);
-                    
+
                     if (td.Rows.Count != 0)
                     {
 
@@ -221,15 +242,23 @@ namespace QuanLySinhVien
                     else
                     {
                         MessageBox.Show("Không Tồn Tại Sinh Viên Có Tên " + txtTuKhoa.Text);
+                        frmTimSinhVien_Load(sender, e);
                     }
                     //this.txtTuKhoa.GotFocus += new EventHandler(textBox1_Focus); // enter event==get focus event 
                     //this.txtTuKhoa.Text = "Ví Dụ: SV0000 / Nguyễn Văn A";
                 }
                 else
+                {
                     MessageBox.Show("Hãy Chọn Chức Năng Tìm Kiếm !");
+                    frmTimSinhVien_Load(sender, e);
+                }
             }
-            else        
-                MessageBox.Show("Hãy Nhập Từ Khóa !");                            
+            else
+            {
+                MessageBox.Show("Hãy Nhập Từ Khóa !");
+                frmTimSinhVien_Load(sender, e);
+            }
+
         }
 
         private void listView1_Click(object sender, EventArgs e)
@@ -260,13 +289,13 @@ namespace QuanLySinhVien
             }
         }
 
-       
+
         private void txtTuKhoa_Enter(object sender, EventArgs e)
         {
             ((TextBox)sender).SelectAll();
         }
 
-       
+
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {

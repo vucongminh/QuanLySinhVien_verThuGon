@@ -30,7 +30,7 @@ namespace QuanLySinhVien
             int HocKy;
             //SoTrinh = Convert.ToInt16(txtSoTrinh.Text);
             HocKy = Convert.ToInt16(txtHocKy.Text);
-            //cmd.CommandText = "INSERT INTO HOCPHAN VALUES('" + txtMaMonHoc.Text + "','" + txtTenMonHoc.Text + "','" + txtMaBoMon.Text + "'," + SoTrinh + "," + HocKy + ")";
+            //cmd.CommandText = "INSERT INTO HOCPHAN VALUES('" + txtMaMonHoc.Text + "',N'" + txtTenMonHoc.Text + "','" + txtMaBoMon.Text + "'," + SoTrinh + "," + HocKy + ")";
             cmd.CommandText = "InsertDataIntoHocPhan";
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@mahp", txtMaHP.Text);

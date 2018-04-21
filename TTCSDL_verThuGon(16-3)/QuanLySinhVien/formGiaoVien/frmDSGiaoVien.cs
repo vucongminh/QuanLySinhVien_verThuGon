@@ -2,19 +2,21 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using QuanLySinhVien;
 
 namespace QuanLySinhVien
 {
-    public partial class frmDSHocPhan : Form
+    public partial class frmDSGiaoVien : Form
     {
+
         public static string username = string.Empty;
         public static string pass = string.Empty;
-        public frmDSHocPhan()
+        public frmDSGiaoVien()
         {
             InitializeComponent();
             DangNhapHeThong DangNhap = new DangNhapHeThong();
@@ -46,21 +48,19 @@ namespace QuanLySinhVien
                 return 0;
         }
 
-
-        private void frmDSMonHoc_Load(object sender, EventArgs e)
+        private void frmDSGiaoVien_Load(object sender, EventArgs e)
         {
-            this.txtTuKhoa.GotFocus += new EventHandler(textBox1_Focus); // enter event==get focus event 
-            this.txtTuKhoa.Text = "Ví Dụ: HP0001 / Kỹ Thuật Lập Trình";
-
-            txtTuKhoa.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            txtTuKhoa.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
             SqlConnection con = new SqlConnection();
             con.ConnectionString = KetNoi.str;
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT MaHP,TenHP,SoTC,HocKy,TenBM FROM HOCPHAN,BOMON where HOCPHAN.MaBM=BOMON.MaBM";
+            this.txtTuKhoa.GotFocus += new EventHandler(textBox1_Focus); // enter event==get focus event 
+            this.txtTuKhoa.Text = "Ví Dụ: GV0001 / Nguyễn Văn Giang";
+
+            txtTuKhoa.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtTuKhoa.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cmd.CommandText = "SELECT MaGV,TenGV,SdtGV,TenBM FROM GIAOVIEN ,BOMON  where BOMON.MaBM=GIAOVIEN.MaBM ";
             SqlDataReader rd;
             rd = cmd.ExecuteReader();
             DataTable td = new DataTable();
@@ -71,12 +71,10 @@ namespace QuanLySinhVien
                 item.SubItems.Add(td.Rows[i][1].ToString());
                 item.SubItems.Add(td.Rows[i][2].ToString());
                 item.SubItems.Add(td.Rows[i][3].ToString());
-                item.SubItems.Add(td.Rows[i][4].ToString());
                 listView1.Items.Add(item);
 
             }
             con.Close();
-
         }
 
         private void getData(AutoCompleteStringCollection dataCollection)
@@ -87,7 +85,7 @@ namespace QuanLySinhVien
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataSet ds = new DataSet();
             connetionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLySV24;Integrated Security=True";
-            string sql = "Select TenHP from HOCPHAN";
+            string sql = "Select TenGV from GIAOVIEN";
 
             connection = new SqlConnection(connetionString);
             try
@@ -118,7 +116,7 @@ namespace QuanLySinhVien
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataSet ds = new DataSet();
             connetionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLySV24;Integrated Security=True";
-            string sql = "Select distinct MaHP from HOCPHAN  ";
+            string sql = "Select distinct MaGV from GIAOVIEN  ";
 
             connection = new SqlConnection(connetionString);
             try
@@ -141,61 +139,7 @@ namespace QuanLySinhVien
             }
         }
 
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            frmThemHocPhan frm = new frmThemHocPhan();
-            
-            frm.Show();
-            
-        }
-
-        private void listView1_Click(object sender, EventArgs e)
-        {
-            string str;
-            int row = this.listView1.SelectedItems[0].Index;
-            str = this.listView1.Items[row].SubItems[0].Text;
-            frmSuaHocPhan frm = new frmSuaHocPhan(str);
-
-        }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            string str;
-            int row = this.listView1.SelectedItems[0].Index;
-            str = this.listView1.Items[row].SubItems[0].Text;
-            this.Close();
-            frmSuaHocPhan frm = new frmSuaHocPhan(str);
-            frm.Show();
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string str;
-                int row = this.listView1.SelectedItems[0].Index;
-                str = this.listView1.Items[row].SubItems[0].Text;
-                this.Close();
-                frmXoaHocPhan frm = new frmXoaHocPhan(str);
-                frm.Show();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Hãy Chọn Học Phần Muốn Xóa !", "Thông Báo");
-            }
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
@@ -209,12 +153,12 @@ namespace QuanLySinhVien
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            if (txtTuKhoa.Text != " " && txtTuKhoa.Text != "Ví Dụ: HP0001 / Kỹ Thuật Lập Trình")
+            if (txtTuKhoa.Text != " " && txtTuKhoa.Text != "Ví Dụ: GV0001 / Nguyễn Văn Giang")
             {
 
                 if (KiemTra() == 1)
                 {
-                    cmd.CommandText = "SELECT MaHP,TenHP,SoTC,HocKy,TenBM FROM HOCPHAN,BOMON where HOCPHAN.MaBM=BOMON.MaBM and HOCPHAN.MaHP='" + txtTuKhoa.Text + "'";
+                    cmd.CommandText = "SELECT MaGV,TenGV,SdtGV,TenBM FROM GIAOVIEN ,BOMON  where BOMON.MaBM=GIAOVIEN.MaBM AND GIAOVIEN.MaGV='" + txtTuKhoa.Text + "'";
                     SqlDataReader rd;
                     rd = cmd.ExecuteReader();
 
@@ -223,28 +167,26 @@ namespace QuanLySinhVien
 
                     if (td.Rows.Count != 0)
                     {
-                        for (int i = 0; i < td.Rows.Count; i++)
-                        {
-                            ListViewItem item = new ListViewItem(td.Rows[i][0].ToString());
-                            item.SubItems.Add(td.Rows[i][1].ToString());
-                            item.SubItems.Add(td.Rows[i][2].ToString());
-                            item.SubItems.Add(td.Rows[i][3].ToString());
-                            item.SubItems.Add(td.Rows[i][4].ToString());
-                            listView1.Items.Add(item);
-                        }
+
+                        ListViewItem item = new ListViewItem(td.Rows[0][0].ToString());
+                        item.SubItems.Add(td.Rows[0][1].ToString());
+                        item.SubItems.Add(td.Rows[0][2].ToString());
+                        item.SubItems.Add(td.Rows[0][3].ToString());
+
+                        listView1.Items.Add(item);
 
                     }
                     else
                     {
-                        MessageBox.Show("Không Tồn Tại Học Phần Có Mã " + txtTuKhoa.Text);
-                        frmDSMonHoc_Load(sender, e);
+                        MessageBox.Show("Không Tồn Tại Sinh Viên Có Mã " + txtTuKhoa.Text);
+                        frmDSGiaoVien_Load(sender, e);
                     }
                     this.txtTuKhoa.GotFocus += new EventHandler(textBox1_Focus); // enter event==get focus event 
-                    this.txtTuKhoa.Text = "Ví Dụ: HP0001 / Kỹ Thuật Lập Trình";
+                    this.txtTuKhoa.Text = "Ví Dụ: HTTT14 / Hệ Thống Thông Tin";
                 }
                 else if (KiemTra() == 2)
                 {
-                    cmd.CommandText = "SELECT MaHP,TenHP,SoTC,HocKy,TenBM FROM HOCPHAN,BOMON where HOCPHAN.MaBM=BOMON.MaBM and HOCPHAN.TenHP like N'%" + txtTuKhoa.Text + "%'";
+                    cmd.CommandText = "SELECT MaGV,TenGV,SdtGV,TenBM FROM GIAOVIEN ,BOMON  where BOMON.MaBM=GIAOVIEN.MaBM and GIAOVIEN.TenGV like N'%" + txtTuKhoa.Text + "%'";
                     SqlDataReader rd;
                     rd = cmd.ExecuteReader();
 
@@ -260,15 +202,15 @@ namespace QuanLySinhVien
                             item.SubItems.Add(td.Rows[i][1].ToString());
                             item.SubItems.Add(td.Rows[i][2].ToString());
                             item.SubItems.Add(td.Rows[i][3].ToString());
-                            item.SubItems.Add(td.Rows[i][4].ToString());
+
                             listView1.Items.Add(item);
 
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Không Tồn Tại Học Phần Có Tên " + txtTuKhoa.Text);
-                        frmDSMonHoc_Load(sender, e);
+                        MessageBox.Show("Không Tồn Tại Sinh Viên Có Tên " + txtTuKhoa.Text);
+                        frmDSGiaoVien_Load(sender, e);
                     }
                     //this.txtTuKhoa.GotFocus += new EventHandler(textBox1_Focus); // enter event==get focus event 
                     //this.txtTuKhoa.Text = "Ví Dụ: SV0000 / Nguyễn Văn A";
@@ -276,13 +218,13 @@ namespace QuanLySinhVien
                 else
                 {
                     MessageBox.Show("Hãy Chọn Chức Năng Tìm Kiếm !");
-                    frmDSMonHoc_Load(sender, e);
+                    frmDSGiaoVien_Load(sender, e);
                 }
             }
             else
             {
                 MessageBox.Show("Hãy Nhập Từ Khóa !");
-                frmDSMonHoc_Load(sender, e);
+                frmDSGiaoVien_Load(sender, e);
             }
         }
 
@@ -298,6 +240,68 @@ namespace QuanLySinhVien
             AutoCompleteStringCollection DataCollection = new AutoCompleteStringCollection();
             getData(DataCollection);
             txtTuKhoa.AutoCompleteCustomSource = DataCollection;
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmThemGV frm = new frmThemGV();
+            //frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string str;
+                int row = this.listView1.SelectedItems[0].Index;
+                str = this.listView1.Items[row].SubItems[0].Text;
+                this.Close();
+                frmSuaGV frm = new frmSuaGV(str);
+                //frm.MdiParent = this.MdiParent;
+                frm.Show();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy Chọn Giáo Viên Muốn Sửa !", "Thông Báo");
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string str;
+                int row = this.listView1.SelectedItems[0].Index;
+                str = this.listView1.Items[row].SubItems[0].Text;
+                this.Close();
+                frmXoaGV frm = new frmXoaGV(str);
+                //frm.MdiParent = this.MdiParent;
+                frm.Show();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy Chọn Giáo Viên Muốn Xóa !", "Thông Báo");
+            }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void listView1_Click(object sender, EventArgs e)
+        {
+            string str;
+            int row = this.listView1.SelectedItems[0].Index;
+            str = this.listView1.Items[row].SubItems[0].Text;
+            frmSuaGV frm = new frmSuaGV(str);
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

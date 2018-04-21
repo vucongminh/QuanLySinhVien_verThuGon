@@ -1,6 +1,6 @@
 ﻿namespace QuanLySinhVien
 {
-    partial class frmDSLop
+    partial class frmDSGiaoVien
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDSLop));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDSGiaoVien));
+            this.btnTimKiem = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.txtTuKhoa = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnThoat = new System.Windows.Forms.Button();
@@ -36,29 +41,84 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.MaLop = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TenLop = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TenLopTruong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TenGVCN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.MaGV = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TenGV = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SdtGV = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TenBM = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
-            this.btnTimKiem = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.txtTuKhoa = new System.Windows.Forms.TextBox();
+            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnTimKiem.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.ForeColor = System.Drawing.Color.Blue;
+            this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
+            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTimKiem.Location = new System.Drawing.Point(543, 46);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(101, 32);
+            this.btnTimKiem.TabIndex = 18;
+            this.btnTimKiem.Text = "Tìm Kiếm";
+            this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTimKiem.UseVisualStyleBackColor = false;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.radioButton2);
+            this.groupBox3.Controls.Add(this.radioButton1);
+            this.groupBox3.Location = new System.Drawing.Point(331, 2);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(196, 50);
+            this.groupBox3.TabIndex = 16;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Tìm Kiếm Theo";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.ForeColor = System.Drawing.Color.Blue;
+            this.radioButton2.Location = new System.Drawing.Point(98, 19);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(93, 17);
+            this.radioButton2.TabIndex = 0;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Tên Giáo Viên";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.ForeColor = System.Drawing.Color.Blue;
+            this.radioButton1.Location = new System.Drawing.Point(6, 19);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(89, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Mã Giáo Viên";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // txtTuKhoa
+            // 
+            this.txtTuKhoa.Location = new System.Drawing.Point(331, 58);
+            this.txtTuKhoa.Name = "txtTuKhoa";
+            this.txtTuKhoa.Size = new System.Drawing.Size(196, 20);
+            this.txtTuKhoa.TabIndex = 17;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.listView1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 94);
+            this.groupBox1.Location = new System.Drawing.Point(12, 84);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(644, 294);
-            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             // 
             // groupBox2
@@ -136,10 +196,10 @@
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.MaLop,
-            this.TenLop,
-            this.TenLopTruong,
-            this.TenGVCN});
+            this.MaGV,
+            this.TenGV,
+            this.SdtGV,
+            this.TenBM});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(4, 11);
@@ -150,145 +210,83 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            this.listView1.Click += new System.EventHandler(this.listView1_Click);
             // 
-            // MaLop
+            // MaGV
             // 
-            this.MaLop.Text = "Mã Lớp";
-            this.MaLop.Width = 55;
+            this.MaGV.Text = "Mã Giáo Viên";
+            this.MaGV.Width = 78;
             // 
-            // TenLop
+            // TenGV
             // 
-            this.TenLop.Text = "Tên Lớp";
-            this.TenLop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TenLop.Width = 160;
+            this.TenGV.Text = "Tên Giáo Viên";
+            this.TenGV.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TenGV.Width = 160;
             // 
-            // TenLopTruong
+            // SdtGV
             // 
-            this.TenLopTruong.Text = "Tên Lớp Trưởng";
-            this.TenLopTruong.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TenLopTruong.Width = 136;
+            this.SdtGV.Text = "Số Điện Thoại";
+            this.SdtGV.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SdtGV.Width = 114;
             // 
-            // TenGVCN
+            // TenBM
             // 
-            this.TenGVCN.Text = "Tên GVCN";
-            this.TenGVCN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TenGVCN.Width = 155;
+            this.TenBM.Text = "Tên Bộ Môn";
+            this.TenBM.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TenBM.Width = 155;
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(92, 31);
+            this.label2.Location = new System.Drawing.Point(48, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(179, 36);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Danh Sách Lớp";
+            this.label2.Size = new System.Drawing.Size(235, 36);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Danh Sách Giáo Viên";
             // 
-            // btnTimKiem
+            // frmDSGiaoVien
             // 
-            this.btnTimKiem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnTimKiem.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.ForeColor = System.Drawing.Color.Blue;
-            this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
-            this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTimKiem.Location = new System.Drawing.Point(543, 56);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(101, 32);
-            this.btnTimKiem.TabIndex = 13;
-            this.btnTimKiem.Text = "Tìm Kiếm";
-            this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTimKiem.UseVisualStyleBackColor = false;
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.radioButton2);
-            this.groupBox3.Controls.Add(this.radioButton1);
-            this.groupBox3.Location = new System.Drawing.Point(331, 12);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(196, 50);
-            this.groupBox3.TabIndex = 11;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Tìm Kiếm Theo";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.ForeColor = System.Drawing.Color.Blue;
-            this.radioButton2.Location = new System.Drawing.Point(98, 19);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(65, 17);
-            this.radioButton2.TabIndex = 0;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Tên Lớp";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.ForeColor = System.Drawing.Color.Blue;
-            this.radioButton1.Location = new System.Drawing.Point(6, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(61, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Mã Lớp";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // txtTuKhoa
-            // 
-            this.txtTuKhoa.Location = new System.Drawing.Point(331, 68);
-            this.txtTuKhoa.Name = "txtTuKhoa";
-            this.txtTuKhoa.Size = new System.Drawing.Size(196, 20);
-            this.txtTuKhoa.TabIndex = 12;
-            this.txtTuKhoa.TextChanged += new System.EventHandler(this.txtTuKhoa_TextChanged);
-            // 
-            // frmDSLop
-            // 
-            this.AcceptButton = this.btnTimKiem;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(668, 391);
+            this.ClientSize = new System.Drawing.Size(663, 382);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.txtTuKhoa);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmDSLop";
+            this.Name = "frmDSGiaoVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Danh Sách Lớp";
-            this.Load += new System.EventHandler(this.frmDSLop_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.Text = "Danh Sách Giáo Viên";
+            this.Load += new System.EventHandler(this.frmDSGiaoVien_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader TenLop;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.Button btnThoat;
-        private System.Windows.Forms.Button btnXoa;
-        public System.Windows.Forms.ColumnHeader MaLop;
-        private System.Windows.Forms.ColumnHeader TenLopTruong;
-        private System.Windows.Forms.ColumnHeader TenGVCN;
+
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.TextBox txtTuKhoa;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.ListView listView1;
+        public System.Windows.Forms.ColumnHeader MaGV;
+        private System.Windows.Forms.ColumnHeader TenGV;
+        private System.Windows.Forms.ColumnHeader SdtGV;
+        private System.Windows.Forms.ColumnHeader TenBM;
+        private System.Windows.Forms.Label label2;
     }
 }
