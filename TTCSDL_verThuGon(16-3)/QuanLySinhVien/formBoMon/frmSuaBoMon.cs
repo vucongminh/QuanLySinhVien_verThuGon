@@ -47,7 +47,7 @@ namespace QuanLySinhVien
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 //cmd.CommandText = "UPDATE BOMON SET TenBM='" + txtTenKhoa.Text+ "'WHERE MaBM='" + MaKhoa+ "'";
-                cmd.CommandText = "UPDATE BOMON SET TenBM='" + txtTenKhoa.Text + "',MaChuNhiemBM='" + txtMaCNBM.Text + "' WHERE MaBM='" + MaKhoa + "'";
+                cmd.CommandText = "UPDATE BOMON SET TenBM=N'" + txtTenKhoa.Text + "',MaChuNhiemBM='" + txtMaCNBM.Text + "' WHERE MaBM='" + MaKhoa + "'";
                 DialogResult result;
                 result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
