@@ -59,6 +59,8 @@ namespace QuanLySinhVien
                 item.SubItems.Add(td.Rows[i][1].ToString());
                 item.SubItems.Add(td.Rows[i][2].ToString());
                 item.SubItems.Add(td.Rows[i][3].ToString());
+                item.SubItems.Add(td.Rows[i][4].ToString());
+                item.SubItems.Add(td.Rows[i][5].ToString());
                 listView1.Items.Add(item);
 
             }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace QuanLySinhVien.formMain
+namespace QuanLySinhVien
 {
     public partial class frmInBangDiem : Form
     {

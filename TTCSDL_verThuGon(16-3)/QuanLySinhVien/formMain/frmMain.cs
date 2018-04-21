@@ -138,6 +138,10 @@ namespace QuanLySinhVien
 
 
         }
+        public void MenuForReadWrite()
+        {
+
+        }
         public void DisableMenu()
         {
             quảnLýNgườiDùngToolStripMenuItem.Enabled = false;
@@ -230,7 +234,9 @@ namespace QuanLySinhVien
 
         private void đăngKýToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmDangKi frm = new frmDangKi();
+            
+            frm.Show();
         }
 
         private void tìmKiếmLớpToolStripMenuItem_Click(object sender, EventArgs e)

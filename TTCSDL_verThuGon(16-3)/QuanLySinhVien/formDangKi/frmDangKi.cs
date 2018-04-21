@@ -9,7 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 
 
-namespace QuanLySinhVien.formDangKi
+namespace QuanLySinhVien
 {
     public partial class frmDangKi : Form
     {
