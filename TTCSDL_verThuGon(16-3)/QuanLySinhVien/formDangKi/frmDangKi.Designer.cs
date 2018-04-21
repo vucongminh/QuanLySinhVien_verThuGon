@@ -220,6 +220,7 @@
             this.btnGhiNhan.TabIndex = 13;
             this.btnGhiNhan.Text = "Ghi nhận";
             this.btnGhiNhan.UseVisualStyleBackColor = false;
+            this.btnGhiNhan.Click += new System.EventHandler(this.btnGhiNhan_Click);
             // 
             // frmDangKi
             // 
