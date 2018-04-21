@@ -933,3 +933,11 @@ F:\GitHub\QuanLySinhVien_verThuGon\TTCSDL_verThuGon(16-3)\QuanLySinhVien\obj\Deb
 F:\GitHub\QuanLySinhVien_verThuGon\TTCSDL_verThuGon(16-3)\QuanLySinhVien\obj\Debug\QuanLySinhVien.frmXoaHocPhan.resources
 F:\GitHub\QuanLySinhVien_verThuGon\TTCSDL_verThuGon(16-3)\QuanLySinhVien\obj\Debug\QuanLySinhVien.frmThemBoMon.resources
 F:\GitHub\QuanLySinhVien_verThuGon\TTCSDL_verThuGon(16-3)\QuanLySinhVien\obj\Debug\QuanLySinhVien.frmXoaBoMon.resources
+F:\GitHub\QuanLySinhVien_verThuGon\TTCSDL_verThuGon(16-3)\QuanLySinhVien\obj\Debug\QuanLySinhVien.csprojResolveAssemblyReference.cache
+F:\GitHub\QuanLySinhVien_verThuGon\TTCSDL_verThuGon(16-3)\QuanLySinhVien\obj\Debug\QuanLySinhVien.frmTimLop.resources
+F:\GitHub\QuanLySinhVien_verThuGon\TTCSDL_verThuGon(16-3)\QuanLySinhVien\obj\Debug\QuanLySinhVien.frmDSGiaoVien.resources
+F:\GitHub\QuanLySinhVien_verThuGon\TTCSDL_verThuGon(16-3)\QuanLySinhVien\obj\Debug\QuanLySinhVien.frmSuaGV.resources
+F:\GitHub\QuanLySinhVien_verThuGon\TTCSDL_verThuGon(16-3)\QuanLySinhVien\obj\Debug\QuanLySinhVien.frmThemGV.resources
+F:\GitHub\QuanLySinhVien_verThuGon\TTCSDL_verThuGon(16-3)\QuanLySinhVien\obj\Debug\QuanLySinhVien.frmXoaGV.resources
+F:\GitHub\QuanLySinhVien_verThuGon\TTCSDL_verThuGon(16-3)\QuanLySinhVien\obj\Debug\QuanLySinhVien.frmInBangDiem.resources
+F:\GitHub\QuanLySinhVien_verThuGon\TTCSDL_verThuGon(16-3)\QuanLySinhVien\obj\Debug\QuanLySinhVien.frmDangKi.resources
