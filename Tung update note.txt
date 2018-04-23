@@ -1,0 +1,25 @@
+- form 1
+- resource form1
+- Cac phan lien quan den Lop Va BoMon
+_ proc insert (them) cho Lop va BoMon
+- mon hoc (hocphan) va lophocphan
+
+
+moi nhat
+- tim kiem lop
+- form main phan quyen
+- frmdangnhapadmin, danghaphethong
+
+-- moi nhat 2
+- formGiaoVien
+- formMain
+- fotmLogin - frmDangNhapHeThong.cs
+
+
+SELECT     SINHVIEN.TenSV, BANGDIEM.MaSV, SINHVIEN.MaLop, HOCPHAN.TenHP, LOPHOCPHAN.MaHP, BANGDIEM.DiemKT, BANGDIEM.DiemKTGiuaKy, BANGDIEM.DiemThi, 
+                      BANGDIEM.DiemTongKet, BANGDIEM.LanThi, BANGDIEM.GhiChu
+FROM         BANGDIEM INNER JOIN
+                      LOPHOCPHAN ON BANGDIEM.MaLHP = LOPHOCPHAN.MaLHP INNER JOIN
+                      SINHVIEN ON BANGDIEM.MaSV = SINHVIEN.MaSV INNER JOIN
+                      LOP ON SINHVIEN.MaSV = LOP.MaLopTruong AND SINHVIEN.MaLop = LOP.MaLop INNER JOIN
+                      HOCPHAN ON LOPHOCPHAN.MaHP = HOCPHAN.MaHP
