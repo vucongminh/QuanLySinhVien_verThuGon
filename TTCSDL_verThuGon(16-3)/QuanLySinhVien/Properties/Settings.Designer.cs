@@ -32,5 +32,16 @@ namespace QuanLySinhVien.Properties {
                 return ((string)(this["Database1ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-TKBGRT5\\SQLEXPRESS;Initial Catalog=QuanLySV24;Integrated Secu" +
+            "rity=True")]
+        public string QuanLySV24ConnectionString_InDangKI {
+            get {
+                return ((string)(this["QuanLySV24ConnectionString_InDangKI"]));
+            }
+        }
     }
 }

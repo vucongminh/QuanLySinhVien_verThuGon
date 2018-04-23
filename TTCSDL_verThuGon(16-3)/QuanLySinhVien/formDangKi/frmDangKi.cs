@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLySinhVien.formDangKi;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,7 @@ namespace QuanLySinhVien
         {
             InitializeComponent();
             btnIn.BackColor = Color.Gray;
+            btnIn.Enabled = false;
 
         }
 
@@ -30,11 +32,20 @@ namespace QuanLySinhVien
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT distinct  h.MaHP,h.TenHP,h.SoTC,l.MaLHP,l.DiaDiemTCHP FROM LOPHOCPHAN as l,HOCPHAN as h,BANGDIEM as b where l.MaHP=h.MaHP and l.MaLHP not in (select MaLHP from bangdiem where MaSV='SV0001') and l.MaLHP not in (select MaLHP from DANGKI where MaSV='SV0001') order by h.TenHP";
+            cmd.CommandText = "SELECT distinct  h.MaHP,h.TenHP,h.SoTC,l.MaLHP,l.DiaDiemTCHP FROM LOPHOCPHAN as l,HOCPHAN as h,BANGDIEM as b where l.MaHP=h.MaHP and  l.MaLHP not in (select MaLHP from bangdiem where MaSV='"+username+"') and l.MaLHP not in (select MaLHP from DANGKI where MaSV='"+username+"') order by h.TenHP";
             SqlDataReader rd;
             rd = cmd.ExecuteReader();
             DataTable td = new DataTable();
             td.Load(rd);
+
+            SqlCommand cmd1 = new SqlCommand();
+            cmd1.Connection = con;
+            cmd1.CommandText = "SELECT TenSV,MaLop from SINHVIEN where MaSv='" + username + "'";
+            SqlDataReader rd1;
+            rd1 = cmd1.ExecuteReader();
+            DataTable td1 = new DataTable();
+            td1.Load(rd1);
+
             con.Close();
             gv1.DataSource = td;
             DataGridViewCheckBoxColumn checkcolumn1 = new DataGridViewCheckBoxColumn();
@@ -49,6 +60,11 @@ namespace QuanLySinhVien
             gv2.Columns.Add("SoTC", "Số TC");
             gv2.Columns.Add("MaLHP", "Mã Lớp Học Phần");
             gv2.Columns.Add("DiaDiem", "Địa Điểm");
+
+            
+            lblTen.Text = td1.Rows[0][0].ToString();
+            lblLop.Text = td1.Rows[0][1].ToString();
+            lblMa.Text = username;
 
             foreach (DataGridViewRow item in gv1.Rows)
             {
@@ -107,7 +123,8 @@ namespace QuanLySinhVien
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-
+            frmInDangKi frm = new frmInDangKi();
+            frm.Show();
         }
 
         private void btnGhiNhan_Click(object sender, EventArgs e)
