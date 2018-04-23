@@ -257,5 +257,11 @@ namespace QuanLySinhVien
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void inBảngĐiểmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formBaoCao.frmBaoCaoBangDiem frm = new formBaoCao.frmBaoCaoBangDiem();
+            frm.Show();
+        }
     }
 }
