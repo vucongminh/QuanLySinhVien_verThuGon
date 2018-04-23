@@ -52,6 +52,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -61,6 +62,23 @@
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Microsoft.ReportViewer.WinForms.dll</HintPath>
+=======
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+>>>>>>> edaf89aaa8e1716f79ac0c779e408d54906a6745
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -90,6 +108,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="formBaoCao\DataSetBangDiem.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,12 +125,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InBangDiem.rpt</DependentUpon>
       <SubType>Component</SubType>
+=======
+    <Compile Include="DataSetInDangKi1.cs">
+      <DependentUpon>DataSetInDangKi1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetInDangKi1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetInDangKi1.xsd</DependentUpon>
+>>>>>>> edaf89aaa8e1716f79ac0c779e408d54906a6745
     </Compile>
     <Compile Include="formDangKi\frmDangKi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formDangKi\frmDangKi.Designer.cs">
       <DependentUpon>frmDangKi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formDangKi\frmInDangKi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formDangKi\frmInDangKi.Designer.cs">
+      <DependentUpon>frmInDangKi.cs</DependentUpon>
     </Compile>
     <Compile Include="formGiaoVien\frmDSGiaoVien.cs">
       <SubType>Form</SubType>
@@ -344,6 +378,10 @@
     <EmbeddedResource Include="formDangKi\frmDangKi.resx">
       <DependentUpon>frmDangKi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formDangKi\frmInDangKi.resx">
+      <DependentUpon>frmInDangKi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formDangKi\ReportInDangKi.rdlc" />
     <EmbeddedResource Include="formGiaoVien\frmDSGiaoVien.resx">
       <DependentUpon>frmDSGiaoVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -485,6 +523,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+<<<<<<< HEAD
     <None Include="formBaoCao\DataSetBangDiem.xsc">
       <DependentUpon>DataSetBangDiem.xsd</DependentUpon>
     </None>
@@ -495,6 +534,18 @@
     </None>
     <None Include="formBaoCao\DataSetBangDiem.xss">
       <DependentUpon>DataSetBangDiem.xsd</DependentUpon>
+=======
+    <None Include="DataSetInDangKi1.xsc">
+      <DependentUpon>DataSetInDangKi1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetInDangKi1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetInDangKi1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetInDangKi1.xss">
+      <DependentUpon>DataSetInDangKi1.xsd</DependentUpon>
+>>>>>>> edaf89aaa8e1716f79ac0c779e408d54906a6745
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

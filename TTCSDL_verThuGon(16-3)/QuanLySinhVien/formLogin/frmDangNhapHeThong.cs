@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLySinhVien.formDangKi;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,6 +54,9 @@ namespace QuanLySinhVien
 
                 frmKetQuaHocTap.username = txtTenDangNhap.Text;
                 frmKetQuaHocTap.pass = txtMatKhau.Text;
+
+                frmDangKi.username = txtTenDangNhap.Text;
+                frmInDangKi.username = txtTenDangNhap.Text;
 
                 frmChiTietSinhVien.username = txtTenDangNhap.Text;
                 frmChiTietSinhVien.pass = txtMatKhau.Text;
