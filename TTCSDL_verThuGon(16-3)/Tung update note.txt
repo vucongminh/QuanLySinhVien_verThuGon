@@ -1,0 +1,16 @@
+- form 1
+- resource form1
+- Cac phan lien quan den Lop Va BoMon
+_ proc insert (them) cho Lop va BoMon
+- mon hoc (hocphan) va lophocphan
+
+
+moi nhat
+- tim kiem lop
+- form main phan quyen
+- frmdangnhapadmin, danghaphethong
+
+-- moi nhat 2
+- formGiaoVien
+- formMain
+- fotmLogin - frmDangNhapHeThong.cs
