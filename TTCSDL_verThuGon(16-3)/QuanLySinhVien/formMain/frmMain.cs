@@ -254,8 +254,8 @@ namespace QuanLySinhVien
 
         private void inBảngĐiểmToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formMain.frmBaoCaoBangDiem frm = new formMain.frmBaoCaoBangDiem();
-            frm.Show();
+            //formMain.frmBaoCaoBangDiem frm = new formMain.frmBaoCaoBangDiem();
+            //frm.Show();
         }
     }
 }
