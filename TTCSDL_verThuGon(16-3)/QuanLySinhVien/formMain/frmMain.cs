@@ -112,8 +112,8 @@ namespace QuanLySinhVien
            
             tìmKiếmLớpToolStripMenuItem.Enabled = true;
             báoCáoToolStripMenuItem.Enabled = true;
-            inBảngĐiểmToolStripMenuItem.Enabled = true;
-            inBảnĐăngKýToolStripMenuItem.Enabled = true;
+            inBảngĐiểmToolStripMenuItem.Enabled = false;
+            inBảnĐăngKýToolStripMenuItem.Enabled = false;
             saoLưuDữLiệuToolStripMenuItem.Enabled = true;
             phụcHồiDữLiệuToolStripMenuItem.Enabled = true;
             đăngKýToolStripMenuItem.Enabled = false;
@@ -160,6 +160,7 @@ namespace QuanLySinhVien
             tìmKiếmLớpToolStripMenuItem.Enabled = false; 
             báoCáoToolStripMenuItem.Enabled = false;
             đăngKýToolStripMenuItem.Enabled = false;
+            giáoViênToolStripMenuItem.Enabled = false;
             //thôngTinToolStripMenuItem.Enabled = false;
             //tìmKiếmToolStripMenuItem.Enabled = false;
             //trợGiúpToolStripMenuItem1.Enabled = false;
