@@ -200,7 +200,7 @@ namespace QuanLySinhVien
             }
             catch (Exception)
             {
-                MessageBox.Show("Hay Chon Sinh Vien Muon Sua !", "Thong Bao");
+                MessageBox.Show("Hãy Chọn Lớp Muốn Xóa !", "Thong Bao");
             }
         }
 

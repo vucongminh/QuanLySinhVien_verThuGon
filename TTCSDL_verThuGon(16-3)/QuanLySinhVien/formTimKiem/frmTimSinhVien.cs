@@ -119,8 +119,8 @@ namespace QuanLySinhVien
             SqlCommand command;
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataSet ds = new DataSet();
-            //connetionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLySV24;Integrated Security=True";
             connetionString = KetNoi.str;
+            //connetionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLySV24;Integrated Security=True";
             string sql = "Select TenSV from SINHVIEN ";
 
             connection = new SqlConnection(connetionString);
@@ -151,10 +151,8 @@ namespace QuanLySinhVien
             SqlCommand command;
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataSet ds = new DataSet();
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = KetNoi.str;
-            //connetionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLySV24;Integrated Security=True";
             connetionString = KetNoi.str;
+            //connetionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLySV24;Integrated Security=True";
             string sql = "Select distinct MaSV from SINHVIEN  ";
 
             connection = new SqlConnection(connetionString);

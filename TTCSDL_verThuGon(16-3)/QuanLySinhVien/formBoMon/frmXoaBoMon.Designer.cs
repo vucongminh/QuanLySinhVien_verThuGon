@@ -49,7 +49,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(238, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "THÔNG TIN BO MON CẦN XOÁ";
+            this.label1.Text = "THÔNG TIN BỘ MÔN CẦN XOÁ";
             // 
             // groupBox1
             // 
@@ -92,9 +92,9 @@
             this.label3.ForeColor = System.Drawing.Color.Blue;
             this.label3.Location = new System.Drawing.Point(6, 49);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 19);
+            this.label3.Size = new System.Drawing.Size(99, 19);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Tên Khoa:";
+            this.label3.Text = "Tên Bộ Môn:";
             // 
             // label2
             // 
@@ -103,9 +103,9 @@
             this.label2.ForeColor = System.Drawing.Color.Blue;
             this.label2.Location = new System.Drawing.Point(6, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 19);
+            this.label2.Size = new System.Drawing.Size(97, 19);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Mã Khoa:";
+            this.label2.Text = "Mã Bộ Môn:";
             // 
             // btnXoa
             // 

@@ -17,6 +17,38 @@ namespace QuanLySinhVien
             InitializeComponent();
         }
 
+        private void frmThemLopHocPhan_Load(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = KetNoi.str;
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "Select MaHP from HOCPHAN ";
+            SqlDataReader rd;
+            rd = cmd.ExecuteReader();
+            DataTable td = new DataTable();
+            td.Load(rd);
+            for (int i = 0; i < td.Rows.Count; i++)
+            {
+                this.cbbMaHP.Items.Add(td.Rows[i][0]);
+            }
+
+            SqlCommand cmd1 = new SqlCommand();
+            cmd1.Connection = con;
+            cmd1.CommandText = "Select MaGV from GIAOVIEN ";
+            SqlDataReader rd1;
+            rd1 = cmd1.ExecuteReader();
+            DataTable td1 = new DataTable();
+            td1.Load(rd1);
+            for (int i = 0; i < td1.Rows.Count; i++)
+            {
+                this.cbbMaGV.Items.Add(td1.Rows[i][0]);
+            }
+
+            con.Close();
+        }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             try
@@ -32,8 +64,8 @@ namespace QuanLySinhVien
                 cmd.CommandText = "InsertDataIntoLopHocPhan";
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("MaLHP", txtMaLHP.Text);
-                cmd.Parameters.AddWithValue("MaHP", txtMaHP.Text);
-                cmd.Parameters.AddWithValue("MaGV", txtMaGV.Text);
+                cmd.Parameters.AddWithValue("MaHP", cbbMaHP.Text);
+                cmd.Parameters.AddWithValue("MaGV", cbbMaGV.Text);
                 cmd.Parameters.AddWithValue("DiaDiemTCHP", txtDiaDiem.Text);
                 cmd.Parameters.AddWithValue("SoTC", txtSoTC.Text);
 
@@ -49,7 +81,28 @@ namespace QuanLySinhVien
             }
             catch (Exception)
             {
-                MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = KetNoi.str;
+                con.Open();
+                SqlCommand cmd2 = new SqlCommand();
+                cmd2.Connection = con;
+                cmd2.CommandText = "Select * from LOPHOCPHAN where MaLHP='" + txtMaLHP.Text + "'";
+                SqlDataReader rd2;
+                rd2 = cmd2.ExecuteReader();
+                DataTable td2 = new DataTable();
+                td2.Load(rd2);
+                if (td2.Rows.Count != 0)
+                {
+                    MessageBox.Show("Mã Lớp Học Phần Bị Trùng Nhé", "Thông Báo");
+                }
+                else if (txtMaLHP.Text.Length != 6)
+                {
+                    MessageBox.Show("Mã Lớp Học Phần 6 Ký Tự Nhé", "Thông Báo");
+                }
+                else
+                {
+                    MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
+                }
             }
         }
 
@@ -61,9 +114,6 @@ namespace QuanLySinhVien
             frm.Show();
         }
 
-        private void frmThemLopHocPhan_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

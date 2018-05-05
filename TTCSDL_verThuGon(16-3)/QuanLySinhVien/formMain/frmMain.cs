@@ -8,9 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
-using QuanLySinhVien.formBaoCao;
-using QuanLySinhVien.formDangKi;
-
 namespace QuanLySinhVien
 {
     public partial class frmMain : Form
@@ -26,14 +23,14 @@ namespace QuanLySinhVien
         private void sinhViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmChonLop frm2 = new frmChonLop();
-            frm2.MdiParent = this;
+            //frm2.MdiParent = this;
             frm2.Show();
         }
 
         private void khoaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDSBoMon frm = new frmDSBoMon();
-            frm.MdiParent = this;
+            //frm.MdiParent = this;
             frm.Show();
         }
 
@@ -46,7 +43,7 @@ namespace QuanLySinhVien
         {
            
             frmDSLop frm = new frmDSLop();
-            frm.MdiParent = this;
+            //frm.MdiParent = this;
             frm.Show();
         }
 
@@ -58,14 +55,14 @@ namespace QuanLySinhVien
         private void họcPhầnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDSHocPhan frm = new frmDSHocPhan();
-            frm.MdiParent = this;
+           // frm.MdiParent = this;
             frm.Show();
         }
 
         private void lớpHọcPhầnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDSLopHocPhan frm = new frmDSLopHocPhan();
-            frm.MdiParent = this;
+            //frm.MdiParent = this;
             frm.Show();
         }
 
@@ -77,14 +74,14 @@ namespace QuanLySinhVien
         private void quảnLýNgườiDùngToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             frmDangNhapAdmin frm = new frmDangNhapAdmin();
-            frm.MdiParent = this;
+            //frm.MdiParent = this;
             frm.Show();
         }
 
         private void tìmKiếmSinhViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmTimSinhVien frm = new frmTimSinhVien();
-            frm.MdiParent = this;
+            //frm.MdiParent = this;
             frm.Show();
         }
 
@@ -109,14 +106,14 @@ namespace QuanLySinhVien
             quảnLýNgườiDùngToolStripMenuItem.Enabled = true;
             saoLưuDữLiệuToolStripMenuItem.Enabled = true;
             phụcHồiDữLiệuToolStripMenuItem.Enabled = true;
-           
+            đăngKýToolStripMenuItem.Enabled = true;
             tìmKiếmLớpToolStripMenuItem.Enabled = true;
             báoCáoToolStripMenuItem.Enabled = true;
-            inBảngĐiểmToolStripMenuItem.Enabled = false;
-            inBảnĐăngKýToolStripMenuItem.Enabled = false;
+            inBảngĐiểmToolStripMenuItem.Enabled = true;
+            inBảnĐăngKýToolStripMenuItem.Enabled = true;
             saoLưuDữLiệuToolStripMenuItem.Enabled = true;
             phụcHồiDữLiệuToolStripMenuItem.Enabled = true;
-            đăngKýToolStripMenuItem.Enabled = false;
+            đăngKýToolStripMenuItem.Enabled = true;
             giáoViênToolStripMenuItem.Enabled = true;
         }
         public void MenuForOnlyRead()
@@ -136,7 +133,7 @@ namespace QuanLySinhVien
             báoCáoToolStripMenuItem.Enabled = true;
             inBảngĐiểmToolStripMenuItem.Enabled = true;
             inBảnĐăngKýToolStripMenuItem.Enabled = true;
-         
+            đăngKýToolStripMenuItem.Enabled = true;
             giáoViênToolStripMenuItem.Enabled = true;
 
 
@@ -160,7 +157,6 @@ namespace QuanLySinhVien
             tìmKiếmLớpToolStripMenuItem.Enabled = false; 
             báoCáoToolStripMenuItem.Enabled = false;
             đăngKýToolStripMenuItem.Enabled = false;
-            giáoViênToolStripMenuItem.Enabled = false;
             //thôngTinToolStripMenuItem.Enabled = false;
             //tìmKiếmToolStripMenuItem.Enabled = false;
             //trợGiúpToolStripMenuItem1.Enabled = false;
@@ -246,7 +242,7 @@ namespace QuanLySinhVien
         private void tìmKiếmLớpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmTimLop frm = new frmTimLop();
-            frm.MdiParent = this;
+            //frm.MdiParent = this;
             frm.Show();
         }
 
@@ -258,19 +254,7 @@ namespace QuanLySinhVien
         private void giáoViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDSGiaoVien frm = new frmDSGiaoVien();
-            frm.MdiParent = this;
-            frm.Show();
-        }
-
-        private void inBảngĐiểmToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmInBangDiem frm = new frmInBangDiem();
-            frm.Show();
-        }
-
-        private void inBảnĐăngKýToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmInDangKi frm = new frmInDangKi();
+            //frm.MdiParent = this;
             frm.Show();
         }
     }

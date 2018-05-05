@@ -32,8 +32,8 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnThemLop = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbbMaBM = new System.Windows.Forms.ComboBox();
             this.txtSdtGV = new System.Windows.Forms.TextBox();
-            this.txtMaBM = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,6 +41,7 @@
             this.txtTenGV = new System.Windows.Forms.TextBox();
             this.txtMaGV = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             this.btnThoat.ForeColor = System.Drawing.Color.Red;
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(290, 253);
+            this.btnThoat.Location = new System.Drawing.Point(294, 249);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 26);
             this.btnThoat.TabIndex = 9;
@@ -67,10 +68,10 @@
             this.btnThemLop.ForeColor = System.Drawing.Color.Blue;
             this.btnThemLop.Image = ((System.Drawing.Image)(resources.GetObject("btnThemLop.Image")));
             this.btnThemLop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThemLop.Location = new System.Drawing.Point(209, 253);
+            this.btnThemLop.Location = new System.Drawing.Point(213, 249);
             this.btnThemLop.Name = "btnThemLop";
             this.btnThemLop.Size = new System.Drawing.Size(75, 26);
-            this.btnThemLop.TabIndex = 8;
+            this.btnThemLop.TabIndex = 5;
             this.btnThemLop.Text = "Thêm";
             this.btnThemLop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThemLop.UseVisualStyleBackColor = false;
@@ -78,8 +79,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.cbbMaBM);
             this.groupBox1.Controls.Add(this.txtSdtGV);
-            this.groupBox1.Controls.Add(this.txtMaBM);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -88,27 +90,27 @@
             this.groupBox1.Controls.Add(this.txtMaGV);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(356, 220);
-            this.groupBox1.TabIndex = 7;
+            this.groupBox1.Size = new System.Drawing.Size(356, 216);
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // cbbMaBM
+            // 
+            this.cbbMaBM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbbMaBM.FormattingEnabled = true;
+            this.cbbMaBM.Location = new System.Drawing.Point(153, 167);
+            this.cbbMaBM.Name = "cbbMaBM";
+            this.cbbMaBM.Size = new System.Drawing.Size(179, 21);
+            this.cbbMaBM.TabIndex = 4;
             // 
             // txtSdtGV
             // 
             this.txtSdtGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txtSdtGV.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSdtGV.Location = new System.Drawing.Point(155, 119);
+            this.txtSdtGV.Location = new System.Drawing.Point(153, 120);
             this.txtSdtGV.Name = "txtSdtGV";
             this.txtSdtGV.Size = new System.Drawing.Size(179, 22);
-            this.txtSdtGV.TabIndex = 2;
-            // 
-            // txtMaBM
-            // 
-            this.txtMaBM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txtMaBM.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaBM.Location = new System.Drawing.Point(155, 170);
-            this.txtMaBM.Name = "txtMaBM";
-            this.txtMaBM.Size = new System.Drawing.Size(179, 22);
-            this.txtMaBM.TabIndex = 3;
+            this.txtSdtGV.TabIndex = 3;
             // 
             // label5
             // 
@@ -126,7 +128,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(6, 119);
+            this.label4.Location = new System.Drawing.Point(6, 122);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 19);
             this.label4.TabIndex = 2;
@@ -137,7 +139,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(6, 72);
+            this.label3.Location = new System.Drawing.Point(6, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 19);
             this.label3.TabIndex = 1;
@@ -157,19 +159,19 @@
             // txtTenGV
             // 
             this.txtTenGV.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenGV.Location = new System.Drawing.Point(155, 72);
+            this.txtTenGV.Location = new System.Drawing.Point(153, 73);
             this.txtTenGV.Name = "txtTenGV";
             this.txtTenGV.Size = new System.Drawing.Size(179, 22);
-            this.txtTenGV.TabIndex = 1;
+            this.txtTenGV.TabIndex = 2;
             // 
             // txtMaGV
             // 
             this.txtMaGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txtMaGV.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaGV.Location = new System.Drawing.Point(155, 26);
+            this.txtMaGV.Location = new System.Drawing.Point(153, 26);
             this.txtMaGV.Name = "txtMaGV";
             this.txtMaGV.Size = new System.Drawing.Size(179, 22);
-            this.txtMaGV.TabIndex = 0;
+            this.txtMaGV.TabIndex = 1;
             // 
             // label1
             // 
@@ -182,12 +184,24 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Thêm Giáo Viên";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label6.Location = new System.Drawing.Point(150, 51);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Ví Dụ : GV0001";
+            // 
             // frmThemGV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(375, 285);
+            this.ClientSize = new System.Drawing.Size(381, 286);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnThemLop);
             this.Controls.Add(this.groupBox1);
@@ -196,6 +210,7 @@
             this.Name = "frmThemGV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm Giáo Viên";
+            this.Load += new System.EventHandler(this.frmThemGV_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -209,7 +224,6 @@
         private System.Windows.Forms.Button btnThemLop;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtSdtGV;
-        private System.Windows.Forms.TextBox txtMaBM;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -217,5 +231,7 @@
         private System.Windows.Forms.TextBox txtTenGV;
         private System.Windows.Forms.TextBox txtMaGV;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbbMaBM;
+        private System.Windows.Forms.Label label6;
     }
 }

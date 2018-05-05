@@ -275,7 +275,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ColumnHeader MaKhoa;
         private System.Windows.Forms.ColumnHeader TenKhoa;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnXoa;
@@ -288,5 +287,6 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.TextBox txtTuKhoa;
+        public System.Windows.Forms.ColumnHeader MaKhoa;
     }
 }

@@ -85,7 +85,7 @@ namespace QuanLySinhVien
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataSet ds = new DataSet();
             connetionString = KetNoi.str;
-            //connetionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLySV24;Integrated Security=True";
+           // connetionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLySV24;Integrated Security=True";
             string sql = "Select TenGV from GIAOVIEN";
 
             connection = new SqlConnection(connetionString);

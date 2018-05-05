@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSuaLop));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtMaLT = new System.Windows.Forms.TextBox();
-            this.txtMaGVCN = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,6 +39,9 @@
             this.txtMaLop = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.cbbMaGVCN = new System.Windows.Forms.ComboBox();
+            this.cbbMaLT = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,8 +58,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtMaLT);
-            this.groupBox1.Controls.Add(this.txtMaGVCN);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.cbbMaGVCN);
+            this.groupBox1.Controls.Add(this.cbbMaLT);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
@@ -70,24 +72,6 @@
             this.groupBox1.Size = new System.Drawing.Size(361, 204);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            // 
-            // txtMaLT
-            // 
-            this.txtMaLT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txtMaLT.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaLT.Location = new System.Drawing.Point(155, 109);
-            this.txtMaLT.Name = "txtMaLT";
-            this.txtMaLT.Size = new System.Drawing.Size(179, 22);
-            this.txtMaLT.TabIndex = 9;
-            // 
-            // txtMaGVCN
-            // 
-            this.txtMaGVCN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txtMaGVCN.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaGVCN.Location = new System.Drawing.Point(155, 151);
-            this.txtMaGVCN.Name = "txtMaGVCN";
-            this.txtMaGVCN.Size = new System.Drawing.Size(179, 22);
-            this.txtMaGVCN.TabIndex = 8;
             // 
             // label5
             // 
@@ -145,10 +129,10 @@
             // 
             this.txtMaLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txtMaLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaLop.ForeColor = System.Drawing.Color.Red;
+            this.txtMaLop.ForeColor = System.Drawing.Color.Black;
             this.txtMaLop.Location = new System.Drawing.Point(155, 19);
             this.txtMaLop.Name = "txtMaLop";
-            this.txtMaLop.ReadOnly = true;
+            this.txtMaLop.ReadOnly = false;
             this.txtMaLop.Size = new System.Drawing.Size(179, 22);
             this.txtMaLop.TabIndex = 0;
             // 
@@ -183,6 +167,36 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // cbbMaGVCN
+            // 
+            this.cbbMaGVCN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbbMaGVCN.FormattingEnabled = true;
+            this.cbbMaGVCN.Location = new System.Drawing.Point(155, 161);
+            this.cbbMaGVCN.Name = "cbbMaGVCN";
+            this.cbbMaGVCN.Size = new System.Drawing.Size(179, 21);
+            this.cbbMaGVCN.TabIndex = 9;
+            // 
+            // cbbMaLT
+            // 
+            this.cbbMaLT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbbMaLT.FormattingEnabled = true;
+            this.cbbMaLT.Location = new System.Drawing.Point(155, 110);
+            this.cbbMaLT.Name = "cbbMaLT";
+            this.cbbMaLT.Size = new System.Drawing.Size(179, 21);
+            this.cbbMaLT.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label6.Location = new System.Drawing.Point(152, 44);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Ví Dụ : MMT14";
+            // 
             // frmSuaLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -215,9 +229,10 @@
         private System.Windows.Forms.TextBox txtTenLop;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox txtMaLT;
-        private System.Windows.Forms.TextBox txtMaGVCN;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbbMaGVCN;
+        private System.Windows.Forms.ComboBox cbbMaLT;
+        private System.Windows.Forms.Label label6;
     }
 }

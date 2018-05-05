@@ -32,7 +32,6 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtSdtGV = new System.Windows.Forms.TextBox();
-            this.txtMaBM = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@
             this.txtMaGV = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSua = new System.Windows.Forms.Button();
+            this.cbbMaBM = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,8 +62,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbbMaBM);
             this.groupBox1.Controls.Add(this.txtSdtGV);
-            this.groupBox1.Controls.Add(this.txtMaBM);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -85,15 +85,6 @@
             this.txtSdtGV.Name = "txtSdtGV";
             this.txtSdtGV.Size = new System.Drawing.Size(179, 22);
             this.txtSdtGV.TabIndex = 2;
-            // 
-            // txtMaBM
-            // 
-            this.txtMaBM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txtMaBM.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaBM.Location = new System.Drawing.Point(155, 170);
-            this.txtMaBM.Name = "txtMaBM";
-            this.txtMaBM.Size = new System.Drawing.Size(179, 22);
-            this.txtMaBM.TabIndex = 3;
             // 
             // label5
             // 
@@ -182,6 +173,15 @@
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.button1_Click);
             // 
+            // cbbMaBM
+            // 
+            this.cbbMaBM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbbMaBM.FormattingEnabled = true;
+            this.cbbMaBM.Location = new System.Drawing.Point(155, 168);
+            this.cbbMaBM.Name = "cbbMaBM";
+            this.cbbMaBM.Size = new System.Drawing.Size(179, 21);
+            this.cbbMaBM.TabIndex = 5;
+            // 
             // frmSuaGV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,7 +209,6 @@
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtSdtGV;
-        private System.Windows.Forms.TextBox txtMaBM;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -218,5 +217,6 @@
         private System.Windows.Forms.TextBox txtMaGV;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.ComboBox cbbMaBM;
     }
 }

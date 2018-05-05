@@ -55,6 +55,23 @@ drop proc InsertDataIntoLopHocPhan
 
 
 
-Select distinct MaSV,TenSV,TenLop,TenGV
-from SINHVIEN,GIAOVIEN,LOP
-where SINHVIEN.MaLop = LOP.MaLop and LOP.MaGVCN = GIAOVIEN.MaGV
+
+
+
+Select MaSV
+from SINHVIEN
+where MaSV not in (
+      select MaLopTruong
+	  from LOP
+	  where MaLopTruong=SINHVIEN.MaSV)
+
+
+
+Select MaGV
+from GIAOVIEN
+where MaGV not in (
+      select MaGVCN
+	  from LOP
+	  where MaGVCN=GIAOVIEN.MaGV)
+
+	  Select MaGV from GIAOVIEN where MaGV not in ( select MaChuNhiemBM from BOMON where MaChuNhiemBM = GIAOVIEN.MaGV)

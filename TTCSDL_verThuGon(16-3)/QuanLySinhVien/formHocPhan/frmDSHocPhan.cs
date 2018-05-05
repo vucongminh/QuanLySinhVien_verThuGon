@@ -168,12 +168,19 @@ namespace QuanLySinhVien
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string str;
-            int row = this.listView1.SelectedItems[0].Index;
-            str = this.listView1.Items[row].SubItems[0].Text;
-            this.Close();
-            frmSuaHocPhan frm = new frmSuaHocPhan(str);
-            frm.Show();
+            try
+            {
+                string str;
+                int row = this.listView1.SelectedItems[0].Index;
+                str = this.listView1.Items[row].SubItems[0].Text;
+                this.Close();
+                frmSuaHocPhan frm = new frmSuaHocPhan(str);
+                frm.Show();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hãy Chọn Học Phần Muốn Sửa !", "Thông Báo");
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

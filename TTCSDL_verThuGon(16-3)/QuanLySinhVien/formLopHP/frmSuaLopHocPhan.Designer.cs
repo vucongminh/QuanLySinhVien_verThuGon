@@ -38,11 +38,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtMaGV = new System.Windows.Forms.TextBox();
             this.txtSoTC = new System.Windows.Forms.TextBox();
-            this.txtMaHP = new System.Windows.Forms.TextBox();
             this.txtMaLHP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbbMaGV = new System.Windows.Forms.ComboBox();
+            this.cbbMaHP = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,15 +78,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbbMaGV);
+            this.groupBox1.Controls.Add(this.cbbMaHP);
             this.groupBox1.Controls.Add(this.txtDiaDiem);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtMaGV);
             this.groupBox1.Controls.Add(this.txtSoTC);
-            this.groupBox1.Controls.Add(this.txtMaHP);
             this.groupBox1.Controls.Add(this.txtMaLHP);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
@@ -97,7 +97,7 @@
             // 
             // txtDiaDiem
             // 
-            this.txtDiaDiem.Location = new System.Drawing.Point(148, 139);
+            this.txtDiaDiem.Location = new System.Drawing.Point(148, 141);
             this.txtDiaDiem.Name = "txtDiaDiem";
             this.txtDiaDiem.Size = new System.Drawing.Size(154, 20);
             this.txtDiaDiem.TabIndex = 3;
@@ -158,28 +158,12 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Mã Lớp Học Phần:";
             // 
-            // txtMaGV
-            // 
-            this.txtMaGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txtMaGV.Location = new System.Drawing.Point(148, 104);
-            this.txtMaGV.Name = "txtMaGV";
-            this.txtMaGV.Size = new System.Drawing.Size(154, 20);
-            this.txtMaGV.TabIndex = 2;
-            // 
             // txtSoTC
             // 
-            this.txtSoTC.Location = new System.Drawing.Point(148, 176);
+            this.txtSoTC.Location = new System.Drawing.Point(148, 178);
             this.txtSoTC.Name = "txtSoTC";
             this.txtSoTC.Size = new System.Drawing.Size(154, 20);
             this.txtSoTC.TabIndex = 4;
-            // 
-            // txtMaHP
-            // 
-            this.txtMaHP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txtMaHP.Location = new System.Drawing.Point(148, 67);
-            this.txtMaHP.Name = "txtMaHP";
-            this.txtMaHP.Size = new System.Drawing.Size(154, 20);
-            this.txtMaHP.TabIndex = 1;
             // 
             // txtMaLHP
             // 
@@ -200,6 +184,25 @@
             this.label1.Size = new System.Drawing.Size(162, 19);
             this.label1.TabIndex = 9;
             this.label1.Text = "SỬA LỚP HỌC PHẦN";
+            // 
+            // cbbMaGV
+            // 
+            this.cbbMaGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbbMaGV.FormattingEnabled = true;
+            this.cbbMaGV.Location = new System.Drawing.Point(148, 104);
+            this.cbbMaGV.Name = "cbbMaGV";
+            this.cbbMaGV.Size = new System.Drawing.Size(154, 21);
+            this.cbbMaGV.TabIndex = 8;
+            // 
+            // cbbMaHP
+            // 
+            this.cbbMaHP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbbMaHP.ForeColor = System.Drawing.Color.Black;
+            this.cbbMaHP.FormattingEnabled = true;
+            this.cbbMaHP.Location = new System.Drawing.Point(148, 67);
+            this.cbbMaHP.Name = "cbbMaHP";
+            this.cbbMaHP.Size = new System.Drawing.Size(154, 21);
+            this.cbbMaHP.TabIndex = 7;
             // 
             // frmSuaLopHocPhan
             // 
@@ -234,10 +237,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtMaGV;
         private System.Windows.Forms.TextBox txtSoTC;
-        private System.Windows.Forms.TextBox txtMaHP;
         private System.Windows.Forms.TextBox txtMaLHP;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbbMaGV;
+        private System.Windows.Forms.ComboBox cbbMaHP;
     }
 }

@@ -32,13 +32,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtMaCNBM = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTenKhoa = new System.Windows.Forms.TextBox();
             this.txtMaKhoa = new System.Windows.Forms.TextBox();
             this.btnSuaKhoa = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.cbbMaCNBM = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,8 +55,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbbMaCNBM);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtMaCNBM);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtTenKhoa);
@@ -77,15 +77,6 @@
             this.label4.Size = new System.Drawing.Size(171, 17);
             this.label4.TabIndex = 7;
             this.label4.Text = "Mã Chủ Nhiệm Bộ Môn:";
-            // 
-            // txtMaCNBM
-            // 
-            this.txtMaCNBM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txtMaCNBM.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaCNBM.Location = new System.Drawing.Point(181, 89);
-            this.txtMaCNBM.Name = "txtMaCNBM";
-            this.txtMaCNBM.Size = new System.Drawing.Size(204, 21);
-            this.txtMaCNBM.TabIndex = 6;
             // 
             // label3
             // 
@@ -115,18 +106,17 @@
             this.txtTenKhoa.Location = new System.Drawing.Point(181, 53);
             this.txtTenKhoa.Name = "txtTenKhoa";
             this.txtTenKhoa.Size = new System.Drawing.Size(204, 22);
-            this.txtTenKhoa.TabIndex = 0;
+            this.txtTenKhoa.TabIndex = 1;
             // 
             // txtMaKhoa
             // 
             this.txtMaKhoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txtMaKhoa.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaKhoa.ForeColor = System.Drawing.Color.Red;
+            this.txtMaKhoa.ForeColor = System.Drawing.Color.Black;
             this.txtMaKhoa.Location = new System.Drawing.Point(181, 19);
             this.txtMaKhoa.Name = "txtMaKhoa";
-            this.txtMaKhoa.ReadOnly = true;
             this.txtMaKhoa.Size = new System.Drawing.Size(204, 22);
-            this.txtMaKhoa.TabIndex = 0;
+            this.txtMaKhoa.TabIndex = 1;
             // 
             // btnSuaKhoa
             // 
@@ -158,7 +148,16 @@
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // frmSuaKhoa
+            // cbbMaCNBM
+            // 
+            this.cbbMaCNBM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbbMaCNBM.FormattingEnabled = true;
+            this.cbbMaCNBM.Location = new System.Drawing.Point(181, 89);
+            this.cbbMaCNBM.Name = "cbbMaCNBM";
+            this.cbbMaCNBM.Size = new System.Drawing.Size(204, 21);
+            this.cbbMaCNBM.TabIndex = 8;
+            // 
+            // frmSuaBoMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -169,7 +168,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmSuaKhoa";
+            this.Name = "frmSuaBoMon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa Bộ Môn";
             this.Load += new System.EventHandler(this.frmSuaKhoa_Load);
@@ -191,6 +190,6 @@
         private System.Windows.Forms.Button btnSuaKhoa;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtMaCNBM;
+        private System.Windows.Forms.ComboBox cbbMaCNBM;
     }
 }

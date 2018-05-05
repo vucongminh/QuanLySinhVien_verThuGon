@@ -276,19 +276,19 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader TenLop;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnXoa;
         public System.Windows.Forms.ColumnHeader MaLop;
-        private System.Windows.Forms.ColumnHeader TenLopTruong;
-        private System.Windows.Forms.ColumnHeader TenGVCN;
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.TextBox txtTuKhoa;
+        public System.Windows.Forms.ColumnHeader TenLop;
+        public System.Windows.Forms.ColumnHeader TenLopTruong;
+        public System.Windows.Forms.ColumnHeader TenGVCN;
     }
 }

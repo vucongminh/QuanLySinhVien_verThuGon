@@ -32,7 +32,7 @@ namespace QuanLySinhVien
                
                 SoTrinh = Convert.ToInt16(txtSoTC.Text);
                 
-                cmd.CommandText = "UPDATE LOPHOCPHAN SET MaHP='" + txtMaHP.Text + "',MaGV='" + txtMaGV.Text + "',DiaDiemTCHP='" + txtDiaDiem.Text + "',SoTC=" + SoTrinh + "WHERE MaLHP='" + MaLopHocPhan + "'";
+                cmd.CommandText = "UPDATE LOPHOCPHAN SET MaHP='" + cbbMaHP.Text + "',MaGV='" + cbbMaGV.Text + "',DiaDiemTCHP='" + txtDiaDiem.Text + "',SoTC=" + SoTrinh + "WHERE MaLHP='" + MaLopHocPhan + "'";
                 DialogResult result;
                 result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
@@ -47,7 +47,14 @@ namespace QuanLySinhVien
             }
             catch (Exception)
             {
-                MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
+                if (txtMaLHP.Text.Length != 6)
+                {
+                    MessageBox.Show("Mã Lớp Học Phần 6 Ký Tự Nhé !", "Thông Báo");
+                }
+                else
+                {
+                    MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
+                }
             }
         }
 
@@ -64,11 +71,46 @@ namespace QuanLySinhVien
             DataTable td = new DataTable();
             td.Load(rd);
             this.txtMaLHP.Text = td.Rows[0][0].ToString();
-            this.txtMaHP.Text = td.Rows[0][1].ToString();
-            this.txtMaGV.Text = td.Rows[0][2].ToString();
+            this.cbbMaHP.Text = td.Rows[0][1].ToString();
+            this.cbbMaGV.Text = td.Rows[0][2].ToString();
             this.txtDiaDiem.Text = td.Rows[0][3].ToString();
             this.txtSoTC.Text = td.Rows[0][4].ToString();
             con.Close();
+
+
+            SqlConnection con1 = new SqlConnection();
+            con1.ConnectionString = KetNoi.str;
+            con1.Open();
+            SqlCommand cmd2 = new SqlCommand();
+            cmd2.Connection = con1;
+            cmd2.CommandText = "Select MaHP from HOCPHAN";
+            SqlDataReader rd2;
+            rd2 = cmd2.ExecuteReader();
+            DataTable td2 = new DataTable();
+            td2.Load(rd2);
+            for (int i = 0; i < td2.Rows.Count; i++)
+            {
+                this.cbbMaHP.Items.Add(td2.Rows[i][0]);
+            }
+
+            SqlConnection con2 = new SqlConnection();
+            con2.ConnectionString = KetNoi.str;
+            con2.Open();
+            SqlCommand cmd1 = new SqlCommand();
+            cmd1.Connection = con2;
+            cmd1.CommandText = "Select MaGV from GIAOVIEN";
+            SqlDataReader rd1;
+            rd1 = cmd1.ExecuteReader();
+            DataTable td1 = new DataTable();
+            td1.Load(rd1);
+            for (int i = 0; i < td1.Rows.Count; i++)
+            {
+                this.cbbMaGV.Items.Add(td1.Rows[i][0]);
+            }
+
+            con.Close();
+            con1.Close();
+            con2.Close();
         }
 
         private void txtMaLHP_TextChanged(object sender, EventArgs e)
