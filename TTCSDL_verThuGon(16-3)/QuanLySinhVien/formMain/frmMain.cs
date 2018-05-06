@@ -8,6 +8,9 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using QuanLySinhVien.formBaoCao;
+using QuanLySinhVien.formDangKi;
+
 namespace QuanLySinhVien
 {
     public partial class frmMain : Form
@@ -254,6 +257,20 @@ namespace QuanLySinhVien
         private void giáoViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDSGiaoVien frm = new frmDSGiaoVien();
+            //frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void inBảngĐiểmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInBangDiem frm = new frmInBangDiem();
+           // frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void inBảnĐăngKýToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInDangKi frm = new frmInDangKi();
             //frm.MdiParent = this;
             frm.Show();
         }

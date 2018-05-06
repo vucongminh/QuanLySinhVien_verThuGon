@@ -283,16 +283,18 @@
             this.inBảnĐăngKýToolStripMenuItem.Enabled = false;
             this.inBảnĐăngKýToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("inBảnĐăngKýToolStripMenuItem.Image")));
             this.inBảnĐăngKýToolStripMenuItem.Name = "inBảnĐăngKýToolStripMenuItem";
-            this.inBảnĐăngKýToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.inBảnĐăngKýToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.inBảnĐăngKýToolStripMenuItem.Text = "In Bản Đăng Ký";
+            this.inBảnĐăngKýToolStripMenuItem.Click += new System.EventHandler(this.inBảnĐăngKýToolStripMenuItem_Click);
             // 
             // inBảngĐiểmToolStripMenuItem
             // 
             this.inBảngĐiểmToolStripMenuItem.Enabled = false;
             this.inBảngĐiểmToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("inBảngĐiểmToolStripMenuItem.Image")));
             this.inBảngĐiểmToolStripMenuItem.Name = "inBảngĐiểmToolStripMenuItem";
-            this.inBảngĐiểmToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.inBảngĐiểmToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.inBảngĐiểmToolStripMenuItem.Text = "In Bảng Điểm ";
+            this.inBảngĐiểmToolStripMenuItem.Click += new System.EventHandler(this.inBảngĐiểmToolStripMenuItem_Click);
             // 
             // trợGiupToolStripMenuItem
             // 
