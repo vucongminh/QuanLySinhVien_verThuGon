@@ -48,7 +48,7 @@ namespace QuanLySinhVien
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "Select distinct LOP.MaLop,TenLop,MaSV,TenSV,MaGV,TenGV from SINHVIEN, GIAOVIEN, LOP where LOP.MaLopTruong=SINHVIEN.MaSV and SINHVIEN.MaLop = LOP.MaLop and LOP.MaGVCN = GIAOVIEN.MaGV";
+            cmd.CommandText = "Select distinct LOP.MaLop,TenLop,MaSV,TenSV,MaGV,TenGV from SINHVIEN, GIAOVIEN, LOP where LOP.MaLopTruong = SINHVIEN.MaSV  and LOP.MaGVCN = GIAOVIEN.MaGV";
             SqlDataReader rd;
             rd = cmd.ExecuteReader();
             DataTable td = new DataTable();
@@ -148,7 +148,7 @@ namespace QuanLySinhVien
 
                 if (KiemTra() == 1)
                 {
-                    cmd.CommandText = "Select distinct LOP.MaLop,TenLop,MaSV,TenSV,MaGV,TenGV from SINHVIEN, GIAOVIEN, LOP where LOP.MaLopTruong=SINHVIEN.MaSV and SINHVIEN.MaLop = LOP.MaLop and LOP.MaGVCN = GIAOVIEN.MaGV AND LOP.MaLop='" + txtTuKhoa.Text + "'";
+                    cmd.CommandText = "Select distinct LOP.MaLop,TenLop,MaSV,TenSV,MaGV,TenGV from SINHVIEN, GIAOVIEN, LOP where LOP.MaLopTruong = SINHVIEN.MaSV  and LOP.MaGVCN = GIAOVIEN.MaGV AND LOP.MaLop='" + txtTuKhoa.Text + "'";
                     SqlDataReader rd;
                     rd = cmd.ExecuteReader();
 
@@ -178,7 +178,7 @@ namespace QuanLySinhVien
                 }
                 else if (KiemTra() == 2)
                 {
-                    cmd.CommandText = "Select distinct LOP.MaLop,TenLop,MaSV,TenSV,MaGV,TenGV from SINHVIEN, GIAOVIEN, LOP where LOP.MaLopTruong=SINHVIEN.MaSV and SINHVIEN.MaLop = LOP.MaLop and LOP.MaGVCN = GIAOVIEN.MaGV and LOP.TenLop like N'%" + txtTuKhoa.Text + "%'";
+                    cmd.CommandText = "Select distinct LOP.MaLop,TenLop,MaSV,TenSV,MaGV,TenGV from SINHVIEN, GIAOVIEN, LOP where LOP.MaLopTruong = SINHVIEN.MaSV  and LOP.MaGVCN = GIAOVIEN.MaGV and LOP.TenLop like N'%" + txtTuKhoa.Text + "%'";
                     SqlDataReader rd;
                     rd = cmd.ExecuteReader();
 
