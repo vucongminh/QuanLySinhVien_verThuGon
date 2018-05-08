@@ -50,9 +50,9 @@
             // 
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(125, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(263, 39);
+            this.label1.Size = new System.Drawing.Size(263, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "DANH SÁCH NGƯỜI DÙNG";
             // 
@@ -142,7 +142,7 @@
             this.btnThoat.ForeColor = System.Drawing.Color.Red;
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(376, 236);
+            this.btnThoat.Location = new System.Drawing.Point(376, 213);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(105, 27);
             this.btnThoat.TabIndex = 2;
@@ -157,7 +157,7 @@
             this.btnTimKiem.ForeColor = System.Drawing.Color.Blue;
             this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
             this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTimKiem.Location = new System.Drawing.Point(218, 83);
+            this.btnTimKiem.Location = new System.Drawing.Point(219, 85);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(97, 28);
             this.btnTimKiem.TabIndex = 11;

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,13 +32,19 @@ namespace QuanLySinhVien
                 frmMain Main = (frmMain)this.MdiParent;
                 if (DangNhap.checkAdmin(txtTenDangNhap.Text, txtMatKhau.Text) == true)
                 {
-                   Main.EnableMenu(); }
+                   Main.EnableMenu();
+                   
+                }
                 else if (DangNhap.checkOnlyRead(txtTenDangNhap.Text, txtMatKhau.Text) == true)
                 {
                     Main.MenuForOnlyRead();
-                } else { Main.MenuForReadWrite(); }
-                                   
-                MessageBox.Show("Đăng Nhập Thành Công","Thông Báo");
+                   
+
+                }
+                else { Main.MenuForReadWrite();  
+                }
+
+                MessageBox.Show("Đăng Nhập Thành Công", "Thông Báo");
                 frmDSSV.username = txtTenDangNhap.Text;
                 frmDSSV.pass = txtMatKhau.Text;
 
@@ -62,6 +69,8 @@ namespace QuanLySinhVien
 
                 frmChiTietSinhVien.username = txtTenDangNhap.Text;
                 frmChiTietSinhVien.pass = txtMatKhau.Text;
+
+               
                 this.Close();
                 
             }

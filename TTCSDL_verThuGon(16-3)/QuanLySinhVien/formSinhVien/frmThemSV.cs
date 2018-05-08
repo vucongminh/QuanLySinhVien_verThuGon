@@ -17,6 +17,8 @@ namespace QuanLySinhVien
         {
             Lop_ID = ma;
             InitializeComponent();
+            mskNgaySinh.Mask = "00/00/0000";
+            mskNgaySinh.KeyUp += new KeyEventHandler(msDate_KeyUp);
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -49,41 +51,80 @@ namespace QuanLySinhVien
         private void button2_Click(object sender, EventArgs e)
         {
             int sex;
+            if (radioButton7.Checked == true)
+                sex = 0;
+            else
+                sex = 1;
             SqlConnection con = new SqlConnection();
             con.ConnectionString = KetNoi.str;
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            try { 
-            string TenLop;
-            TenLop = cbxTenLop.SelectedItem.ToString();
-            cmd.CommandText = "select* from Lop where TenLop =N'" + TenLop + "'";
-            SqlDataReader rd;
-            rd = cmd.ExecuteReader();
-            DataTable td = new DataTable();
-            td.Load(rd);
-            string MaLop = td.Rows[0][0].ToString();
-            if (radioButton7.Checked == true)
-                sex = 0;
-            else
-                sex = 1;
-            cmd.CommandText = "insert into SinhVien values ('"+txtmaSV.Text+"',N'"+txtTen.Text+"','" + txtCMND.Text + "'," + sex + ",'" + DateTime.Parse(mskNgaySinh.Text) + "',N'" + txtQueQuan.Text + "','" + txtSDT.Text + "','" + MaLop + "','" + hinhanh + "','')";
-                DialogResult result;
-                result = MessageBox.Show("BẠN CÓ MUỐN THÊM MỚI SINH VIÊN NÀY KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+            SqlCommand cmd2 = new SqlCommand();
+            cmd2.Connection = con;
+            cmd2.CommandText = "select * from SINHVIEN where MaSV='" + txtmaSV.Text + "'";
+            SqlDataReader rd2;
+            rd2 = cmd2.ExecuteReader();
+            DataTable td2 = new DataTable();
+            td2.Load(rd2);
+            try
+            {
+                if (txtmaSV.Text != "" && txtQueQuan.Text != "" && txtTen.Text != "" && cbxTenLop.SelectedItem.ToString() != "" && txtCMND.Text != "" && (radioButton7.Checked==true||radioButton8.Checked==true))
                 {
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("THÊM MỚI THÀNH CÔNG", "THÔNG BÁO");
-                    this.Close();
-                    frmDSSV frm = new frmDSSV(Lop_ID);
-                    frm.Show();
+                    if (td2.Rows.Count == 0)
+                    {
+                        if (IsNumber(txtCMND.Text))
+                        {
+                            if (IsNumber(txtSDT.Text))
+                            {
+
+                                string TenLop;
+                                TenLop = cbxTenLop.SelectedItem.ToString();
+                                cmd.CommandText = "select* from Lop where TenLop =N'" + TenLop + "'";
+                                SqlDataReader rd;
+                                rd = cmd.ExecuteReader();
+                                DataTable td = new DataTable();
+                                td.Load(rd);
+                                string MaLop = td.Rows[0][0].ToString();
+
+                                cmd.CommandText = "insert into SinhVien values ('" + txtmaSV.Text + "',N'" + txtTen.Text + "','" + txtCMND.Text + "'," + sex + ",'" + DateTime.Parse(mskNgaySinh.Text) + "',N'" + txtQueQuan.Text + "','" + txtSDT.Text + "','" + MaLop + "','" + hinhanh + "','')";
+                                DialogResult result;
+                                result = MessageBox.Show("BẠN CÓ MUỐN THÊM MỚI SINH VIÊN NÀY KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                if (result == DialogResult.Yes)
+                                {
+                                    cmd.ExecuteNonQuery();
+                                    MessageBox.Show("THÊM MỚI THÀNH CÔNG", "THÔNG BÁO");
+                                    this.Close();
+                                    frmDSSV frm = new frmDSSV(Lop_ID);
+                                    frm.Show();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("SĐT nhập không đúng!");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("CMND nhập không đúng!");
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mã Sinh Viên Bị Trùng !", "Thông Báo");
+                    }
                 }
-                con.Close();
+                else
+                {
+                    MessageBox.Show("Kiểm tra lại thông tin nhập..!", "Thông Báo");
+                }
             }
             catch (Exception)
             {
-                MessageBox.Show("Kiểm tra lại thông tin nhập..Có thể bạn quên chưa nhập 1 trường nào đó ^^!", "Thông Báo !");
+                MessageBox.Show("Kiểm tra lại thông tin nhập..!", "Thông Báo");
             }
+            con.Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -101,6 +142,31 @@ namespace QuanLySinhVien
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+        void msDate_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (mskNgaySinh.MaskFull)
+            {
+                try
+                {
+                    DateTime.ParseExact(mskNgaySinh.Text, "dd/MM/yyyy", null);
+                    
+                }
+                catch
+                {
+                    MessageBox.Show("Ngày sinh không hợp lệ");
+                    mskNgaySinh.ResetText();
+                }
+            }
+        }
+        public bool IsNumber(string pValue)
+        {
+            foreach (Char c in pValue)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
         }
 
         private void mskNgaySinh_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)

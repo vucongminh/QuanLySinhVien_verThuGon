@@ -36,13 +36,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtQuyenHan = new System.Windows.Forms.TextBox();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.txtTenDangNhap = new System.Windows.Forms.TextBox();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.ptAvatar = new System.Windows.Forms.PictureBox();
             this.btnChange = new System.Windows.Forms.Button();
+            this.cboQuyenHan = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptAvatar)).BeginInit();
             this.SuspendLayout();
@@ -52,7 +52,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(8, 9);
+            this.label1.Location = new System.Drawing.Point(144, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(257, 22);
             this.label1.TabIndex = 0;
@@ -60,12 +60,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cboQuyenHan);
             this.groupBox1.Controls.Add(this.txtGmail);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtQuyenHan);
             this.groupBox1.Controls.Add(this.txtMatKhau);
             this.groupBox1.Controls.Add(this.txtTenDangNhap);
             this.groupBox1.Location = new System.Drawing.Point(158, 34);
@@ -124,13 +124,6 @@
             this.label2.Size = new System.Drawing.Size(115, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên Đăng Nhập:";
-            // 
-            // txtQuyenHan
-            // 
-            this.txtQuyenHan.Location = new System.Drawing.Point(127, 83);
-            this.txtQuyenHan.Name = "txtQuyenHan";
-            this.txtQuyenHan.Size = new System.Drawing.Size(203, 20);
-            this.txtQuyenHan.TabIndex = 0;
             // 
             // txtMatKhau
             // 
@@ -203,6 +196,18 @@
             this.btnChange.UseVisualStyleBackColor = false;
             this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
+            // cboQuyenHan
+            // 
+            this.cboQuyenHan.FormattingEnabled = true;
+            this.cboQuyenHan.Items.AddRange(new object[] {
+            "Admin",
+            "OnlyRead",
+            "ReadUpdate"});
+            this.cboQuyenHan.Location = new System.Drawing.Point(127, 82);
+            this.cboQuyenHan.Name = "cboQuyenHan";
+            this.cboQuyenHan.Size = new System.Drawing.Size(203, 21);
+            this.cboQuyenHan.TabIndex = 4;
+            // 
             // frmSuaNguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,7 +237,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtQuyenHan;
         private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.TextBox txtTenDangNhap;
         private System.Windows.Forms.Label label4;
@@ -244,5 +248,6 @@
         private System.Windows.Forms.Button btnChange;
         private System.Windows.Forms.TextBox txtGmail;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cboQuyenHan;
     }
 }

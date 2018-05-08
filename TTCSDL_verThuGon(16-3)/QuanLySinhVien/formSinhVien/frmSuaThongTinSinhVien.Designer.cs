@@ -41,7 +41,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtTen = new System.Windows.Forms.TextBox();
-            this.cboLop = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -54,6 +53,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.txtLop = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -108,6 +108,7 @@
             // 
             this.txtMaSinhVien.Location = new System.Drawing.Point(277, 13);
             this.txtMaSinhVien.Name = "txtMaSinhVien";
+            this.txtMaSinhVien.ReadOnly = true;
             this.txtMaSinhVien.Size = new System.Drawing.Size(175, 20);
             this.txtMaSinhVien.TabIndex = 0;
             // 
@@ -171,14 +172,6 @@
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(177, 20);
             this.txtTen.TabIndex = 4;
-            // 
-            // cboLop
-            // 
-            this.cboLop.FormattingEnabled = true;
-            this.cboLop.Location = new System.Drawing.Point(276, 193);
-            this.cboLop.Name = "cboLop";
-            this.cboLop.Size = new System.Drawing.Size(177, 21);
-            this.cboLop.TabIndex = 5;
             // 
             // groupBox2
             // 
@@ -253,6 +246,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtLop);
             this.groupBox1.Controls.Add(this.maskedTextBox1);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
@@ -262,7 +256,6 @@
             this.groupBox1.Controls.Add(this.btnHinhAnh);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.cboLop);
             this.groupBox1.Controls.Add(this.txtTen);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label4);
@@ -330,6 +323,14 @@
             this.label10.TabIndex = 9;
             this.label10.Text = "Họ Tên:";
             // 
+            // txtLop
+            // 
+            this.txtLop.Location = new System.Drawing.Point(276, 194);
+            this.txtLop.Name = "txtLop";
+            this.txtLop.ReadOnly = true;
+            this.txtLop.Size = new System.Drawing.Size(175, 20);
+            this.txtLop.TabIndex = 14;
+            // 
             // frmSuaThongTinSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,7 +370,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtTen;
-        private System.Windows.Forms.ComboBox cboLop;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
@@ -382,5 +382,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.TextBox txtLop;
     }
 }

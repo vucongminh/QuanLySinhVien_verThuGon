@@ -36,7 +36,7 @@ namespace QuanLySinhVien
             td.Load(rd);
             this.txtTenDangNhap.Text = td.Rows[0][0].ToString();
             this.txtMatKhau.Text = td.Rows[0][1].ToString();
-            this.txtQuyenHan.Text = td.Rows[0][2].ToString();
+            this.cboQuyenHan.Text = td.Rows[0][2].ToString();
             this.txtGmail.Text = td.Rows[0][4].ToString();
             string image;
             image = td.Rows[0][3].ToString();
@@ -62,22 +62,29 @@ namespace QuanLySinhVien
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = KetNoi.str;
-            con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText="UPDATE QuanLyNguoiDung SET QuyenHan='"+txtQuyenHan.Text+ "',hinhanh='" + hinhAnh + "',TenDangNhap='" + txtTenDangNhap.Text + "' ,MatKhau='" + txtMatKhau.Text + "',Gmail='" + txtGmail.Text + "' WHERE TenDangNhap='" + TenDangNhap+"' AND MatKhau='"+MatKhau+"'";
-            DialogResult result;
-            result = MessageBox.Show("Bạn Có Muốn Thay Đổi Thông Tin Không?","Thông Báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            try
             {
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Sửa Thông Tin Thành Công");
-                this.Close();
-                frmDanhSachNguoiDung frm = new frmDanhSachNguoiDung();
-                frm.Show();
+                SqlConnection con = new SqlConnection();
+                con.ConnectionString = KetNoi.str;
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "UPDATE QuanLyNguoiDung SET QuyenHan='" + cboQuyenHan.SelectedItem.ToString() + "',hinhanh='" + hinhAnh + "',TenDangNhap='" + txtTenDangNhap.Text + "' ,MatKhau='" + txtMatKhau.Text + "',Gmail='" + txtGmail.Text + "' WHERE TenDangNhap='" + TenDangNhap + "' AND MatKhau='" + MatKhau + "'";
+                DialogResult result;
+                result = MessageBox.Show("Bạn Có Muốn Thay Đổi Thông Tin Không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Sửa Thông Tin Thành Công");
+                    this.Close();
+                    frmDanhSachNguoiDung frm = new frmDanhSachNguoiDung();
+                    frm.Show();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Kiểm tra lại dữ liệu nhập !");
             }
         }
         private void txtTenDangNhap_TextChanged(object sender, EventArgs e)
