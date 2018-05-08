@@ -121,6 +121,31 @@ namespace QuanLySinhVien
             }
         }
 
+        private void cbbMaLT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlDataReader a;
+            KetNoi kn = new KetNoi();
+            string selectTring = "select TenSV from SINHVIEN where MaSV = '" + cbbMaLT.Text + "'";
+            a = kn.ThucThiTraVe1Record(selectTring);
+            while (a.Read())
+            {
+                txtTenLT.Text = a["TenSV"].ToString();
+
+            }
+        }
+
+        private void cbbMaGVCN_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlDataReader a;
+            KetNoi kn = new KetNoi();
+            string selectTring = "select TenGV from GIAOVIEN where MaGV = '" + cbbMaGVCN.Text + "'";
+            a = kn.ThucThiTraVe1Record(selectTring);
+            while (a.Read())
+            {
+                txtTenGVCN.Text = a["TenGV"].ToString();
+
+            }
+        }
     }
     }
 

@@ -44,6 +44,8 @@
             this.txtSoTC = new System.Windows.Forms.TextBox();
             this.txtMaLHP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtTenHP = new System.Windows.Forms.TextBox();
+            this.txtTenGV = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,6 +81,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTenGV);
+            this.groupBox1.Controls.Add(this.txtTenHP);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.cbbMaGV);
             this.groupBox1.Controls.Add(this.cbbMaHP);
@@ -116,6 +120,7 @@
             this.cbbMaGV.Name = "cbbMaGV";
             this.cbbMaGV.Size = new System.Drawing.Size(154, 21);
             this.cbbMaGV.TabIndex = 6;
+            this.cbbMaGV.SelectedIndexChanged += new System.EventHandler(this.cbbMaGV_SelectedIndexChanged);
             // 
             // cbbMaHP
             // 
@@ -126,6 +131,7 @@
             this.cbbMaHP.Name = "cbbMaHP";
             this.cbbMaHP.Size = new System.Drawing.Size(154, 21);
             this.cbbMaHP.TabIndex = 5;
+            this.cbbMaHP.SelectedIndexChanged += new System.EventHandler(this.cbbMaHP_SelectedIndexChanged);
             // 
             // txtDiaDiem
             // 
@@ -215,6 +221,22 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "THÊM LỚP HỌC PHẦN";
             // 
+            // txtTenHP
+            // 
+            this.txtTenHP.Enabled = false;
+            this.txtTenHP.Location = new System.Drawing.Point(149, 79);
+            this.txtTenHP.Name = "txtTenHP";
+            this.txtTenHP.Size = new System.Drawing.Size(154, 20);
+            this.txtTenHP.TabIndex = 12;
+            // 
+            // txtTenGV
+            // 
+            this.txtTenGV.Enabled = false;
+            this.txtTenGV.Location = new System.Drawing.Point(149, 124);
+            this.txtTenGV.Name = "txtTenGV";
+            this.txtTenGV.Size = new System.Drawing.Size(154, 20);
+            this.txtTenGV.TabIndex = 13;
+            // 
             // frmThemLopHocPhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,5 +276,7 @@
         private System.Windows.Forms.ComboBox cbbMaGV;
         private System.Windows.Forms.ComboBox cbbMaHP;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtTenGV;
+        private System.Windows.Forms.TextBox txtTenHP;
     }
 }

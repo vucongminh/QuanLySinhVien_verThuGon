@@ -102,5 +102,18 @@ namespace QuanLySinhVien
         {
 
         }
+
+        private void cbbMaCNBM_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlDataReader a;
+            KetNoi kn = new KetNoi();
+            string selectTring = "select TenGV from GIAOVIEN where MaGV = '" + cbbMaCNBM.Text + "'";
+            a = kn.ThucThiTraVe1Record(selectTring);
+            while (a.Read())
+            {
+                txtTenCNBM.Text = a["TenGV"].ToString();
+
+            }
+        }
     }
 }

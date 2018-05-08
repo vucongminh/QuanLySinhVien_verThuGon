@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemBoMon));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTenCNBM = new System.Windows.Forms.TextBox();
+            this.cbbMaCNBM = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,7 +41,6 @@
             this.txtMaKhoa = new System.Windows.Forms.TextBox();
             this.btnThemKhoa = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.cbbMaCNBM = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +57,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTenCNBM);
             this.groupBox1.Controls.Add(this.cbbMaCNBM);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
@@ -65,10 +67,28 @@
             this.groupBox1.Controls.Add(this.txtMaKhoa);
             this.groupBox1.Location = new System.Drawing.Point(15, 29);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(391, 145);
+            this.groupBox1.Size = new System.Drawing.Size(391, 160);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // txtTenCNBM
+            // 
+            this.txtTenCNBM.Enabled = false;
+            this.txtTenCNBM.Location = new System.Drawing.Point(181, 132);
+            this.txtTenCNBM.Name = "txtTenCNBM";
+            this.txtTenCNBM.Size = new System.Drawing.Size(204, 20);
+            this.txtTenCNBM.TabIndex = 10;
+            // 
+            // cbbMaCNBM
+            // 
+            this.cbbMaCNBM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbbMaCNBM.FormattingEnabled = true;
+            this.cbbMaCNBM.Location = new System.Drawing.Point(181, 112);
+            this.cbbMaCNBM.Name = "cbbMaCNBM";
+            this.cbbMaCNBM.Size = new System.Drawing.Size(204, 21);
+            this.cbbMaCNBM.TabIndex = 7;
+            this.cbbMaCNBM.SelectedIndexChanged += new System.EventHandler(this.cbbMaCNBM_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -139,7 +159,7 @@
             this.btnThemKhoa.ForeColor = System.Drawing.Color.Blue;
             this.btnThemKhoa.Image = ((System.Drawing.Image)(resources.GetObject("btnThemKhoa.Image")));
             this.btnThemKhoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThemKhoa.Location = new System.Drawing.Point(227, 180);
+            this.btnThemKhoa.Location = new System.Drawing.Point(226, 195);
             this.btnThemKhoa.Name = "btnThemKhoa";
             this.btnThemKhoa.Size = new System.Drawing.Size(84, 27);
             this.btnThemKhoa.TabIndex = 2;
@@ -154,7 +174,7 @@
             this.btnThoat.ForeColor = System.Drawing.Color.Red;
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(317, 180);
+            this.btnThoat.Location = new System.Drawing.Point(316, 195);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(83, 27);
             this.btnThoat.TabIndex = 3;
@@ -162,21 +182,12 @@
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // cbbMaCNBM
-            // 
-            this.cbbMaCNBM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbbMaCNBM.FormattingEnabled = true;
-            this.cbbMaCNBM.Location = new System.Drawing.Point(181, 112);
-            this.cbbMaCNBM.Name = "cbbMaCNBM";
-            this.cbbMaCNBM.Size = new System.Drawing.Size(204, 21);
-            this.cbbMaCNBM.TabIndex = 7;
-            // 
             // frmThemBoMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(418, 217);
+            this.ClientSize = new System.Drawing.Size(417, 232);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnThemKhoa);
             this.Controls.Add(this.groupBox1);
@@ -206,5 +217,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbbMaCNBM;
+        private System.Windows.Forms.TextBox txtTenCNBM;
     }
 }

@@ -111,6 +111,17 @@ namespace QuanLySinhVien
 
         }
 
+        private void cbbMaBM_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlDataReader a;
+            KetNoi kn = new KetNoi();
+            string selectTring = "select TenBM from BOMON where MaBM = '" + cbbMaBM.Text + "'";
+            a = kn.ThucThiTraVe1Record(selectTring);
+            while (a.Read())
+            {
+                txtTenBM.Text = a["TenBM"].ToString();
 
+            }
+        }
     }
 }

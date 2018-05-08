@@ -48,6 +48,9 @@ namespace QuanLySinhVien
                 frmDSSV.username = txtTenDangNhap.Text;
                 frmDSSV.pass = txtMatKhau.Text;
 
+                frmDSGiaoVien.username = txtTenDangNhap.Text;
+                frmDSGiaoVien.pass = txtMatKhau.Text;
+
                 frmDSBoMon.username = txtTenDangNhap.Text;
                 frmDSBoMon.pass = txtMatKhau.Text;
 

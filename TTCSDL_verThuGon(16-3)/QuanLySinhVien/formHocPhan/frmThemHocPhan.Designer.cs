@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemHocPhan));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbbMaBM = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtHocKy = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,8 +44,7 @@
             this.txtMaHP = new System.Windows.Forms.TextBox();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbbMaBM = new System.Windows.Forms.ComboBox();
+            this.txtTenBM = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +61,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTenBM);
             this.groupBox1.Controls.Add(this.cbbMaBM);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtHocKy);
@@ -73,13 +75,35 @@
             this.groupBox1.Controls.Add(this.txtMaHP);
             this.groupBox1.Location = new System.Drawing.Point(16, 31);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(295, 245);
+            this.groupBox1.Size = new System.Drawing.Size(295, 210);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // cbbMaBM
+            // 
+            this.cbbMaBM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbbMaBM.FormattingEnabled = true;
+            this.cbbMaBM.Location = new System.Drawing.Point(135, 164);
+            this.cbbMaBM.Name = "cbbMaBM";
+            this.cbbMaBM.Size = new System.Drawing.Size(154, 21);
+            this.cbbMaBM.TabIndex = 7;
+            this.cbbMaBM.SelectedIndexChanged += new System.EventHandler(this.cbbMaBM_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.White;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label7.Location = new System.Drawing.Point(132, 33);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Ví Dụ : HP0001";
+            // 
             // txtHocKy
             // 
-            this.txtHocKy.Location = new System.Drawing.Point(135, 166);
+            this.txtHocKy.Location = new System.Drawing.Point(135, 125);
             this.txtHocKy.Name = "txtHocKy";
             this.txtHocKy.Size = new System.Drawing.Size(154, 20);
             this.txtHocKy.TabIndex = 3;
@@ -89,7 +113,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Blue;
-            this.label6.Location = new System.Drawing.Point(6, 165);
+            this.label6.Location = new System.Drawing.Point(6, 126);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 19);
             this.label6.TabIndex = 4;
@@ -100,7 +124,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Blue;
-            this.label5.Location = new System.Drawing.Point(6, 217);
+            this.label5.Location = new System.Drawing.Point(6, 166);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 19);
             this.label5.TabIndex = 1;
@@ -111,7 +135,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(6, 113);
+            this.label4.Location = new System.Drawing.Point(6, 86);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 19);
             this.label4.TabIndex = 1;
@@ -122,7 +146,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(6, 61);
+            this.label3.Location = new System.Drawing.Point(6, 50);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 19);
             this.label3.TabIndex = 1;
@@ -141,14 +165,14 @@
             // 
             // txtSoTC
             // 
-            this.txtSoTC.Location = new System.Drawing.Point(135, 114);
+            this.txtSoTC.Location = new System.Drawing.Point(135, 87);
             this.txtSoTC.Name = "txtSoTC";
             this.txtSoTC.Size = new System.Drawing.Size(154, 20);
             this.txtSoTC.TabIndex = 2;
             // 
             // txtTenHP
             // 
-            this.txtTenHP.Location = new System.Drawing.Point(135, 62);
+            this.txtTenHP.Location = new System.Drawing.Point(135, 49);
             this.txtTenHP.Name = "txtTenHP";
             this.txtTenHP.Size = new System.Drawing.Size(154, 20);
             this.txtTenHP.TabIndex = 1;
@@ -169,7 +193,7 @@
             this.btnThem.ForeColor = System.Drawing.Color.Blue;
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(135, 282);
+            this.btnThem.Location = new System.Drawing.Point(131, 247);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(79, 28);
             this.btnThem.TabIndex = 5;
@@ -184,7 +208,7 @@
             this.btnThoat.ForeColor = System.Drawing.Color.Red;
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(232, 282);
+            this.btnThoat.Location = new System.Drawing.Point(228, 247);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(79, 28);
             this.btnThoat.TabIndex = 6;
@@ -192,33 +216,20 @@
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // label7
+            // txtTenBM
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label7.Location = new System.Drawing.Point(132, 33);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Ví Dụ : HP0001";
-            // 
-            // cbbMaBM
-            // 
-            this.cbbMaBM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbbMaBM.FormattingEnabled = true;
-            this.cbbMaBM.Location = new System.Drawing.Point(135, 215);
-            this.cbbMaBM.Name = "cbbMaBM";
-            this.cbbMaBM.Size = new System.Drawing.Size(154, 21);
-            this.cbbMaBM.TabIndex = 7;
+            this.txtTenBM.Enabled = false;
+            this.txtTenBM.Location = new System.Drawing.Point(135, 182);
+            this.txtTenBM.Name = "txtTenBM";
+            this.txtTenBM.Size = new System.Drawing.Size(154, 20);
+            this.txtTenBM.TabIndex = 16;
             // 
             // frmThemHocPhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(324, 320);
+            this.ClientSize = new System.Drawing.Size(324, 290);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.groupBox1);
@@ -252,5 +263,6 @@
         private System.Windows.Forms.TextBox txtHocKy;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbbMaBM;
+        private System.Windows.Forms.TextBox txtTenBM;
     }
 }
