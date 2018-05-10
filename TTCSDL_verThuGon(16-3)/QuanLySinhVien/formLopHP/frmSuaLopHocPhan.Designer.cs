@@ -32,6 +32,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTenGV = new System.Windows.Forms.TextBox();
+            this.txtTenHP = new System.Windows.Forms.TextBox();
             this.cbbMaGV = new System.Windows.Forms.ComboBox();
             this.cbbMaHP = new System.Windows.Forms.ComboBox();
             this.txtDiaDiem = new System.Windows.Forms.TextBox();
@@ -43,8 +45,6 @@
             this.txtSoTC = new System.Windows.Forms.TextBox();
             this.txtMaLHP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTenHP = new System.Windows.Forms.TextBox();
-            this.txtTenGV = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,6 +98,22 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // txtTenGV
+            // 
+            this.txtTenGV.Enabled = false;
+            this.txtTenGV.Location = new System.Drawing.Point(149, 142);
+            this.txtTenGV.Name = "txtTenGV";
+            this.txtTenGV.Size = new System.Drawing.Size(165, 20);
+            this.txtTenGV.TabIndex = 14;
+            // 
+            // txtTenHP
+            // 
+            this.txtTenHP.Enabled = false;
+            this.txtTenHP.Location = new System.Drawing.Point(149, 86);
+            this.txtTenHP.Name = "txtTenHP";
+            this.txtTenHP.Size = new System.Drawing.Size(165, 20);
+            this.txtTenHP.TabIndex = 13;
             // 
             // cbbMaGV
             // 
@@ -210,22 +226,6 @@
             this.label1.Size = new System.Drawing.Size(162, 19);
             this.label1.TabIndex = 9;
             this.label1.Text = "SỬA LỚP HỌC PHẦN";
-            // 
-            // txtTenHP
-            // 
-            this.txtTenHP.Enabled = false;
-            this.txtTenHP.Location = new System.Drawing.Point(149, 77);
-            this.txtTenHP.Name = "txtTenHP";
-            this.txtTenHP.Size = new System.Drawing.Size(165, 20);
-            this.txtTenHP.TabIndex = 13;
-            // 
-            // txtTenGV
-            // 
-            this.txtTenGV.Enabled = false;
-            this.txtTenGV.Location = new System.Drawing.Point(149, 133);
-            this.txtTenGV.Name = "txtTenGV";
-            this.txtTenGV.Size = new System.Drawing.Size(165, 20);
-            this.txtTenGV.TabIndex = 14;
             // 
             // frmSuaLopHocPhan
             // 

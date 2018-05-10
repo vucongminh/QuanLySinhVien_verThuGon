@@ -38,12 +38,12 @@ namespace QuanLySinhVien
             this.txtMaSinhVien.Text = td.Rows[0][0].ToString();
             this.txtCMND.Text = td.Rows[0][2].ToString();
             DateTime ngay = DateTime.Parse(td.Rows[0][4].ToString());
-            this.maskedTextBox1.Text = ngay.ToString("dd-MM-yyyy");           
+            this.maskedTextBox1.Text = ngay.ToString("MM-dd-yyyy");           
             this.txtQueQuan.Text = td.Rows[0][5].ToString();
             this.txtSDT.Text = td.Rows[0][6].ToString();
             this.txtTen.Text = td.Rows[0][1].ToString();
             this.txtLop.Text = td.Rows[0][10].ToString();
-            string hinhanh;
+            //string hinhanh;
             hinhanh = td.Rows[0][8].ToString();
             if (hinhanh.Length <= 0)
             {
@@ -87,8 +87,9 @@ namespace QuanLySinhVien
                 sex = 0;
             else
                 sex = 1;
-            try{
-                 if (txtMaSinhVien.Text != "" && txtQueQuan.Text != "" && txtTen.Text != "" && txtLop.ToString() != "" && txtCMND.Text != "" && (radioButton1.Checked == true || radioButton2.Checked == true))
+            try
+            {
+                if (txtMaSinhVien.Text != "" && txtQueQuan.Text != "" && txtTen.Text != "" && txtLop.ToString() != "" && txtCMND.Text != "" && (radioButton1.Checked == true || radioButton2.Checked == true))
                 {
                     if (IsNumber(txtCMND.Text))
                     {

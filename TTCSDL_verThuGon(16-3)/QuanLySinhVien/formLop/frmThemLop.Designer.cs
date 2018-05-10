@@ -80,7 +80,7 @@
             // txtTenGVCN
             // 
             this.txtTenGVCN.Enabled = false;
-            this.txtTenGVCN.Location = new System.Drawing.Point(155, 179);
+            this.txtTenGVCN.Location = new System.Drawing.Point(155, 184);
             this.txtTenGVCN.Name = "txtTenGVCN";
             this.txtTenGVCN.Size = new System.Drawing.Size(179, 20);
             this.txtTenGVCN.TabIndex = 12;
@@ -88,7 +88,7 @@
             // txtTenLT
             // 
             this.txtTenLT.Enabled = false;
-            this.txtTenLT.Location = new System.Drawing.Point(155, 124);
+            this.txtTenLT.Location = new System.Drawing.Point(155, 133);
             this.txtTenLT.Name = "txtTenLT";
             this.txtTenLT.Size = new System.Drawing.Size(179, 20);
             this.txtTenLT.TabIndex = 11;

@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemHocPhan));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTenBM = new System.Windows.Forms.TextBox();
             this.cbbMaBM = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtHocKy = new System.Windows.Forms.TextBox();
@@ -44,7 +45,6 @@
             this.txtMaHP = new System.Windows.Forms.TextBox();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.txtTenBM = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,9 +75,17 @@
             this.groupBox1.Controls.Add(this.txtMaHP);
             this.groupBox1.Location = new System.Drawing.Point(16, 31);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(295, 210);
+            this.groupBox1.Size = new System.Drawing.Size(295, 222);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // txtTenBM
+            // 
+            this.txtTenBM.Enabled = false;
+            this.txtTenBM.Location = new System.Drawing.Point(135, 191);
+            this.txtTenBM.Name = "txtTenBM";
+            this.txtTenBM.Size = new System.Drawing.Size(154, 20);
+            this.txtTenBM.TabIndex = 16;
             // 
             // cbbMaBM
             // 
@@ -193,7 +201,7 @@
             this.btnThem.ForeColor = System.Drawing.Color.Blue;
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(131, 247);
+            this.btnThem.Location = new System.Drawing.Point(131, 259);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(79, 28);
             this.btnThem.TabIndex = 5;
@@ -208,7 +216,7 @@
             this.btnThoat.ForeColor = System.Drawing.Color.Red;
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(228, 247);
+            this.btnThoat.Location = new System.Drawing.Point(228, 259);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(79, 28);
             this.btnThoat.TabIndex = 6;
@@ -216,20 +224,12 @@
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // txtTenBM
-            // 
-            this.txtTenBM.Enabled = false;
-            this.txtTenBM.Location = new System.Drawing.Point(135, 182);
-            this.txtTenBM.Name = "txtTenBM";
-            this.txtTenBM.Size = new System.Drawing.Size(154, 20);
-            this.txtTenBM.TabIndex = 16;
-            // 
             // frmThemHocPhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(324, 290);
+            this.ClientSize = new System.Drawing.Size(324, 299);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.groupBox1);

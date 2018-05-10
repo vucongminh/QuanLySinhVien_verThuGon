@@ -62,23 +62,30 @@ namespace QuanLySinhVien
             {
                 if (td2.Rows.Count == 0)
                 {
-                    string MaBM;
-                    MaBM = cbbMaBM.SelectedItem.ToString();
-                    cmd.CommandText = "INSERT INTO GIAOVIEN VALUES('" + txtMaGV.Text + "',N'" + txtTenGV.Text + "','" + txtSdtGV.Text + "','" + MaBM + "')";
-                    //cmd.CommandText = "InsertDataIntoLop";
-                    //cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("MaGV", txtMaGV.Text);
-                    cmd.Parameters.AddWithValue("TenGV", txtTenGV.Text);
-                    cmd.Parameters.AddWithValue("SdtGV", txtSdtGV.Text);
-                    cmd.Parameters.AddWithValue("MaBM", cbbMaBM.Text);
-                    cmd.ExecuteNonQuery();
-                    DialogResult result;
-                    result = MessageBox.Show("THÊM DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    if (result == DialogResult.OK)
+                    if (IsNumber(txtSdtGV.Text))
                     {
-                        this.Close();
-                        frmThemGV frm = new frmThemGV();
-                        frm.Show();
+                        string MaBM;
+                        MaBM = cbbMaBM.SelectedItem.ToString();
+                        cmd.CommandText = "INSERT INTO GIAOVIEN VALUES('" + txtMaGV.Text + "',N'" + txtTenGV.Text + "','" + txtSdtGV.Text + "','" + MaBM + "')";
+                        //cmd.CommandText = "InsertDataIntoLop";
+                        //cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("MaGV", txtMaGV.Text);
+                        cmd.Parameters.AddWithValue("TenGV", txtTenGV.Text);
+                        cmd.Parameters.AddWithValue("SdtGV", txtSdtGV.Text);
+                        cmd.Parameters.AddWithValue("MaBM", cbbMaBM.Text);
+                        cmd.ExecuteNonQuery();
+                        DialogResult result;
+                        result = MessageBox.Show("THÊM DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        if (result == DialogResult.OK)
+                        {
+                            this.Close();
+                            frmThemGV frm = new frmThemGV();
+                            frm.Show();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("SĐT nhập không đúng!");
                     }
                 }
                 else
@@ -103,6 +110,16 @@ namespace QuanLySinhVien
             frm.Show();
         }
 
-        
-    }
+            public bool IsNumber(string pValue)
+            {
+                foreach (Char c in pValue)
+                {
+                    if (!Char.IsDigit(c))
+                        return false;
+                }
+                return true;
+            }
+
+
+        }
 }

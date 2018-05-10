@@ -74,32 +74,53 @@ namespace QuanLySinhVien
                 cmd.CommandText = "UPDATE GIAOVIEN SET TenGV=N'" + txtTenGV.Text + "',SdtGV='" + txtSdtGV.Text + "',MaBM='" + MaBM + "' WHERE MaGV='" + MaGV + "'";
                 DialogResult result;
                 result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                if (IsNumber(txtSdtGV.Text))
                 {
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("CẬP NHẬT DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO");
-                    this.Close();
-                    frmDSGiaoVien frm = new frmDSGiaoVien();
-                    frm.Show();
+
+                    if (result == DialogResult.Yes)
+                    {
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        MessageBox.Show("CẬP NHẬT DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO");
+                        this.Close();
+                        frmDSGiaoVien frm = new frmDSGiaoVien();
+                        frm.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("SĐT nhập không đúng!");
                 }
             }
 
 
+
             catch (Exception)
             {
-               
+
                 if (txtMaGV.Text.Length != 6)
                 {
+
                     MessageBox.Show("Mã Giáo Viên 6 Ký Tự Nhé", "Thông Báo");
-                }             
+                }
+
                 else
                 {
                     MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
                 }
             }
         }
-    
+
+        public bool IsNumber(string pValue)
+        {
+            foreach (Char c in pValue)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
+        }
+
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -113,6 +134,6 @@ namespace QuanLySinhVien
 
         }
 
-        
+
     }
 }

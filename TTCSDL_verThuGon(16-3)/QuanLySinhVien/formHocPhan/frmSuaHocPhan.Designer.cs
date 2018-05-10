@@ -33,6 +33,7 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTenBM = new System.Windows.Forms.TextBox();
             this.cbbMaBM = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtHocKy = new System.Windows.Forms.TextBox();
@@ -44,7 +45,6 @@
             this.txtSoTC = new System.Windows.Forms.TextBox();
             this.txtTenHP = new System.Windows.Forms.TextBox();
             this.txtMaHP = new System.Windows.Forms.TextBox();
-            this.txtTenBM = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@
             this.btnSua.ForeColor = System.Drawing.Color.Blue;
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
             this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSua.Location = new System.Drawing.Point(124, 256);
+            this.btnSua.Location = new System.Drawing.Point(123, 262);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(83, 31);
             this.btnSua.TabIndex = 5;
@@ -81,7 +81,7 @@
             this.button1.ForeColor = System.Drawing.Color.Red;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(223, 256);
+            this.button1.Location = new System.Drawing.Point(222, 262);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(83, 31);
             this.button1.TabIndex = 6;
@@ -105,9 +105,17 @@
             this.groupBox1.Controls.Add(this.txtMaHP);
             this.groupBox1.Location = new System.Drawing.Point(16, 31);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(295, 219);
+            this.groupBox1.Size = new System.Drawing.Size(295, 225);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
+            // 
+            // txtTenBM
+            // 
+            this.txtTenBM.Enabled = false;
+            this.txtTenBM.Location = new System.Drawing.Point(135, 197);
+            this.txtTenBM.Name = "txtTenBM";
+            this.txtTenBM.Size = new System.Drawing.Size(154, 20);
+            this.txtTenBM.TabIndex = 15;
             // 
             // cbbMaBM
             // 
@@ -215,20 +223,12 @@
             this.txtMaHP.Size = new System.Drawing.Size(154, 20);
             this.txtMaHP.TabIndex = 0;
             // 
-            // txtTenBM
-            // 
-            this.txtTenBM.Enabled = false;
-            this.txtTenBM.Location = new System.Drawing.Point(135, 188);
-            this.txtTenBM.Name = "txtTenBM";
-            this.txtTenBM.Size = new System.Drawing.Size(154, 20);
-            this.txtTenBM.TabIndex = 15;
-            // 
             // frmSuaHocPhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(325, 297);
+            this.ClientSize = new System.Drawing.Size(325, 305);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSua);

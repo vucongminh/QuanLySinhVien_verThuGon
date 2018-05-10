@@ -32,6 +32,8 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTenGV = new System.Windows.Forms.TextBox();
+            this.txtTenHP = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbbMaGV = new System.Windows.Forms.ComboBox();
             this.cbbMaHP = new System.Windows.Forms.ComboBox();
@@ -44,8 +46,6 @@
             this.txtSoTC = new System.Windows.Forms.TextBox();
             this.txtMaLHP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTenHP = new System.Windows.Forms.TextBox();
-            this.txtTenGV = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +56,7 @@
             this.btnThoat.ForeColor = System.Drawing.Color.Red;
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(250, 258);
+            this.btnThoat.Location = new System.Drawing.Point(252, 282);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(79, 28);
             this.btnThoat.TabIndex = 10;
@@ -71,7 +71,7 @@
             this.btnThem.ForeColor = System.Drawing.Color.Blue;
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
             this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThem.Location = new System.Drawing.Point(153, 258);
+            this.btnThem.Location = new System.Drawing.Point(155, 282);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(79, 28);
             this.btnThem.TabIndex = 9;
@@ -96,9 +96,25 @@
             this.groupBox1.Controls.Add(this.txtMaLHP);
             this.groupBox1.Location = new System.Drawing.Point(16, 31);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(315, 221);
+            this.groupBox1.Size = new System.Drawing.Size(315, 245);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
+            // 
+            // txtTenGV
+            // 
+            this.txtTenGV.Enabled = false;
+            this.txtTenGV.Location = new System.Drawing.Point(149, 144);
+            this.txtTenGV.Name = "txtTenGV";
+            this.txtTenGV.Size = new System.Drawing.Size(154, 20);
+            this.txtTenGV.TabIndex = 13;
+            // 
+            // txtTenHP
+            // 
+            this.txtTenHP.Enabled = false;
+            this.txtTenHP.Location = new System.Drawing.Point(149, 87);
+            this.txtTenHP.Name = "txtTenHP";
+            this.txtTenHP.Size = new System.Drawing.Size(154, 20);
+            this.txtTenHP.TabIndex = 12;
             // 
             // label7
             // 
@@ -116,7 +132,7 @@
             // 
             this.cbbMaGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbbMaGV.FormattingEnabled = true;
-            this.cbbMaGV.Location = new System.Drawing.Point(149, 105);
+            this.cbbMaGV.Location = new System.Drawing.Point(149, 117);
             this.cbbMaGV.Name = "cbbMaGV";
             this.cbbMaGV.Size = new System.Drawing.Size(154, 21);
             this.cbbMaGV.TabIndex = 6;
@@ -135,7 +151,7 @@
             // 
             // txtDiaDiem
             // 
-            this.txtDiaDiem.Location = new System.Drawing.Point(149, 150);
+            this.txtDiaDiem.Location = new System.Drawing.Point(149, 184);
             this.txtDiaDiem.Name = "txtDiaDiem";
             this.txtDiaDiem.Size = new System.Drawing.Size(154, 20);
             this.txtDiaDiem.TabIndex = 3;
@@ -145,7 +161,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Blue;
-            this.label6.Location = new System.Drawing.Point(7, 153);
+            this.label6.Location = new System.Drawing.Point(7, 183);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 19);
             this.label6.TabIndex = 4;
@@ -156,7 +172,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Blue;
-            this.label5.Location = new System.Drawing.Point(7, 199);
+            this.label5.Location = new System.Drawing.Point(7, 209);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 19);
             this.label5.TabIndex = 1;
@@ -167,7 +183,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(7, 107);
+            this.label4.Location = new System.Drawing.Point(7, 116);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 19);
             this.label4.TabIndex = 1;
@@ -197,7 +213,7 @@
             // 
             // txtSoTC
             // 
-            this.txtSoTC.Location = new System.Drawing.Point(149, 194);
+            this.txtSoTC.Location = new System.Drawing.Point(149, 210);
             this.txtSoTC.Name = "txtSoTC";
             this.txtSoTC.Size = new System.Drawing.Size(154, 20);
             this.txtSoTC.TabIndex = 4;
@@ -221,28 +237,12 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "THÊM LỚP HỌC PHẦN";
             // 
-            // txtTenHP
-            // 
-            this.txtTenHP.Enabled = false;
-            this.txtTenHP.Location = new System.Drawing.Point(149, 79);
-            this.txtTenHP.Name = "txtTenHP";
-            this.txtTenHP.Size = new System.Drawing.Size(154, 20);
-            this.txtTenHP.TabIndex = 12;
-            // 
-            // txtTenGV
-            // 
-            this.txtTenGV.Enabled = false;
-            this.txtTenGV.Location = new System.Drawing.Point(149, 124);
-            this.txtTenGV.Name = "txtTenGV";
-            this.txtTenGV.Size = new System.Drawing.Size(154, 20);
-            this.txtTenGV.TabIndex = 13;
-            // 
             // frmThemLopHocPhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(337, 297);
+            this.ClientSize = new System.Drawing.Size(337, 319);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.groupBox1);

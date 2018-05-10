@@ -115,6 +115,7 @@ namespace QuanLySinhVien
                     {
                         gv1.Rows[i].Cells[5].Value = false;
                         gv1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                        
                     }
                 }
                 gv2.Rows.RemoveAt(e.RowIndex);
