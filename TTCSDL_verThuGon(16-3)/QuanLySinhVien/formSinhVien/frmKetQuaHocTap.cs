@@ -44,6 +44,12 @@ namespace QuanLySinhVien
             rd = cmd.ExecuteReader();
             DataTable td = new DataTable();
             td.Load(rd);
+            con.Close();
+
+            KetNoi ax = new KetNoi();
+            SqlDataReader rd1= ax.ThucThiTraVe1Record("Select MaSV,TenSV,MaLop from SINHVIEN where maSV='"+SinhVien_ID+"'");
+            DataTable td1 = new DataTable();
+            td1.Load(rd1);
             for (int i = 0; i < td.Rows.Count; i++)
             {
                 ListViewItem item = new ListViewItem(td.Rows[i][0].ToString());
@@ -55,12 +61,12 @@ namespace QuanLySinhVien
                 item.SubItems.Add(td.Rows[i][6].ToString());
                 item.SubItems.Add(td.Rows[i][7].ToString());              
                 listView1.Items.Add(item);
-                labeTen.Text = td.Rows[i][8].ToString();
-                labelMaSV.Text=  td.Rows[i][9].ToString();
-                labelMaLop.Text = td.Rows[i][10].ToString();
+                
             }
-            
-            con.Close();
+            labeTen.Text = td1.Rows[0][1].ToString();
+            labelMaSV.Text = td1.Rows[0][0].ToString();
+            labelMaLop.Text = td1.Rows[0][2].ToString();
+          
            
         }
 
