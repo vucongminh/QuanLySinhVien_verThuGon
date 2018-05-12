@@ -38,12 +38,12 @@ namespace QuanLySinhVien
             this.txtMaSinhVien.Text = td.Rows[0][0].ToString();
             this.txtCMND.Text = td.Rows[0][2].ToString();
             DateTime ngay = DateTime.Parse(td.Rows[0][4].ToString());
-            this.maskedTextBox1.Text = ngay.ToString("MM-dd-yyyy");           
+            this.maskedTextBox1.Text = ngay.ToString("dd-MM-yyyy");           
             this.txtQueQuan.Text = td.Rows[0][5].ToString();
             this.txtSDT.Text = td.Rows[0][6].ToString();
             this.txtTen.Text = td.Rows[0][1].ToString();
             this.txtLop.Text = td.Rows[0][10].ToString();
-            //string hinhanh;
+          
             hinhanh = td.Rows[0][8].ToString();
             if (hinhanh.Length <= 0)
             {
@@ -102,7 +102,8 @@ namespace QuanLySinhVien
                             DataTable td = new DataTable();
                             td.Load(rd);
                             string MaLop = td.Rows[0][0].ToString();
-                            cmd.CommandText = "UPDATE SinhVien SET CMND='" + txtCMND.Text + "',GioiTinh=" + sex + ",NgaySinh='" + DateTime.Parse(maskedTextBox1.Text) + "',QueQuan=N'" + txtQueQuan.Text + "',SdtSV='" + txtSDT.Text + "',TenSV=N'" + txtTen.Text + "',MaLop='" + MaLop + "',HinhAnh='" + hinhanh + "'WHERE MaSV='" + SinhVien_ID + "'";
+                            string ngay = DateTime.Parse(maskedTextBox1.Text).ToString("MM-dd-yyyy");
+                            cmd.CommandText = "UPDATE SinhVien SET CMND='" + txtCMND.Text + "',GioiTinh=" + sex + ",NgaySinh='" + ngay + "',QueQuan=N'" + txtQueQuan.Text + "',SdtSV='" + txtSDT.Text + "',TenSV=N'" + txtTen.Text + "',MaLop='" + MaLop + "',HinhAnh='" + hinhanh + "'WHERE MaSV='" + SinhVien_ID + "'";
                             DialogResult result;
                             result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                             if (result == DialogResult.Yes)

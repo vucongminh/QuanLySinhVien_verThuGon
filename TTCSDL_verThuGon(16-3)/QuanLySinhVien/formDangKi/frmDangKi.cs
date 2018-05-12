@@ -32,7 +32,7 @@ namespace QuanLySinhVien
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT distinct  h.MaHP,h.TenHP,h.SoTC,l.MaLHP,l.DiaDiemTCHP FROM LOPHOCPHAN as l,HOCPHAN as h,BANGDIEM as b where l.MaHP=h.MaHP and  l.MaLHP not in (select MaLHP from bangdiem where MaSV='"+username+"') and l.MaLHP not in (select MaLHP from DANGKI where MaSV='"+username+"') order by h.TenHP";
+            cmd.CommandText = "SELECT distinct  h.MaHP,h.TenHP,h.SoTC,l.MaLHP,l.DiaDiemTCHP FROM LOPHOCPHAN as l,HOCPHAN as h,BANGDIEM as b where l.MaHP=h.MaHP and  l.MaHP not in (select LOPHOCPHAN.MaHP from bangdiem,LOPHOCPHAN where bangdiem.MaLHP=LOPHOCPHAN.MaLHP and BANGDIEM.MaSV='"+username+"') and l.MaHP not in (select LOPHOCPHAN.MaHP from DANGKI,LOPHOCPHAN where DANGKI.MaLHP=LOPHOCPHAN.MaLHP and DANGKI.MaSV='"+username+"') order by h.TenHP";
             SqlDataReader rd;
             rd = cmd.ExecuteReader();
             DataTable td = new DataTable();
@@ -48,6 +48,22 @@ namespace QuanLySinhVien
 
             con.Close();
             gv1.DataSource = td;
+            //gv1.Columns["MaHP"].SortMode=DataGridViewColumnSortMode.NotSortable;
+            //gv1.Columns["TenHP"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            //gv1.Columns["SoTC"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            //gv1.Columns["MaLHP"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            //gv1.Columns["DiaDiemTCHP"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            foreach (DataGridViewColumn column in gv1.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+            gv1.Columns[0].HeaderText = "Mã Học Phần";
+            gv1.Columns[1].HeaderText = "Tên Học Phần";
+            gv1.Columns[2].HeaderText = "Số TC";
+            gv1.Columns[3].HeaderText = "Mã Lớp Học Phần";
+            gv1.Columns[4].HeaderText = "Địa Điểm";
+
+
             DataGridViewCheckBoxColumn checkcolumn1 = new DataGridViewCheckBoxColumn();
             checkcolumn1.AutoSizeMode =
                 DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -86,18 +102,31 @@ namespace QuanLySinhVien
         private void gv1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 5 && e.RowIndex>=0)
             {
                 if ((bool)gv1.Rows[e.RowIndex].Cells[5].Value == false)
                 {
                     int n = gv2.Rows.Add();
                     gv1.Rows[e.RowIndex].Cells[5].Value = true;
                     gv1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow;
+
                     DataGridViewRow ThemMoi = gv1.CurrentRow;
                     for (int i = 0; i < ThemMoi.Cells.Count - 1; i++)
                     {
                         gv2.Rows[n].Cells[i].Value = ThemMoi.Cells[i].Value.ToString();
                     }
+
+                    string valueMaHP = gv1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    for(int i = 0; i < gv1.Rows.Count; i++)
+                    {
+                        if (gv1.Rows[i].Cells[0].Value.ToString() == valueMaHP&& i!=e.RowIndex)
+                        {                           
+                            gv1.Rows[i].DefaultCellStyle.BackColor = Color.Gray;
+                            gv1.Rows[i].Cells[5].Value = true;
+
+                        }
+                    }
+
                 }
 
             }
@@ -105,16 +134,16 @@ namespace QuanLySinhVien
 
         private void gv2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 5 && e.RowIndex>=0)
             {
                
-                string value1 = gv2.Rows[e.RowIndex].Cells[3].Value.ToString();
+                string value1 = gv2.Rows[e.RowIndex].Cells[0].Value.ToString();
                for(int i = 0; i < gv1.Rows.Count; i++)
                 {
-                    if (value1 == gv1.Rows[i].Cells[3].Value.ToString())
+                    if (value1 == gv1.Rows[i].Cells[0].Value.ToString())
                     {
                         gv1.Rows[i].Cells[5].Value = false;
-                        gv1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                        gv1.Rows[i].DefaultCellStyle.BackColor = Color.White;
                         
                     }
                 }

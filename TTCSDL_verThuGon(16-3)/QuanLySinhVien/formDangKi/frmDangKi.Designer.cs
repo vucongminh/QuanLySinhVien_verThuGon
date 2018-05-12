@@ -192,6 +192,7 @@
             // gv1
             // 
             this.gv1.AllowUserToAddRows = false;
+            this.gv1.AllowUserToDeleteRows = false;
             this.gv1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gv1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.gv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
