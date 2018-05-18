@@ -124,6 +124,7 @@ namespace QuanLySinhVien
             thôngTinToolStripMenuItem.Enabled = true;
             tìmKiếmToolStripMenuItem.Enabled = true;
             trợGiúpToolStripMenuItem1.Enabled = true;
+            inBảngĐIểmLớpToolStripMenuItem.Enabled = true;
         }
         public void MenuForOnlyRead()
         {
@@ -146,6 +147,7 @@ namespace QuanLySinhVien
             thôngTinToolStripMenuItem.Enabled = true;
             tìmKiếmToolStripMenuItem.Enabled = true;
             trợGiúpToolStripMenuItem1.Enabled = true;
+            inBảngĐIểmLớpToolStripMenuItem.Enabled = false;
 
 
         }
@@ -170,6 +172,8 @@ namespace QuanLySinhVien
             thôngTinToolStripMenuItem.Enabled = true;
             tìmKiếmToolStripMenuItem.Enabled = true;
             trợGiúpToolStripMenuItem1.Enabled = true;
+            inBảngĐIểmLớpToolStripMenuItem.Enabled = false;
+
         }
         public void DisableMenu()
         {
@@ -189,6 +193,8 @@ namespace QuanLySinhVien
             thôngTinToolStripMenuItem.Enabled = false;
             tìmKiếmToolStripMenuItem.Enabled = false;
             trợGiúpToolStripMenuItem1.Enabled = false;
+            inBảngĐIểmLớpToolStripMenuItem.Enabled = false;
+
 
 
         }
@@ -231,24 +237,24 @@ namespace QuanLySinhVien
 
         private void phụcHồiDữLiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = KetNoi.str;
                 con.Open();
                 string strpath = "E:\\QLSV24.bak";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "USE master RESTORE DATABASE [QuanLySV24] FROM DISK='" + strpath + "'";
+                cmd.CommandText = "USE master RESTORE DATABASE [QuanLySV24] FROM DISK='" + strpath + "' With Replace";
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Restore Database Quản Lý Sinh Viên Thành Công!","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.ToString(), "ERROR RESTORE DATABASE");
-                return;
-            }
+            //}
+            //catch (SqlException ex)
+            //{
+            //    MessageBox.Show(ex.ToString(), "ERROR RESTORE DATABASE");
+            //    return;
+            //}
         }
 
      
@@ -295,6 +301,12 @@ namespace QuanLySinhVien
         {
             frmInDangKi frm = new frmInDangKi();
             //frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void inBảngĐIểmLớpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInBangDiemLop frm = new frmInBangDiemLop();
             frm.Show();
         }
     }

@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetInBangDiemLop" targetNamespace="http://tempuri.org/DataSetInBangDiemLop.xsd" xmlns:mstns="http://tempuri.org/DataSetInBangDiemLop.xsd" xmlns="http://tempuri.org/DataSetInBangDiemLop.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="QuanLySV24ConnectionString_InDangKI" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="QuanLySV24ConnectionString_InDangKI (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.QuanLySinhVien.Properties.Settings.GlobalReference.Default.QuanLySV24ConnectionString_InDangKI" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QuanLySV24ConnectionString_InDangKI (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT SINHVIEN.MaSV, SINHVIEN.TenSV, LOP.MaLop, LOP.TenLop, SUM(LOPHOCPHAN.SoTC) AS SoTC, AVG(BANGDIEM.DiemTongKet) AS DiemTB
+FROM         BANGDIEM INNER JOIN
+                      SINHVIEN ON BANGDIEM.MaSV = SINHVIEN.MaSV INNER JOIN
+                      LOP ON SINHVIEN.MaLop = LOP.MaLop INNER JOIN
+                      LOPHOCPHAN ON BANGDIEM.MaLHP = LOPHOCPHAN.MaLHP
+GROUP BY SINHVIEN.MaSV, SINHVIEN.TenSV, LOP.MaLop, LOP.TenLop</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MaSV" DataSetColumn="MaSV" />
+              <Mapping SourceColumn="TenSV" DataSetColumn="TenSV" />
+              <Mapping SourceColumn="MaLop" DataSetColumn="MaLop" />
+              <Mapping SourceColumn="TenLop" DataSetColumn="TenLop" />
+              <Mapping SourceColumn="DiemTB" DataSetColumn="DiemTB" />
+              <Mapping SourceColumn="SoTC" DataSetColumn="SoTC" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QuanLySV24ConnectionString_InDangKI (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT SINHVIEN.MaSV, SINHVIEN.TenSV, LOP.MaLop, LOP.TenLop, SUM(LOPHOCPHAN.SoTC) AS SoTC, AVG(BANGDIEM.DiemTongKet) AS DiemTB
+FROM         BANGDIEM INNER JOIN
+                      SINHVIEN ON BANGDIEM.MaSV = SINHVIEN.MaSV INNER JOIN
+                      LOP ON SINHVIEN.MaLop = LOP.MaLop INNER JOIN
+                      LOPHOCPHAN ON BANGDIEM.MaLHP = LOPHOCPHAN.MaLHP
+WHERE     (LOP.MaLop = @maLop)
+GROUP BY SINHVIEN.MaSV, SINHVIEN.TenSV, LOP.MaLop, LOP.TenLop</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="maLop" ColumnName="MaLop" DataSourceName="QuanLySV24.dbo.LOP" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@maLop" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="MaLop" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MaSV" DataSetColumn="MaSV" />
+              <Mapping SourceColumn="TenSV" DataSetColumn="TenSV" />
+              <Mapping SourceColumn="MaLop" DataSetColumn="MaLop" />
+              <Mapping SourceColumn="TenLop" DataSetColumn="TenLop" />
+              <Mapping SourceColumn="DiemTB" DataSetColumn="DiemTB" />
+              <Mapping SourceColumn="SoTC" DataSetColumn="SoTC" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetInBangDiemLop" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetInBangDiemLop" msprop:Generator_UserDSName="DataSetInBangDiemLop">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaSV" msprop:Generator_ColumnVarNameInTable="columnMaSV" msprop:Generator_ColumnPropNameInRow="MaSV" msprop:Generator_ColumnPropNameInTable="MaSVColumn" msprop:Generator_UserColumnName="MaSV">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TenSV" msprop:Generator_ColumnVarNameInTable="columnTenSV" msprop:Generator_ColumnPropNameInRow="TenSV" msprop:Generator_ColumnPropNameInTable="TenSVColumn" msprop:Generator_UserColumnName="TenSV" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaLop" msprop:Generator_ColumnVarNameInTable="columnMaLop" msprop:Generator_ColumnPropNameInRow="MaLop" msprop:Generator_ColumnPropNameInTable="MaLopColumn" msprop:Generator_UserColumnName="MaLop">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TenLop" msprop:Generator_ColumnVarNameInTable="columnTenLop" msprop:Generator_ColumnPropNameInRow="TenLop" msprop:Generator_ColumnPropNameInTable="TenLopColumn" msprop:Generator_UserColumnName="TenLop" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DiemTB" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDiemTB" msprop:Generator_ColumnPropNameInRow="DiemTB" msprop:Generator_ColumnPropNameInTable="DiemTBColumn" msprop:Generator_UserColumnName="DiemTB" type="xs:double" minOccurs="0" />
+              <xs:element name="SoTC" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSoTC" msprop:Generator_ColumnPropNameInRow="SoTC" msprop:Generator_ColumnPropNameInTable="SoTCColumn" msprop:Generator_UserColumnName="SoTC" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaSV" msprop:Generator_ColumnVarNameInTable="columnMaSV" msprop:Generator_ColumnPropNameInRow="MaSV" msprop:Generator_ColumnPropNameInTable="MaSVColumn" msprop:Generator_UserColumnName="MaSV">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TenSV" msprop:Generator_ColumnVarNameInTable="columnTenSV" msprop:Generator_ColumnPropNameInRow="TenSV" msprop:Generator_ColumnPropNameInTable="TenSVColumn" msprop:Generator_UserColumnName="TenSV" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaLop" msprop:Generator_ColumnVarNameInTable="columnMaLop" msprop:Generator_ColumnPropNameInRow="MaLop" msprop:Generator_ColumnPropNameInTable="MaLopColumn" msprop:Generator_UserColumnName="MaLop">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TenLop" msprop:Generator_ColumnVarNameInTable="columnTenLop" msprop:Generator_ColumnPropNameInRow="TenLop" msprop:Generator_ColumnPropNameInTable="TenLopColumn" msprop:Generator_UserColumnName="TenLop" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DiemTB" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDiemTB" msprop:Generator_ColumnPropNameInRow="DiemTB" msprop:Generator_ColumnPropNameInTable="DiemTBColumn" msprop:Generator_UserColumnName="DiemTB" type="xs:double" minOccurs="0" />
+              <xs:element name="SoTC" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSoTC" msprop:Generator_ColumnPropNameInRow="SoTC" msprop:Generator_ColumnPropNameInTable="SoTCColumn" msprop:Generator_UserColumnName="SoTC" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:MaSV" />
+      <xs:field xpath="mstns:MaLop" />
+    </xs:unique>
+    <xs:unique name="DataTable2_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable2" />
+      <xs:field xpath="mstns:MaSV" />
+      <xs:field xpath="mstns:MaLop" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
