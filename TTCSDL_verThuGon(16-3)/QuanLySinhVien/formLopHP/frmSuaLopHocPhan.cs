@@ -28,33 +28,31 @@ namespace QuanLySinhVien
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                int SoTrinh;
-               
-                SoTrinh = Convert.ToInt16(txtSoTC.Text);
-                
-                cmd.CommandText = "UPDATE LOPHOCPHAN SET MaHP='" + cbbMaHP.Text + "',MaGV='" + cbbMaGV.Text + "',DiaDiemTCHP='" + txtDiaDiem.Text + "',SoTC=" + SoTrinh + "WHERE MaLHP='" + MaLopHocPhan + "'";
-                DialogResult result;
-                result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                if (txtMaLHP.Text.Length == 6)
                 {
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("CẬP NHẬT DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO");
-                    this.Close();
-                    frmDSLopHocPhan frm = new frmDSLopHocPhan();
-                    frm.Show();
+                    int SoTrinh;
+                    SoTrinh = Convert.ToInt16(txtSoTC.Text);
+                    cmd.CommandText = "UPDATE LOPHOCPHAN SET MaHP='" + cbbMaHP.Text + "',MaGV='" + cbbMaGV.Text + "',DiaDiemTCHP='" + txtDiaDiem.Text + "',SoTC=" + SoTrinh + "WHERE MaLHP='" + MaLopHocPhan + "'";
+                    DialogResult result;
+                    result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        MessageBox.Show("CẬP NHẬT DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO");
+                        this.Close();
+                        frmDSLopHocPhan frm = new frmDSLopHocPhan();
+                        frm.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Mã Lớp Học Phần 6 Ký Tự Nhé !", "Thông Báo");
                 }
             }
             catch (Exception)
             {
-                if (txtMaLHP.Text.Length != 6)
-                {
-                    MessageBox.Show("Mã Lớp Học Phần 6 Ký Tự Nhé !", "Thông Báo");
-                }
-                else
-                {
-                    MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
-                }
+                MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
             }
         }
 

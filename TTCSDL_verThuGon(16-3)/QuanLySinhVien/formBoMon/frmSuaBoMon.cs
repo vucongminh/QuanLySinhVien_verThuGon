@@ -64,35 +64,32 @@ namespace QuanLySinhVien
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                //cmd.CommandText = "UPDATE BOMON SET TenBM='" + txtTenKhoa.Text+ "'WHERE MaBM='" + MaKhoa+ "'";
-                cmd.CommandText = "UPDATE BOMON SET TenBM=N'" + txtTenKhoa.Text + "',MaChuNhiemBM='" + cbbMaCNBM.Text + "' WHERE MaBM='" + MaKhoa + "'";
+                if (cbbMaCNBM.Text.Length == 6)
+                {
+                    //cmd.CommandText = "UPDATE BOMON SET TenBM='" + txtTenKhoa.Text+ "'WHERE MaBM='" + MaKhoa+ "'";
+                    cmd.CommandText = "UPDATE BOMON SET TenBM=N'" + txtTenKhoa.Text + "',MaChuNhiemBM='" + cbbMaCNBM.Text + "' WHERE MaBM='" + MaKhoa + "'";
                 DialogResult result;
                 result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                
+                    if (result == DialogResult.Yes)
+                    {
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        MessageBox.Show("CẬP NHẬT DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO");
+                        this.Close();
+                        frmDSBoMon frm = new frmDSBoMon();
+                        frm.Show();
+                    }
+                }
+                else
                 {
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("CẬP NHẬT DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO");
-                    this.Close();
-                    frmDSBoMon frm = new frmDSBoMon();
-                    frm.Show();
+                    MessageBox.Show("Mã Giáo Viên 6 Ký Tự Nhé", "Thông Báo");
                 }
             }
             catch (Exception)
             {
-
-                if (cbbMaCNBM.Text.Length != 6)
-                {
-                    MessageBox.Show("Mã Giáo Viên 6 Ký Tự Nhé", "Thông Báo");
-                }
-
-                else
-                {
                     MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
-                }
             }
-
-
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

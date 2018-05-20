@@ -46,35 +46,7 @@ namespace QuanLySinhVien
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                //int SoTrinh;
-                int HocKy;
-                //SoTrinh = Convert.ToInt16(txtSoTrinh.Text);
-                HocKy = Convert.ToInt16(txtHocKy.Text);
-                //cmd.CommandText = "INSERT INTO HOCPHAN VALUES('" + txtMaMonHoc.Text + "',N'" + txtTenMonHoc.Text + "','" + txtMaBoMon.Text + "'," + SoTrinh + "," + HocKy + ")";
-                cmd.CommandText = "InsertDataIntoHocPhan";
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@mahp", txtMaHP.Text);
-                cmd.Parameters.AddWithValue("@tenhp", txtTenHP.Text);
-                cmd.Parameters.AddWithValue("@mabm", cbbMaBM.Text);
-                cmd.Parameters.AddWithValue("@sotc", txtSoTC.Text);
-                cmd.Parameters.AddWithValue("@hocky", HocKy);
 
-
-                cmd.ExecuteNonQuery();
-                DialogResult result;
-                result = MessageBox.Show("THÊM DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                if (result == DialogResult.OK)
-                {
-                    this.Close();
-                    frmThemHocPhan frm = new frmThemHocPhan();
-                    frm.Show();
-                }
-            }
-            catch (Exception)
-            {
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = KetNoi.str;
-                con.Open();
                 SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
                 cmd2.CommandText = "Select * from HOCPHAN where MaHP='" + txtMaHP.Text + "'";
@@ -82,19 +54,47 @@ namespace QuanLySinhVien
                 rd2 = cmd2.ExecuteReader();
                 DataTable td2 = new DataTable();
                 td2.Load(rd2);
-                if (txtMaHP.Text.Length != 6)
+                if (txtMaHP.Text.Length == 6)
                 {
-                    MessageBox.Show("Mã Học Phần 6 Ký Tự Nhé", "Thông Báo");
-                }
-                else if (td2.Rows.Count != 0)
-                {
-                    MessageBox.Show("Mã Học Phần Bị Trùng Nhé", "Thông Báo");
+                    if (td2.Rows.Count == 0)
+                    {
+                        //int SoTrinh;
+                        int HocKy;
+                        //SoTrinh = Convert.ToInt16(txtSoTrinh.Text);
+                        HocKy = Convert.ToInt16(txtHocKy.Text);
+                        //cmd.CommandText = "INSERT INTO HOCPHAN VALUES('" + txtMaMonHoc.Text + "',N'" + txtTenMonHoc.Text + "','" + txtMaBoMon.Text + "'," + SoTrinh + "," + HocKy + ")";
+                        cmd.CommandText = "InsertDataIntoHocPhan";
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@mahp", txtMaHP.Text);
+                        cmd.Parameters.AddWithValue("@tenhp", txtTenHP.Text);
+                        cmd.Parameters.AddWithValue("@mabm", cbbMaBM.Text);
+                        cmd.Parameters.AddWithValue("@sotc", txtSoTC.Text);
+                        cmd.Parameters.AddWithValue("@hocky", HocKy);
+
+
+                        cmd.ExecuteNonQuery();
+                        DialogResult result;
+                        result = MessageBox.Show("THÊM DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        if (result == DialogResult.OK)
+                        {
+                            this.Close();
+                            frmThemHocPhan frm = new frmThemHocPhan();
+                            frm.Show();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mã Học Phần Bị Trùng Nhé", "Thông Báo");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
+                    MessageBox.Show("Mã Học Phần 6 Ký Tự Nhé", "Thông Báo");
                 }
-
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
             }
         }
 

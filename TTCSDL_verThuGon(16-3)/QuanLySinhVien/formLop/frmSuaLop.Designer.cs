@@ -180,6 +180,7 @@
             // txtMaLop
             // 
             this.txtMaLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txtMaLop.Enabled = false;
             this.txtMaLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLop.ForeColor = System.Drawing.Color.Black;
             this.txtMaLop.Location = new System.Drawing.Point(155, 19);

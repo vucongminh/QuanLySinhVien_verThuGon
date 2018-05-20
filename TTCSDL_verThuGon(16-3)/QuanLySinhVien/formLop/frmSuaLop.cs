@@ -87,37 +87,27 @@ namespace QuanLySinhVien
             {
 
                 SqlConnection con = new SqlConnection();
-            con.ConnectionString = KetNoi.str;
-            con.Open();
-
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-
-            cmd.CommandText = "UPDATE LOP SET TenLop=N'" + txtTenLop.Text + "',MaLopTruong='" + cbbMaLT.Text + "',MaGVCN='" + cbbMaGVCN.Text + "' WHERE MaLop='" + MaLop + "'";
-            DialogResult result;
-            result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("CẬP NHẬT DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO");
-                this.Close();
-                frmDSLop frm = new frmDSLop();
-                frm.Show();
+                con.ConnectionString = KetNoi.str;
+                con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "UPDATE LOP SET TenLop=N'" + txtTenLop.Text + "',MaLopTruong='" + cbbMaLT.Text + "',MaGVCN='" + cbbMaGVCN.Text + "' WHERE MaLop='" + MaLop + "'";
+                DialogResult result;
+                result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("CẬP NHẬT DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO");
+                    this.Close();
+                    frmDSLop frm = new frmDSLop();
+                    frm.Show();
+                }
             }
-        }
             catch (Exception)
             {
-              
+                MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
 
-                if (txtMaLop.Text.Length != 6 )
-                {
-                    MessageBox.Show("Mã Lớp 6 Ký Tự Nhé !", "Thông Báo");
-                }
-                else
-                {
-                    MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
-                }
             }
         }
 
@@ -147,5 +137,5 @@ namespace QuanLySinhVien
             }
         }
     }
-    }
+}
 

@@ -60,54 +60,43 @@ namespace QuanLySinhVien
         {
             try
             {
-
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = KetNoi.str;
                 con.Open();
-
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-
-                string MaBM;
-                MaBM = cbbMaBM.SelectedItem.ToString();
-
-                cmd.CommandText = "UPDATE GIAOVIEN SET TenGV=N'" + txtTenGV.Text + "',SdtGV='" + txtSdtGV.Text + "',MaBM='" + MaBM + "' WHERE MaGV='" + MaGV + "'";
-                DialogResult result;
-                result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (IsNumber(txtSdtGV.Text))
+                if (txtMaGV.Text.Length == 6)
                 {
-
-                    if (result == DialogResult.Yes)
+                    if (IsNumber(txtSdtGV.Text))
                     {
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                        MessageBox.Show("CẬP NHẬT DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO");
-                        this.Close();
-                        frmDSGiaoVien frm = new frmDSGiaoVien();
-                        frm.Show();
+                        string MaBM;
+                        MaBM = cbbMaBM.SelectedItem.ToString();
+                        cmd.CommandText = "UPDATE GIAOVIEN SET TenGV=N'" + txtTenGV.Text + "',SdtGV='" + txtSdtGV.Text + "',MaBM='" + MaBM + "' WHERE MaGV='" + MaGV + "'";
+                        DialogResult result;
+                        result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                            MessageBox.Show("CẬP NHẬT DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO");
+                            this.Close();
+                            frmDSGiaoVien frm = new frmDSGiaoVien();
+                            frm.Show();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("SĐT nhập không đúng!");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("SĐT nhập không đúng!");
-                }
-            }
-
-
-
-            catch (Exception)
-            {
-
-                if (txtMaGV.Text.Length != 6)
-                {
-
                     MessageBox.Show("Mã Giáo Viên 6 Ký Tự Nhé", "Thông Báo");
                 }
-
-                else
-                {
-                    MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
-                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
             }
         }
 

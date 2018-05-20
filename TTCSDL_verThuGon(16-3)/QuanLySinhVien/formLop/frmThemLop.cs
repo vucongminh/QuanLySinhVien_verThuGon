@@ -11,9 +11,9 @@ namespace QuanLySinhVien
 {
     public partial class frmThemLop : Form
     {
-       
+
         public frmThemLop()
-        {           
+        {
             InitializeComponent();
         }
 
@@ -33,7 +33,7 @@ namespace QuanLySinhVien
             {
                 this.cbbMaLT.Items.Add(td.Rows[i][0]);
             }
-            
+
             SqlCommand cmd1 = new SqlCommand();
             cmd1.Connection = con;
             cmd1.CommandText = "Select MaGV from GIAOVIEN where MaGV not in ( select MaGVCN from LOP where MaGVCN = GIAOVIEN.MaGV)";
@@ -47,7 +47,7 @@ namespace QuanLySinhVien
             }
 
             con.Close();
-           
+
         }
 
         private void btnThemLop_Click(object sender, EventArgs e)
@@ -55,33 +55,11 @@ namespace QuanLySinhVien
             try
             {
                 SqlConnection con = new SqlConnection();
-            con.ConnectionString = KetNoi.str;
-            con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-                // cmd.CommandText = "INSERT INTO LOP VALUES('" + txtMaLop.Text + "','" + txtTenLop.Text + "','"+txtMaLT.Text+ "','" + txtMaGVCN.Text + "')";
-                cmd.CommandText = "InsertDataIntoLop";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("MaLop", txtMaLop.Text);
-                cmd.Parameters.AddWithValue("TenLop", txtTenLop.Text);
-                cmd.Parameters.AddWithValue("MaLopTruong", cbbMaLT.Text);
-                cmd.Parameters.AddWithValue("MaGVCN", cbbMaGVCN.Text);
-
-                cmd.ExecuteNonQuery();
-            DialogResult result;
-            result = MessageBox.Show("THÊM DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            if (result == DialogResult.OK)
-            {
-                this.Close();
-                frmThemLop frm = new frmThemLop();
-                frm.Show();
-            }
-            }
-            catch (Exception)
-            {
-                SqlConnection con = new SqlConnection();
                 con.ConnectionString = KetNoi.str;
                 con.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+
                 SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
                 cmd2.CommandText = "Select * from LOP where MaLop='" + txtMaLop.Text + "'";
@@ -89,19 +67,35 @@ namespace QuanLySinhVien
                 rd2 = cmd2.ExecuteReader();
                 DataTable td2 = new DataTable();
                 td2.Load(rd2);
-                
-                if (td2.Rows.Count != 0)
+
+                if (td2.Rows.Count == 0)
                 {
-                    MessageBox.Show("Mã Lớp Bị Trùng Nhé", "Thông Báo");
-                }
-                else if(txtMaLop.Text.Length != 6)
-                {
-                    MessageBox.Show("Mã Lớp 6 Ký Tự Nhé", "Thông Báo");
+                    cmd.CommandText = "InsertDataIntoLop";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("MaLop", txtMaLop.Text);
+                    cmd.Parameters.AddWithValue("TenLop", txtTenLop.Text);
+                    cmd.Parameters.AddWithValue("MaLopTruong", cbbMaLT.Text);
+                    cmd.Parameters.AddWithValue("MaGVCN", cbbMaGVCN.Text);
+
+                    cmd.ExecuteNonQuery();
+                    DialogResult result;
+                    result = MessageBox.Show("THÊM DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (result == DialogResult.OK)
+                    {
+                        this.Close();
+                        frmThemLop frm = new frmThemLop();
+                        frm.Show();
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
+                    MessageBox.Show("Mã Lớp Bị Trùng Nhé", "Thông Báo");
                 }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
+
             }
         }
 

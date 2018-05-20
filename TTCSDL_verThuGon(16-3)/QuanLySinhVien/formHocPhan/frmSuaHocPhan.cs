@@ -64,38 +64,35 @@ namespace QuanLySinhVien
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                int SoTrinh;
-                int HocKy;
-                SoTrinh = Convert.ToInt16(txtSoTC.Text);
-                HocKy = Convert.ToInt16(txtHocKy.Text);
-                string MaBM;
-                MaBM = cbbMaBM.SelectedItem.ToString();
-                cmd.CommandText = "UPDATE HOCPHAN SET TenHP=N'" + txtTenHP.Text + "',MaBM='" + MaBM + "',SoTC=" + SoTrinh + ",HocKy=" + HocKy + "WHERE MaHP='" + MaMonHoc + "'";
-                DialogResult result;
-                result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                if (txtMaHP.Text.Length != 6)
                 {
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("CẬP NHẬT DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO");
-                    this.Close();
-                    frmDSHocPhan frm = new frmDSHocPhan();
-                    frm.Show();
+                    int SoTrinh;
+                    int HocKy;
+                    SoTrinh = Convert.ToInt16(txtSoTC.Text);
+                    HocKy = Convert.ToInt16(txtHocKy.Text);
+                    string MaBM;
+                    MaBM = cbbMaBM.SelectedItem.ToString();
+                    cmd.CommandText = "UPDATE HOCPHAN SET TenHP=N'" + txtTenHP.Text + "',MaBM='" + MaBM + "',SoTC=" + SoTrinh + ",HocKy=" + HocKy + "WHERE MaHP='" + MaMonHoc + "'";
+                    DialogResult result;
+                    result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        MessageBox.Show("CẬP NHẬT DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO");
+                        this.Close();
+                        frmDSHocPhan frm = new frmDSHocPhan();
+                        frm.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Mã Học Phần 6 Ký Tự Nhé", "Thông Báo");
                 }
             }
             catch (Exception)
             {
-               
-                if (txtMaHP.Text.Length != 6)
-                {
-                    MessageBox.Show("Mã Học Phần 6 Ký Tự Nhé", "Thông Báo");
-                }
-              
-                else
-                {
-                    MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
-                }
-
+                MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
             }
 
         }

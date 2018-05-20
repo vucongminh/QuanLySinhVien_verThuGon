@@ -131,6 +131,7 @@
             // txtMaKhoa
             // 
             this.txtMaKhoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txtMaKhoa.Enabled = false;
             this.txtMaKhoa.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaKhoa.ForeColor = System.Drawing.Color.Black;
             this.txtMaKhoa.Location = new System.Drawing.Point(181, 19);

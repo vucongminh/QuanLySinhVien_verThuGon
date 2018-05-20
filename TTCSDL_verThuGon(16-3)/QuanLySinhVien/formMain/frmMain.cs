@@ -43,7 +43,15 @@ namespace QuanLySinhVien
 
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit(); 
+            DialogResult result;
+            result = MessageBox.Show("BẠN CÓ MUỐN THOÁT CHƯƠNG TRÌNH KHÔNG ? :(", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                
+                MessageBox.Show("XIN CHÀO HẸN GẶP LẠI !", "THÔNG BÁO");
+                Application.Exit();
+            }
+           
         }
 
         private void lớpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -201,8 +209,17 @@ namespace QuanLySinhVien
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DisableMenu();
+            
             đăngNhậpToolStripMenuItem.Enabled = true;
+            DialogResult result;
+            result = MessageBox.Show("BẠN CÓ MUỐN ĐĂNG XUẤT KHÔNG?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {                
+                MessageBox.Show("ĐĂNG XUẤT THÀNH CÔNG !", "THÔNG BÁO");
+                DisableMenu();
+            }
+
+
         }
 
 
@@ -237,8 +254,8 @@ namespace QuanLySinhVien
 
         private void phụcHồiDữLiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = KetNoi.str;
                 con.Open();
@@ -249,12 +266,12 @@ namespace QuanLySinhVien
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Restore Database Quản Lý Sinh Viên Thành Công!","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            //}
-            //catch (SqlException ex)
-            //{
-            //    MessageBox.Show(ex.ToString(), "ERROR RESTORE DATABASE");
-            //    return;
-            //}
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERROR RESTORE DATABASE");
+                return;
+            }
         }
 
      
