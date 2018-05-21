@@ -72,8 +72,9 @@ namespace QuanLySinhVien
 
                 frmChiTietSinhVien.username = txtTenDangNhap.Text;
                 frmChiTietSinhVien.pass = txtMatKhau.Text;
+                frmDangNhapAdmin.username = txtTenDangNhap.Text;
 
-               
+
                 this.Close();
                 
             }

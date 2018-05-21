@@ -11,6 +11,8 @@ namespace QuanLySinhVien
 {
     public partial class frmDangNhapAdmin : Form
     {
+        public static string username=string.Empty;
+
         public frmDangNhapAdmin()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace QuanLySinhVien
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             DangNhapNguoiDung login = new DangNhapNguoiDung();
-            if (login.DangNhap(txtTenDangNhap.Text, txtMatKhau.Text) == true)
+            if (login.DangNhap(txtTenDangNhap.Text, txtMatKhau.Text) == true && txtTenDangNhap.Text == username)
             {
                 MessageBox.Show("Xin Chào Admin", "Đăng Nhập Thành Công",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 frmDanhSachNguoiDung frm = new frmDanhSachNguoiDung();
