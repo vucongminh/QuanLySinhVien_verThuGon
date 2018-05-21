@@ -15,17 +15,17 @@ namespace QuanLySinhVien
 {
     public partial class frmMain : Form
     {
-     
+
         public frmMain()
         {
             InitializeComponent();
             quảnLýNgườiDùngToolStripMenuItem.Enabled = false;
-            
+
 
         }
         private void frmMain_Load(object sender, EventArgs e)
         {
-            
+
         }
         private void sinhViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -47,16 +47,16 @@ namespace QuanLySinhVien
             result = MessageBox.Show("BẠN CÓ MUỐN THOÁT CHƯƠNG TRÌNH KHÔNG ? :(", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                
+
                 MessageBox.Show("XIN CHÀO HẸN GẶP LẠI !", "THÔNG BÁO");
                 Application.Exit();
             }
-           
+
         }
 
         private void lớpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
             frmDSLop frm = new frmDSLop();
             //frm.MdiParent = this;
             frm.Show();
@@ -64,13 +64,13 @@ namespace QuanLySinhVien
 
         private void mônHọcToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void họcPhầnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDSHocPhan frm = new frmDSHocPhan();
-           // frm.MdiParent = this;
+            // frm.MdiParent = this;
             frm.Show();
         }
 
@@ -83,7 +83,7 @@ namespace QuanLySinhVien
 
         private void quảnLýNgườiDùngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void quảnLýNgườiDùngToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -100,14 +100,14 @@ namespace QuanLySinhVien
             frm.Show();
         }
 
-        
+
 
         private void đăngNhậpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDangNhapHeThong frm = new frmDangNhapHeThong();
             frm.MdiParent = this;
             frm.Show();
-            
+
         }
         public void EnableMenu()
         {
@@ -120,7 +120,7 @@ namespace QuanLySinhVien
             đăngXuấtToolStripMenuItem.Enabled = true;
             quảnLýNgườiDùngToolStripMenuItem.Enabled = true;
             saoLưuDữLiệuToolStripMenuItem.Enabled = true;
-            phụcHồiDữLiệuToolStripMenuItem.Enabled = true;         
+            phụcHồiDữLiệuToolStripMenuItem.Enabled = true;
             tìmKiếmLớpToolStripMenuItem.Enabled = true;
             báoCáoToolStripMenuItem.Enabled = true;
             inBảngĐiểmToolStripMenuItem.Enabled = false;
@@ -195,7 +195,7 @@ namespace QuanLySinhVien
             saoLưuDữLiệuToolStripMenuItem.Enabled = false;
             phụcHồiDữLiệuToolStripMenuItem.Enabled = false;
             đăngKýToolStripMenuItem.Enabled = false;
-            tìmKiếmLớpToolStripMenuItem.Enabled = false; 
+            tìmKiếmLớpToolStripMenuItem.Enabled = false;
             báoCáoToolStripMenuItem.Enabled = false;
             đăngKýToolStripMenuItem.Enabled = false;
             thôngTinToolStripMenuItem.Enabled = false;
@@ -209,12 +209,12 @@ namespace QuanLySinhVien
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             đăngNhậpToolStripMenuItem.Enabled = true;
             DialogResult result;
             result = MessageBox.Show("BẠN CÓ MUỐN ĐĂNG XUẤT KHÔNG?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
-            {                
+            {
                 MessageBox.Show("ĐĂNG XUẤT THÀNH CÔNG !", "THÔNG BÁO");
                 DisableMenu();
             }
@@ -230,52 +230,17 @@ namespace QuanLySinhVien
 
         private void saoLưuDữLiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
-                try
-                {
-                    SqlConnection con = new SqlConnection();
-                    con.ConnectionString = KetNoi.str;
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = con;
-                    cmd.CommandText = "BACKUP DATABASE [QuanLySV24] TO DISK='E:\\QLSV24.bak'";
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("Backup Database Quản Lý Sinh Viên Thành Công!","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show(ex.ToString(),"BACKUP DATABASE");
-                    return;
-                }
-                
-            
+            frmBackUpRestore frm = new frmBackUpRestore();
+            frm.MdiParent = this;
+            frm.Show();
         }
 
         private void phụcHồiDữLiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = KetNoi.str;
-                con.Open();
-                string strpath = "E:\\QLSV24.bak";
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandText = "USE master RESTORE DATABASE [QuanLySV24] FROM DISK='" + strpath + "' With Replace";
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Restore Database Quản Lý Sinh Viên Thành Công!","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.ToString(), "ERROR RESTORE DATABASE");
-                return;
-            }
+            frmBackUpRestore frm = new frmBackUpRestore();
+            frm.MdiParent = this;
+            frm.Show();
         }
-
-     
-
         private void dDToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -284,7 +249,7 @@ namespace QuanLySinhVien
         private void đăngKýToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDangKi frm = new frmDangKi();
-            
+
             frm.Show();
         }
 
@@ -310,7 +275,7 @@ namespace QuanLySinhVien
         private void inBảngĐiểmToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmInBangDiem frm = new frmInBangDiem();
-           // frm.MdiParent = this;
+            // frm.MdiParent = this;
             frm.Show();
         }
 
