@@ -66,6 +66,7 @@
             // txtTenKhoa
             // 
             this.txtTenKhoa.BackColor = System.Drawing.Color.White;
+            this.txtTenKhoa.Enabled = false;
             this.txtTenKhoa.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenKhoa.ForeColor = System.Drawing.Color.Red;
             this.txtTenKhoa.Location = new System.Drawing.Point(181, 49);
@@ -77,6 +78,7 @@
             // txtMaKhoa
             // 
             this.txtMaKhoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txtMaKhoa.Enabled = false;
             this.txtMaKhoa.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaKhoa.ForeColor = System.Drawing.Color.Red;
             this.txtMaKhoa.Location = new System.Drawing.Point(181, 17);
@@ -149,6 +151,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmXoaBoMon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xóa Bộ Môn";

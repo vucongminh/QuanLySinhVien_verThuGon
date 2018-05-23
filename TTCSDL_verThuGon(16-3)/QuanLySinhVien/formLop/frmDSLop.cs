@@ -105,7 +105,7 @@ namespace QuanLySinhVien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Khong co ket noi ! ");
+                MessageBox.Show(ex.ToString());
             }
         }
         private void getData2(AutoCompleteStringCollection dataCollection)
@@ -136,7 +136,7 @@ namespace QuanLySinhVien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Khong co ket noi ! ");
+                MessageBox.Show(ex.ToString());
             }
         }
 

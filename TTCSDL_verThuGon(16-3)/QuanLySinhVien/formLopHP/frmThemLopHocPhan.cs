@@ -31,7 +31,7 @@ namespace QuanLySinhVien
             td.Load(rd);
             for (int i = 0; i < td.Rows.Count; i++)
             {
-                this.cbbMaHP.Items.Add(td.Rows[i][0]);
+                this.cbxMaHP.Items.Add(td.Rows[i][0]);
             }
 
             SqlCommand cmd1 = new SqlCommand();
@@ -43,7 +43,19 @@ namespace QuanLySinhVien
             td1.Load(rd1);
             for (int i = 0; i < td1.Rows.Count; i++)
             {
-                this.cbbMaGV.Items.Add(td1.Rows[i][0]);
+                this.cbxMaGV.Items.Add(td1.Rows[i][0]);
+            }
+
+            SqlCommand cmd2 = new SqlCommand();
+            cmd2.Connection = con;
+            cmd2.CommandText = "Select DiaDiemTCHP from LOPHOCPHAN ";
+            SqlDataReader rd2;
+            rd2 = cmd2.ExecuteReader();
+            DataTable td2 = new DataTable();
+            td2.Load(rd2);
+            for (int i = 0; i < td2.Rows.Count; i++)
+            {
+                this.cbxDiaDiem.Items.Add(td2.Rows[i][0]);
             }
 
             con.Close();
@@ -66,46 +78,66 @@ namespace QuanLySinhVien
                 rd2 = cmd2.ExecuteReader();
                 DataTable td2 = new DataTable();
                 td2.Load(rd2);
-                if (txtMaLHP.Text.Length == 6)
+                try
                 {
-                    if (td2.Rows.Count == 0)
+                    if (txtMaLHP.Text != "" && cbxMaHP.SelectedItem.ToString() != "" && cbxMaGV.SelectedItem.ToString() != "" && cbxDiaDiem.Text != "" && txtSoTC.Text != "")
                     {
-                        //int SoTrinh;
-                        //SoTrinh = Convert.ToInt16(txtSoTC.Text);
-                        //cmd.CommandText = "INSERT INTO LOPHOCPHAN VALUES('" + txtMaLHP.Text + "','" + txtMaHP.Text + "','" + txtMaGV.Text + "','" + txtDiaDiem.Text + "'," + SoTrinh + ")";
-                        cmd.CommandText = "InsertDataIntoLopHocPhan";
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("MaLHP", txtMaLHP.Text);
-                        cmd.Parameters.AddWithValue("MaHP", cbbMaHP.Text);
-                        cmd.Parameters.AddWithValue("MaGV", cbbMaGV.Text);
-                        cmd.Parameters.AddWithValue("DiaDiemTCHP", txtDiaDiem.Text);
-                        cmd.Parameters.AddWithValue("SoTC", txtSoTC.Text);
-
-                        cmd.ExecuteNonQuery();
-                        DialogResult result;
-                        result = MessageBox.Show("THÊM DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        if (result == DialogResult.OK)
+                        if (td2.Rows.Count == 0)
                         {
-                            this.Close();
-                            frmThemLopHocPhan frm = new frmThemLopHocPhan();
-                            frm.Show();
+                            if (txtMaLHP.Text.Length == 6)
+                            {
+                                if (IsNumber(txtSoTC.Text))
+                                {
+                                    int SoTC = Convert.ToInt16(txtSoTC.Text);
+                                    cmd.CommandText = "InsertDataIntoLopHocPhan";
+                                    cmd.CommandType = CommandType.StoredProcedure;
+                                    cmd.Parameters.AddWithValue("@malhp", txtMaLHP.Text);
+                                    cmd.Parameters.AddWithValue("@mahp", cbxMaHP.Text);
+                                    cmd.Parameters.AddWithValue("@magv", cbxMaGV.Text);
+                                    cmd.Parameters.AddWithValue("@diadiem", cbxDiaDiem.Text);
+                                    cmd.Parameters.AddWithValue("@sotc", SoTC);
+                                    DialogResult result;
+                                    result = MessageBox.Show("BẠN CÓ MUỐN THÊM MỚI LỚP HỌC PHẦN NÀY KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                                    if (result == DialogResult.Yes)
+                                    {
+                                        cmd.ExecuteNonQuery();
+                                        MessageBox.Show("THÊM DỮ LIỆU THÀNH CÔNG");
+                                        this.Close();
+                                        frmDSLopHocPhan frm = new frmDSLopHocPhan();
+                                        frm.Show();
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Số tín chỉ nhập không đúng!");
+                                }
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Mã Lớp Học Phần Phải Đúng 6 Ký Tự Nhé", "Thông Báo");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Mã Lớp Học Phần Bị Trùng Nhé", "Thông Báo");
+
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Mã Lớp Học Phần Bị Trùng Nhé", "Thông Báo");
-
+                        MessageBox.Show("Bạn phải nhập đủ các trường bắt buộc!", "Thông Báo");
                     }
                 }
-                else
+                catch
                 {
-                    MessageBox.Show("Mã Lớp Học Phần 6 Ký Tự Nhé", "Thông Báo");
-
+                    MessageBox.Show("Bạn phải nhập đủ các trường bắt buộc!");
                 }
+
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -121,12 +153,12 @@ namespace QuanLySinhVien
         {
             SqlDataReader a;
             KetNoi kn = new KetNoi();
-            string selectTring = "select TenHP from HOCPHAN where MaHP = '" + cbbMaHP.Text + "'";
+            string selectTring = "select TenHP,SoTC from HOCPHAN where MaHP = '" + cbxMaHP.Text + "'";
             a = kn.ThucThiTraVe1Record(selectTring);
             while (a.Read())
             {
                 txtTenHP.Text = a["TenHP"].ToString();
-
+                txtSoTC.Text = a[1].ToString();
             }
         }
 
@@ -134,13 +166,22 @@ namespace QuanLySinhVien
         {
             SqlDataReader a;
             KetNoi kn = new KetNoi();
-            string selectTring = "select TenGV from GIAOVIEN where MaGV = '" + cbbMaGV.Text + "'";
+            string selectTring = "select TenGV from GIAOVIEN where MaGV = '" + cbxMaGV.Text + "'";
             a = kn.ThucThiTraVe1Record(selectTring);
             while (a.Read())
             {
                 txtTenGV.Text = a["TenGV"].ToString();
 
             }
+        }
+        public bool IsNumber(string pValue)
+        {
+            foreach (Char c in pValue)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
         }
     }
 }

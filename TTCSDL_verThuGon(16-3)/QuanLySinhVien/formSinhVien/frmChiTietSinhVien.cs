@@ -15,6 +15,7 @@ namespace QuanLySinhVien
         public static string username = string.Empty;
         public static string pass = string.Empty;
         string SinhVien_ID;
+        string Lop_ID;
         public frmChiTietSinhVien(string MaSinhVien)
         {
             SinhVien_ID = MaSinhVien;
@@ -33,9 +34,17 @@ namespace QuanLySinhVien
             SqlConnection con = new SqlConnection();
             con.ConnectionString = KetNoi.str;
             con.Open();
+            SqlCommand cmd1 = new SqlCommand();
+            cmd1.Connection = con;
+            cmd1.CommandText = "SELECT MaLop FROM SinhVien WHERE MaSV='" + SinhVien_ID + "'";
+            SqlDataReader rd1;
+            rd1 = cmd1.ExecuteReader();
+            DataTable td1 = new DataTable();
+            td1.Load(rd1);
+            Lop_ID = td1.Rows[0][0].ToString();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT * FROM SinhVien WHERE  MaSV='" + SinhVien_ID + "'";
+            cmd.CommandText = "SELECT SinhVien.*,Lop.TenLop FROM SinhVien,Lop WHERE MaSV='" + SinhVien_ID + "' and SinhVien.MaLop=Lop.MaLop";
             SqlDataReader rd;
             rd = cmd.ExecuteReader();
             DataTable td = new DataTable();
@@ -44,11 +53,11 @@ namespace QuanLySinhVien
             this.txtHoTen.Text = td.Rows[0][1].ToString();
             this.txtCMND.Text = td.Rows[0][2].ToString();
             DateTime ngay = DateTime.Parse(td.Rows[0][4].ToString());
-            this.mskNgaySinh.Text = ngay.ToString("dd-MM-yyyy");
+            this.mskNgaySinh.Text = ngay.ToString("dd/MM/yyyy");
             
             this.txtQueQuan.Text = td.Rows[0][5].ToString();
             this.txtSDT.Text = td.Rows[0][6].ToString();
-            this.txtTenLop.Text = td.Rows[0][7].ToString();
+            this.txtTenLop.Text = td.Rows[0][10].ToString();
             string hinhanh;
             hinhanh = td.Rows[0][8].ToString();
             if(hinhanh.Length<=0)
@@ -64,7 +73,7 @@ namespace QuanLySinhVien
             
             int sex;
             sex = Convert.ToInt16(td.Rows[0][3]);
-            if (sex == 0)
+            if (sex == 1)
                 radioButton1.Checked = true;
             else
                 radioButton2.Checked = true;
@@ -79,6 +88,8 @@ namespace QuanLySinhVien
         private void button2_Click(object sender, EventArgs e)
         {           
             this.Close();
+            frmDSSV frm = new frmDSSV(Lop_ID);
+            frm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

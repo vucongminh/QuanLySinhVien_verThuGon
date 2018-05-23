@@ -134,6 +134,7 @@
             // 
             // cboQuyenHan
             // 
+            this.cboQuyenHan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboQuyenHan.FormattingEnabled = true;
             this.cboQuyenHan.Items.AddRange(new object[] {
             "Admin",
@@ -258,6 +259,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmThemNguoiDung";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm Người Dùng ";

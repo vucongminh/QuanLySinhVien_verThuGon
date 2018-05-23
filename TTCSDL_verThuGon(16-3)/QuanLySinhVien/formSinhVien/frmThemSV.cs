@@ -45,16 +45,15 @@ namespace QuanLySinhVien
             this.Close();
             frmDSSV frm = new frmDSSV(Lop_ID);
             frm.Show();
-            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             int sex;
             if (radioButton7.Checked == true)
-                sex = 0;
-            else
                 sex = 1;
+            else
+                sex = 0;
             SqlConnection con = new SqlConnection();
             con.ConnectionString = KetNoi.str;
             con.Open();
@@ -69,46 +68,59 @@ namespace QuanLySinhVien
             td2.Load(rd2);
             try
             {
-                if (txtmaSV.Text != "" && txtQueQuan.Text != "" && txtTen.Text != "" && cbxTenLop.SelectedItem.ToString() != "" && txtCMND.Text != "" && (radioButton7.Checked==true||radioButton8.Checked==true))
+                if (txtmaSV.Text != "" && txtQueQuan.Text != "" && txtTen.Text != "" && cbxTenLop.SelectedItem.ToString() != "" && txtCMND.Text != "" && (radioButton7.Checked == true || radioButton8.Checked == true))
                 {
                     if (td2.Rows.Count == 0)
                     {
-                        if (IsNumber(txtCMND.Text))
+                        if (txtmaSV.Text.Length == 6)
                         {
-                            if (IsNumber(txtSDT.Text))
+                            if (IsNumber(txtCMND.Text) && txtCMND.Text.Length == 9)
                             {
-
-                                string TenLop;
-                                TenLop = cbxTenLop.SelectedItem.ToString();
-                                cmd.CommandText = "select* from Lop where TenLop =N'" + TenLop + "'";
-                                SqlDataReader rd;
-                                rd = cmd.ExecuteReader();
-                                DataTable td = new DataTable();
-                                td.Load(rd);
-                                string MaLop = td.Rows[0][0].ToString();
-
-                                cmd.CommandText = "insert into SinhVien values ('" + txtmaSV.Text + "',N'" + txtTen.Text + "','" + txtCMND.Text + "'," + sex + ",'" + DateTime.Parse(mskNgaySinh.Text) + "',N'" + txtQueQuan.Text + "','" + txtSDT.Text + "','" + MaLop + "','" + hinhanh + "','')";
-                                DialogResult result;
-                                result = MessageBox.Show("BẠN CÓ MUỐN THÊM MỚI SINH VIÊN NÀY KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                                if (result == DialogResult.Yes)
+                                if (IsNumber(txtSDT.Text) && (txtSDT.Text.Length == 10 || txtSDT.Text.Length == 11))
                                 {
-                                    cmd.ExecuteNonQuery();
-                                    MessageBox.Show("THÊM MỚI THÀNH CÔNG", "THÔNG BÁO");
-                                    this.Close();
-                                    frmDSSV frm = new frmDSSV(Lop_ID);
-                                    frm.Show();
+                                    try
+                                    {
+                                        string TenLop;
+                                        TenLop = cbxTenLop.SelectedItem.ToString();
+                                        cmd.CommandText = "select * from Lop where TenLop =N'" + TenLop + "'";
+                                        SqlDataReader rd;
+                                        rd = cmd.ExecuteReader();
+                                        DataTable td = new DataTable();
+                                        td.Load(rd);
+                                        string MaLop = td.Rows[0][0].ToString();
+                                        string[] arr = mskNgaySinh.Text.Split('/');
+                                        string dt = arr[1]+"/"+arr[0]+"/"+arr[2];
+                                        cmd.CommandText = "insert into SinhVien values ('" + txtmaSV.Text + "',N'" + txtTen.Text + "','" + txtCMND.Text + "'," + sex + ",'" + DateTime.Parse(dt.ToString()) + "',N'" + txtQueQuan.Text + "','" + txtSDT.Text + "','" + MaLop + "','" + hinhanh + "','')";
+                                        DialogResult result;
+                                        result = MessageBox.Show("BẠN CÓ MUỐN THÊM MỚI SINH VIÊN NÀY KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                        if (result == DialogResult.Yes)
+                                        {
+                                            cmd.ExecuteNonQuery();
+                                            MessageBox.Show("THÊM MỚI THÀNH CÔNG", "THÔNG BÁO");
+                                            this.Close();
+                                            frmDSSV frm = new frmDSSV(Lop_ID);
+                                            frm.Show();
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        MessageBox.Show("Bạn phải nhập đủ các trường bắt buộc!", "Thông Báo");
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("SĐT nhập không đúng!");
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("SĐT nhập không đúng!");
+                                MessageBox.Show("CMND nhập không đúng!");
                             }
                         }
                         else
                         {
-                            MessageBox.Show("CMND nhập không đúng!");
+                            MessageBox.Show("Mã Sinh Viên Phải Đủ 6 Kí Tự !", "Thông Báo");
                         }
-
                     }
                     else
                     {
@@ -117,12 +129,12 @@ namespace QuanLySinhVien
                 }
                 else
                 {
-                    MessageBox.Show("Kiểm tra lại thông tin nhập..!", "Thông Báo");
+                    MessageBox.Show("Bạn phải nhập đủ các trường bắt buộc!", "Thông Báo");
                 }
             }
-            catch (Exception)
+            catch
             {
-                MessageBox.Show("Kiểm tra lại thông tin nhập..!", "Thông Báo");
+                MessageBox.Show("Bạn phải nhập đủ các trường bắt buộc!");
             }
             con.Close();
         }
@@ -150,7 +162,7 @@ namespace QuanLySinhVien
                 try
                 {
                     DateTime.ParseExact(mskNgaySinh.Text, "dd/MM/yyyy", null);
-                    
+
                 }
                 catch
                 {

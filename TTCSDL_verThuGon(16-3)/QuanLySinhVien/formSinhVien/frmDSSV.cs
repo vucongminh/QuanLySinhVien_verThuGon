@@ -63,16 +63,18 @@ namespace QuanLySinhVien
             rd = cmd.ExecuteReader();
             DataTable td = new DataTable();
             td.Load(rd);
+            DateTime dt;
             for (int i = 0; i < td.Rows.Count; i++)
             {
                 ListViewItem item = new ListViewItem(td.Rows[i][0].ToString());
                 item.SubItems.Add(td.Rows[i][1].ToString());
                 item.SubItems.Add(td.Rows[i][2].ToString());
-                if (Convert.ToInt16(td.Rows[i][3]) == 0)
+                if (Convert.ToInt16(td.Rows[i][3]) == 1)
                     item.SubItems.Add("Nam");
                 else
-                    item.SubItems.Add("Nu");
-                item.SubItems.Add(td.Rows[i][4].ToString());
+                    item.SubItems.Add("Nữ");
+                dt = DateTime.Parse(td.Rows[i][4].ToString());
+                item.SubItems.Add(dt.ToString("dd/MM/yyyy"));
                 item.SubItems.Add(td.Rows[i][5].ToString());
                 item.SubItems.Add(td.Rows[i][6].ToString());
                 item.SubItems.Add(td.Rows[i][7].ToString());
@@ -90,7 +92,7 @@ namespace QuanLySinhVien
             DataSet ds = new DataSet();
             connetionString = KetNoi.str;
             //connetionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLySV24;Integrated Security=True";
-            string sql = "Select TenSV from SINHVIEN";
+            string sql = "Select TenSV from SINHVIEN WHERE MaLop = '" + MaLop + "'";
 
             connection = new SqlConnection(connetionString);
             try
@@ -105,12 +107,11 @@ namespace QuanLySinhVien
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
                     dataCollection.Add(row[0].ToString());
-
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Khong co ket noi ! ");
+                MessageBox.Show(ex.ToString());
             }
         }
         private void getData2(AutoCompleteStringCollection dataCollection)
@@ -122,7 +123,7 @@ namespace QuanLySinhVien
             DataSet ds = new DataSet();
             connetionString = KetNoi.str;
             //connetionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLySV24;Integrated Security=True";
-            string sql = "Select distinct MaSV from SINHVIEN  ";
+            string sql = "Select distinct MaSV from SINHVIEN WHERE MaLop = '" + MaLop + "'";
 
             connection = new SqlConnection(connetionString);
             try
@@ -141,7 +142,7 @@ namespace QuanLySinhVien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Khong co ket noi ! ");
+                MessageBox.Show(ex.ToString());
             }
         }
         private void button1_Click(object sender, EventArgs e)
@@ -175,7 +176,7 @@ namespace QuanLySinhVien
             }
             catch (Exception)
             {
-                MessageBox.Show("Vui lòng chọn một hàng bạn muốn thao tác ^^!", "THÔNG BÁO");
+                MessageBox.Show("Hãy chọn sinh viên muốn sửa", "THÔNG BÁO");
             }
             
         }
@@ -208,7 +209,7 @@ namespace QuanLySinhVien
             }
             catch (Exception)
             {
-                MessageBox.Show("Vui lòng chọn một hàng bạn muốn thao tác ^^!", "THÔNG BÁO");
+                MessageBox.Show("Hãy chọn sinh viên muốn xóa", "THÔNG BÁO");
             }
 
         }
@@ -220,13 +221,13 @@ namespace QuanLySinhVien
                 string str;
                 int row = this.listView1.SelectedItems[0].Index;
                 str = this.listView1.Items[row].SubItems[0].Text;
+                this.Close();
                 frmChiTietSinhVien frm = new frmChiTietSinhVien(str);
-               
                 frm.Show();
             }
             catch (Exception)
             {
-                MessageBox.Show("Vui lòng chọn một hàng bạn muốn thao tác ^^!", "THÔNG BÁO");
+                MessageBox.Show("Hãy chọn sinh viên muốn xem chi tiết", "THÔNG BÁO");
             }
         }
 
@@ -276,10 +277,10 @@ namespace QuanLySinhVien
                             ListViewItem item = new ListViewItem(td.Rows[i][0].ToString());
                             item.SubItems.Add(td.Rows[i][1].ToString());
                             item.SubItems.Add(td.Rows[i][2].ToString());
-                            if (Convert.ToInt16(td.Rows[i][3]) == 0)
+                            if (Convert.ToInt16(td.Rows[i][3]) == 1)
                                 item.SubItems.Add("Nam");
                             else
-                                item.SubItems.Add("Nu");
+                                item.SubItems.Add("Nữ");
                             item.SubItems.Add(td.Rows[i][4].ToString());
                             item.SubItems.Add(td.Rows[i][5].ToString());
                             item.SubItems.Add(td.Rows[i][6].ToString());
@@ -313,10 +314,10 @@ namespace QuanLySinhVien
                             ListViewItem item = new ListViewItem(td.Rows[i][0].ToString());
                             item.SubItems.Add(td.Rows[i][1].ToString());
                             item.SubItems.Add(td.Rows[i][2].ToString());
-                            if (Convert.ToInt16(td.Rows[i][3]) == 0)
+                            if (Convert.ToInt16(td.Rows[i][3]) == 1)
                                 item.SubItems.Add("Nam");
                             else
-                                item.SubItems.Add("Nu");
+                                item.SubItems.Add("Nữ");
                             item.SubItems.Add(td.Rows[i][4].ToString());
                             item.SubItems.Add(td.Rows[i][5].ToString());
                             item.SubItems.Add(td.Rows[i][6].ToString());

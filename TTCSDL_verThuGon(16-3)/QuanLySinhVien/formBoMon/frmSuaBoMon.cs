@@ -12,10 +12,10 @@ namespace QuanLySinhVien
 {
     public partial class frmSuaBoMon : Form
     {
-        string MaKhoa;
+        string MaBM;
         public frmSuaBoMon(string Ma)
         {
-            MaKhoa = Ma;
+            MaBM = Ma;
             InitializeComponent();
         }
 
@@ -24,35 +24,39 @@ namespace QuanLySinhVien
             SqlConnection con = new SqlConnection();
             con.ConnectionString = KetNoi.str;
             con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "SELECT TenBM,MaChuNhiemBM FROM BOMON WHERE MaBM='" + MaKhoa + "'";
-            SqlDataReader rd;
-            rd = cmd.ExecuteReader();
-            DataTable td = new DataTable();
-            td.Load(rd);
-            this.txtMaKhoa.Text = MaKhoa;
-            this.txtTenKhoa.Text = td.Rows[0][0].ToString();
-            this.cbbMaCNBM.Text = td.Rows[0][1].ToString();
-            con.Close();
+            SqlCommand cmd1 = new SqlCommand();
+            cmd1.Connection = con;
+            cmd1.CommandText = "SELECT MaChuNhiemBM FROM BOMON WHERE MaBM='" + MaBM + "'";
+            SqlDataReader rd1;
+            rd1 = cmd1.ExecuteReader();
+            DataTable td1 = new DataTable();
+            td1.Load(rd1);
+            this.cbxMaCNBM.Items.Add(td1.Rows[0][0]);
 
-
-
-            SqlConnection con1 = new SqlConnection();
-            con1.ConnectionString = KetNoi.str;
-            con1.Open();
             SqlCommand cmd2 = new SqlCommand();
-            cmd2.Connection = con1;
-            cmd2.CommandText = "Select MaGV from GIAOVIEN where MaGV not in ( select MaChuNhiemBM from BOMON where MaChuNhiemBM = GIAOVIEN.MaGV)";
+            cmd2.Connection = con;
+            cmd2.CommandText = "Select MaGV from GIAOVIEN where MaGV not in ( select MaChuNhiemBM from BOMON)";
             SqlDataReader rd2;
             rd2 = cmd2.ExecuteReader();
             DataTable td2 = new DataTable();
             td2.Load(rd2);
             for (int i = 0; i < td2.Rows.Count; i++)
             {
-                this.cbbMaCNBM.Items.Add(td2.Rows[i][0]);
+                this.cbxMaCNBM.Items.Add(td2.Rows[i][0]);
             }
-            con1.Close();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "SELECT TenBM,MaChuNhiemBM,TenGV FROM BOMON BM,GIAOVIEN GV WHERE BM.MaChuNhiemBM=GV.MaGV AND BM.MaBM='" + MaBM + "'";
+            SqlDataReader rd;
+            rd = cmd.ExecuteReader();
+            DataTable td = new DataTable();
+            td.Load(rd);
+            this.txtMaBM.Text = MaBM;
+            this.txtTenBM.Text = td.Rows[0][0].ToString();
+            this.cbxMaCNBM.Text = td.Rows[0][1].ToString();
+            this.txtTenCNBM.Text = td.Rows[0][2].ToString();
+            con.Close();
         }
 
         private void btnSuaKhoa_Click(object sender, EventArgs e)
@@ -64,13 +68,11 @@ namespace QuanLySinhVien
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                if (cbbMaCNBM.Text.Length == 6)
+                if (txtTenBM.Text != "" && cbxMaCNBM.SelectedItem.ToString() != "")
                 {
-                    //cmd.CommandText = "UPDATE BOMON SET TenBM='" + txtTenKhoa.Text+ "'WHERE MaBM='" + MaKhoa+ "'";
-                    cmd.CommandText = "UPDATE BOMON SET TenBM=N'" + txtTenKhoa.Text + "',MaChuNhiemBM='" + cbbMaCNBM.Text + "' WHERE MaBM='" + MaKhoa + "'";
-                DialogResult result;
-                result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                
+                    cmd.CommandText = "UPDATE BOMON SET TenBM=N'" + txtTenBM.Text + "',MaChuNhiemBM='" + cbxMaCNBM.Text + "' WHERE MaBM='" + MaBM + "'";
+                    DialogResult result;
+                    result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
                         cmd.ExecuteNonQuery();
@@ -83,12 +85,12 @@ namespace QuanLySinhVien
                 }
                 else
                 {
-                    MessageBox.Show("Mã Giáo Viên 6 Ký Tự Nhé", "Thông Báo");
+                    MessageBox.Show("Bạn phải nhập đủ các trường bắt buộc!", "Thông Báo");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                    MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -103,12 +105,11 @@ namespace QuanLySinhVien
         {
             SqlDataReader a;
             KetNoi kn = new KetNoi();
-            string selectTring = "select TenGV from GIAOVIEN where MaGV = '" + cbbMaCNBM.Text + "'";
+            string selectTring = "select TenGV from GIAOVIEN where MaGV = '" + cbxMaCNBM.Text + "'";
             a = kn.ThucThiTraVe1Record(selectTring);
             while (a.Read())
             {
                 txtTenCNBM.Text = a["TenGV"].ToString();
-               
             }
         }
     }

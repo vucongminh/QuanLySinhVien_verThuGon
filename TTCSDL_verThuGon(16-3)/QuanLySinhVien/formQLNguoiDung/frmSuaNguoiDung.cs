@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Net.Mail;
 
 namespace QuanLySinhVien
 {
@@ -15,7 +16,7 @@ namespace QuanLySinhVien
         string TenDangNhap;
         string MatKhau;
         string hinhAnh;
-        public frmSuaNguoiDung(string Ten,string Ma)
+        public frmSuaNguoiDung(string Ten, string Ma)
         {
             TenDangNhap = Ten;
             MatKhau = Ma;
@@ -38,16 +39,15 @@ namespace QuanLySinhVien
             this.txtMatKhau.Text = td.Rows[0][1].ToString();
             this.cboQuyenHan.Text = td.Rows[0][2].ToString();
             this.txtGmail.Text = td.Rows[0][4].ToString();
-            string image;
-            image = td.Rows[0][3].ToString();
-            if (image.Length <= 0)
+            hinhAnh = td.Rows[0][3].ToString();
+            if (hinhAnh.Length <= 0)
             {
                 this.ptAvatar.Image = new Bitmap(Application.StartupPath + @"\hinhanh\vodien.jpg");
                 ptAvatar.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             else
             {
-                this.ptAvatar.Image = new Bitmap(Application.StartupPath + @"\hinhanh\" + image);
+                this.ptAvatar.Image = new Bitmap(Application.StartupPath + @"\hinhanh\" + hinhAnh);
                 ptAvatar.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             con.Close();
@@ -64,22 +64,59 @@ namespace QuanLySinhVien
         {
             try
             {
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = KetNoi.str;
-                con.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandText = "UPDATE QuanLyNguoiDung SET QuyenHan='" + cboQuyenHan.SelectedItem.ToString() + "',hinhanh='" + hinhAnh + "',TenDangNhap='" + txtTenDangNhap.Text + "' ,MatKhau='" + txtMatKhau.Text + "',Gmail='" + txtGmail.Text + "' WHERE TenDangNhap='" + TenDangNhap + "' AND MatKhau='" + MatKhau + "'";
-                DialogResult result;
-                result = MessageBox.Show("Bạn Có Muốn Thay Đổi Thông Tin Không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                if (txtMatKhau.Text == "")
                 {
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("Sửa Thông Tin Thành Công");
-                    this.Close();
-                    frmDanhSachNguoiDung frm = new frmDanhSachNguoiDung();
-                    frm.Show();
+                    MessageBox.Show("Bạn cần nhập đủ các trường bắt buộc !", "THÔNG BÁO");
+                }
+                else
+                {
+                    if (txtGmail.Text == string.Empty)
+                    {
+                        SqlConnection con = new SqlConnection();
+                        con.ConnectionString = KetNoi.str;
+                        con.Open();
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.Connection = con;
+                        cmd.CommandText = "UPDATE QuanLyNguoiDung SET QuyenHan='" + cboQuyenHan.SelectedItem.ToString() + "',hinhanh='" + hinhAnh + "',TenDangNhap='" + txtTenDangNhap.Text + "' ,MatKhau='" + txtMatKhau.Text + "',Gmail='" + txtGmail.Text + "' WHERE TenDangNhap='" + TenDangNhap + "' AND MatKhau='" + MatKhau + "'";
+                        DialogResult result;
+                        result = MessageBox.Show("Bạn Có Muốn Thay Đổi Thông Tin Không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                            MessageBox.Show("Sửa Thông Tin Thành Công");
+                            this.Close();
+                            frmDanhSachNguoiDung frm = new frmDanhSachNguoiDung();
+                            frm.Show();
+                        }
+                    }
+                    else
+                    {
+                        if (IsValid(txtGmail.Text))
+                        {
+                            SqlConnection con = new SqlConnection();
+                            con.ConnectionString = KetNoi.str;
+                            con.Open();
+                            SqlCommand cmd = new SqlCommand();
+                            cmd.Connection = con;
+                            cmd.CommandText = "UPDATE QuanLyNguoiDung SET QuyenHan='" + cboQuyenHan.SelectedItem.ToString() + "',hinhanh='" + hinhAnh + "',TenDangNhap='" + txtTenDangNhap.Text + "' ,MatKhau='" + txtMatKhau.Text + "',Gmail='" + txtGmail.Text + "' WHERE TenDangNhap='" + TenDangNhap + "' AND MatKhau='" + MatKhau + "'";
+                            DialogResult result;
+                            result = MessageBox.Show("Bạn Có Muốn Thay Đổi Thông Tin Không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                cmd.ExecuteNonQuery();
+                                con.Close();
+                                MessageBox.Show("Sửa Thông Tin Thành Công");
+                                this.Close();
+                                frmDanhSachNguoiDung frm = new frmDanhSachNguoiDung();
+                                frm.Show();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Email không hợp lệ. Vui lòng thử lại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
             }
             catch (Exception)
@@ -107,6 +144,18 @@ namespace QuanLySinhVien
         private void ptAvatar_Click(object sender, EventArgs e)
         {
 
+        }
+        public bool IsValid(string emailAddress)
+        {
+            try
+            {
+                MailAddress mail = new MailAddress(emailAddress);
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
         }
     }
 }

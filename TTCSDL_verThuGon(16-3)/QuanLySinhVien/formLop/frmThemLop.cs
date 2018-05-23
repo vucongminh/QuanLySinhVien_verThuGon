@@ -31,7 +31,7 @@ namespace QuanLySinhVien
             td.Load(rd);
             for (int i = 0; i < td.Rows.Count; i++)
             {
-                this.cbbMaLT.Items.Add(td.Rows[i][0]);
+                this.cbxMaLT.Items.Add(td.Rows[i][0]);
             }
 
             SqlCommand cmd1 = new SqlCommand();
@@ -43,7 +43,7 @@ namespace QuanLySinhVien
             td1.Load(rd1);
             for (int i = 0; i < td1.Rows.Count; i++)
             {
-                this.cbbMaGVCN.Items.Add(td1.Rows[i][0]);
+                this.cbxMaGVCN.Items.Add(td1.Rows[i][0]);
             }
 
             con.Close();
@@ -67,34 +67,47 @@ namespace QuanLySinhVien
                 rd2 = cmd2.ExecuteReader();
                 DataTable td2 = new DataTable();
                 td2.Load(rd2);
-
-                if (td2.Rows.Count == 0)
+                try
                 {
-                    cmd.CommandText = "InsertDataIntoLop";
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("MaLop", txtMaLop.Text);
-                    cmd.Parameters.AddWithValue("TenLop", txtTenLop.Text);
-                    cmd.Parameters.AddWithValue("MaLopTruong", cbbMaLT.Text);
-                    cmd.Parameters.AddWithValue("MaGVCN", cbbMaGVCN.Text);
-
-                    cmd.ExecuteNonQuery();
-                    DialogResult result;
-                    result = MessageBox.Show("THÊM DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    if (result == DialogResult.OK)
+                    if (txtMaLop.Text != "" && txtTenLop.Text != "" && cbxMaGVCN.SelectedItem.ToString() != "" && cbxMaLT.SelectedItem.ToString() != "")
                     {
-                        this.Close();
-                        frmThemLop frm = new frmThemLop();
-                        frm.Show();
+                        if (td2.Rows.Count == 0)
+                        {
+                            cmd.CommandText = "InsertDataIntoLop";
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("MaLop", txtMaLop.Text);
+                            cmd.Parameters.AddWithValue("TenLop", txtTenLop.Text);
+                            cmd.Parameters.AddWithValue("MaLopTruong", cbxMaLT.Text);
+                            cmd.Parameters.AddWithValue("MaGVCN", cbxMaGVCN.Text);
+                            DialogResult result;
+                            result = MessageBox.Show("BẠN CÓ MUỐN THÊM MỚI LỚP NÀY KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                            if (result == DialogResult.Yes)
+                            {
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("THÊM DỮ LIỆU THÀNH CÔNG");
+                                this.Close();
+                                frmDSLop frm = new frmDSLop();
+                                frm.Show();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Mã Lớp Bị Trùng Nhé", "Thông Báo");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bạn phải nhập đủ các trường bắt buộc!", "Thông Báo");
                     }
                 }
-                else
+                catch
                 {
-                    MessageBox.Show("Mã Lớp Bị Trùng Nhé", "Thông Báo");
+                    MessageBox.Show("Bạn phải nhập đủ các trường bắt buộc!", "Thông Báo");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
+                MessageBox.Show(ex.ToString());
 
             }
         }
@@ -110,7 +123,7 @@ namespace QuanLySinhVien
         {
             SqlDataReader a;
             KetNoi kn = new KetNoi();
-            string selectTring = "select TenSV from SINHVIEN where MaSV = '" + cbbMaLT.Text + "'";
+            string selectTring = "select TenSV from SINHVIEN where MaSV = '" + cbxMaLT.Text + "'";
             a = kn.ThucThiTraVe1Record(selectTring);
             while (a.Read())
             {
@@ -123,7 +136,7 @@ namespace QuanLySinhVien
         {
             SqlDataReader a;
             KetNoi kn = new KetNoi();
-            string selectTring = "select TenGV from GIAOVIEN where MaGV = '" + cbbMaGVCN.Text + "'";
+            string selectTring = "select TenGV from GIAOVIEN where MaGV = '" + cbxMaGVCN.Text + "'";
             a = kn.ThucThiTraVe1Record(selectTring);
             while (a.Read())
             {

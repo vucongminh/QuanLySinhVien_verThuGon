@@ -105,7 +105,7 @@ namespace QuanLySinhVien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Khong co ket noi ! ");
+                MessageBox.Show(ex.ToString());
             }
         }
         private void getData2(AutoCompleteStringCollection dataCollection)
@@ -136,7 +136,7 @@ namespace QuanLySinhVien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Khong co ket noi ! ");
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -238,8 +238,8 @@ namespace QuanLySinhVien
                             ListViewItem item = new ListViewItem(td.Rows[i][0].ToString());
                             item.SubItems.Add(td.Rows[i][1].ToString());
                             item.SubItems.Add(td.Rows[i][2].ToString());
-                            
-                            
+
+
                             listView1.Items.Add(item);
                         }
 
@@ -269,7 +269,7 @@ namespace QuanLySinhVien
                             ListViewItem item = new ListViewItem(td.Rows[i][0].ToString());
                             item.SubItems.Add(td.Rows[i][1].ToString());
                             item.SubItems.Add(td.Rows[i][2].ToString());
-                            
+
                             listView1.Items.Add(item);
 
                         }

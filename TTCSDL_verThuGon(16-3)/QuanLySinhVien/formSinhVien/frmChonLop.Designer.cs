@@ -61,6 +61,7 @@
             // 
             // cboDSLop
             // 
+            this.cboDSLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDSLop.FormattingEnabled = true;
             this.cboDSLop.Location = new System.Drawing.Point(157, 16);
             this.cboDSLop.Name = "cboDSLop";
@@ -119,6 +120,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmChonLop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chọn Lớp";

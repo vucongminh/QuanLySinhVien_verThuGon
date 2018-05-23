@@ -24,36 +24,29 @@ namespace QuanLySinhVien
             SqlConnection con = new SqlConnection();
             con.ConnectionString = KetNoi.str;
             con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "SELECT TenGV, SdtGV, MaBM FROM GIAOVIEN WHERE MaGV='" + MaGV + "'";
-            SqlDataReader rd;
-            rd = cmd.ExecuteReader();
-            DataTable td = new DataTable();
-            td.Load(rd);
-
-
-            this.txtMaGV.Text = MaGV;
-            this.txtTenGV.Text = td.Rows[0][0].ToString();
-            this.txtSdtGV.Text = td.Rows[0][1].ToString();
-            this.cbbMaBM.Text = td.Rows[0][2].ToString();
-
-            SqlConnection con1 = new SqlConnection();
-            con1.ConnectionString = KetNoi.str;
-            con1.Open();
             SqlCommand cmd1 = new SqlCommand();
-            cmd1.Connection = con1;
-            cmd1.CommandText = "Select MaBM from BOMON";
+            cmd1.Connection = con;
+            cmd1.CommandText = "Select TenBM from BOMON";
             SqlDataReader rd1;
             rd1 = cmd1.ExecuteReader();
             DataTable td1 = new DataTable();
             td1.Load(rd1);
             for (int i = 0; i < td1.Rows.Count; i++)
             {
-                this.cbbMaBM.Items.Add(td1.Rows[i][0]);
+                this.cbxTenBM.Items.Add(td1.Rows[i][0]);
             }
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "SELECT TenGV, SdtGV, TenBM FROM GIAOVIEN GV,BOMON BM WHERE GV.MaBM=BM.MaBM AND MaGV='" + MaGV + "'";
+            SqlDataReader rd;
+            rd = cmd.ExecuteReader();
+            DataTable td = new DataTable();
+            td.Load(rd);
+            this.txtMaGV.Text = MaGV;
+            this.txtTenGV.Text = td.Rows[0][0].ToString();
+            this.txtSdtGV.Text = td.Rows[0][1].ToString();
+            this.cbxTenBM.Text = td.Rows[0][2].ToString();
             con.Close();
-            con1.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -65,12 +58,18 @@ namespace QuanLySinhVien
                 con.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                if (txtMaGV.Text.Length == 6)
+                if (txtTenGV.Text != "" && cbxTenBM.SelectedItem.ToString() != "")
                 {
-                    if (IsNumber(txtSdtGV.Text))
+                    if (txtSdtGV.Text == string.Empty)
                     {
-                        string MaBM;
-                        MaBM = cbbMaBM.SelectedItem.ToString();
+                        string TenBM;
+                        TenBM = cbxTenBM.SelectedItem.ToString();
+                        cmd.CommandText = "select * from BOMON where TenBM =N'" + TenBM + "'";
+                        SqlDataReader rd;
+                        rd = cmd.ExecuteReader();
+                        DataTable td = new DataTable();
+                        td.Load(rd);
+                        string MaBM = td.Rows[0][0].ToString();
                         cmd.CommandText = "UPDATE GIAOVIEN SET TenGV=N'" + txtTenGV.Text + "',SdtGV='" + txtSdtGV.Text + "',MaBM='" + MaBM + "' WHERE MaGV='" + MaGV + "'";
                         DialogResult result;
                         result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -86,17 +85,43 @@ namespace QuanLySinhVien
                     }
                     else
                     {
-                        MessageBox.Show("SĐT nhập không đúng!");
+                        if (IsNumber(txtSdtGV.Text) && (txtSdtGV.Text.Length == 10 || txtSdtGV.Text.Length == 11))
+                        {
+                            string TenBM;
+                            TenBM = cbxTenBM.SelectedItem.ToString();
+                            cmd.CommandText = "select * from BOMON where TenBM =N'" + TenBM + "'";
+                            SqlDataReader rd;
+                            rd = cmd.ExecuteReader();
+                            DataTable td = new DataTable();
+                            td.Load(rd);
+                            string MaBM = td.Rows[0][0].ToString();
+                            cmd.CommandText = "UPDATE GIAOVIEN SET TenGV=N'" + txtTenGV.Text + "',SdtGV='" + txtSdtGV.Text + "',MaBM='" + MaBM + "' WHERE MaGV='" + MaGV + "'";
+                            DialogResult result;
+                            result = MessageBox.Show("BẠN CÓ MUỐN THAY ĐỔI THÔNG TIN KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (result == DialogResult.Yes)
+                            {
+                                cmd.ExecuteNonQuery();
+                                con.Close();
+                                MessageBox.Show("CẬP NHẬT DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO");
+                                this.Close();
+                                frmDSGiaoVien frm = new frmDSGiaoVien();
+                                frm.Show();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("SĐT nhập không đúng!");
+                        }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Mã Giáo Viên 6 Ký Tự Nhé", "Thông Báo");
+                    MessageBox.Show("Bạn phải nhập đủ các trường bắt buộc!", "Thông Báo");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
+                MessageBox.Show(ex.ToString());
             }
         }
 

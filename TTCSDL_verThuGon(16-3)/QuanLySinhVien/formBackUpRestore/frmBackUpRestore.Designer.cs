@@ -112,6 +112,7 @@
             // 
             // txtBackUp
             // 
+            this.txtBackUp.Enabled = false;
             this.txtBackUp.Location = new System.Drawing.Point(85, 30);
             this.txtBackUp.Name = "txtBackUp";
             this.txtBackUp.Size = new System.Drawing.Size(317, 20);
@@ -173,6 +174,7 @@
             // 
             // txtRestore
             // 
+            this.txtRestore.Enabled = false;
             this.txtRestore.Location = new System.Drawing.Point(85, 36);
             this.txtRestore.Name = "txtRestore";
             this.txtRestore.Size = new System.Drawing.Size(317, 20);

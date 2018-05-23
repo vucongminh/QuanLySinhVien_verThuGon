@@ -10,11 +10,12 @@ namespace QuanLySinhVien
 {
     class KetNoi
     {
-        public static string str = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLySV24;Integrated Security=True";
+        public static string str = @"Data Source=DESKTOP-R2MHQ1A;Initial Catalog=QuanLySV24;Integrated Security=True";
+        //Data Source=.\SQLEXPRESS;Initial Catalog=QuanLySV24;Integrated Security=True
 
         public string TaoKetNoi()
         {
-            return (@"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLySV24;Integrated Security=True");
+            return (@"Data Source=DESKTOP-R2MHQ1A;Initial Catalog=QuanLySV24;Integrated Security=True");
         }
 
         SqlConnection SqlCon;

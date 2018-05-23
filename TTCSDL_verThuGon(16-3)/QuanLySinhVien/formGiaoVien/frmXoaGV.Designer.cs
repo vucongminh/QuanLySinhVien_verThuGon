@@ -108,6 +108,7 @@
             // txtTenLop
             // 
             this.txtTenLop.BackColor = System.Drawing.Color.White;
+            this.txtTenLop.Enabled = false;
             this.txtTenLop.Location = new System.Drawing.Point(122, 64);
             this.txtTenLop.Name = "txtTenLop";
             this.txtTenLop.ReadOnly = true;
@@ -117,6 +118,7 @@
             // txtMaLop
             // 
             this.txtMaLop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txtMaLop.Enabled = false;
             this.txtMaLop.Location = new System.Drawing.Point(120, 22);
             this.txtMaLop.Name = "txtMaLop";
             this.txtMaLop.ReadOnly = true;
@@ -145,6 +147,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmXoaGV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xóa Giáo Viên";

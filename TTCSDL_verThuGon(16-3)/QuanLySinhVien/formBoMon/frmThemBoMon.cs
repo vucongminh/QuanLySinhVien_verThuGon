@@ -31,7 +31,7 @@ namespace QuanLySinhVien
             td1.Load(rd1);
             for (int i = 0; i < td1.Rows.Count; i++)
             {
-                this.cbbMaCNBM.Items.Add(td1.Rows[i][0]);
+                this.cbxMaCNBM.Items.Add(td1.Rows[i][0]);
             }
             con.Close();
         }
@@ -55,44 +55,58 @@ namespace QuanLySinhVien
 
                 SqlCommand cmd2 = new SqlCommand();
                 cmd2.Connection = con;
-                cmd2.CommandText = "Select * from BOMON where MaBM='" + txtMaKhoa.Text + "'";
+                cmd2.CommandText = "Select * from BOMON where MaBM='" + txtMaBM.Text + "'";
                 SqlDataReader rd2;
                 rd2 = cmd2.ExecuteReader();
                 DataTable td2 = new DataTable();
                 td2.Load(rd2);
-                if (txtMaKhoa.Text.Length == 6)
+                try
                 {
-                    if (td2.Rows.Count == 0)
+                    if (txtMaBM.Text != "" && txtTenBM.Text != "" && cbxMaCNBM.SelectedItem.ToString() != "")
                     {
-                        //cmd.CommandText = "INSERT INTO BOMON VALUES('" + txtMaKhoa.Text + "','" + txtTenKhoa.Text + "','" + txtMaCNBM.Text + "')";
-                        cmd.CommandText = "InsertDataIntoBoMon";
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("MaBM", txtMaKhoa.Text);
-                        cmd.Parameters.AddWithValue("TenBM", txtTenKhoa.Text);
-                        cmd.Parameters.AddWithValue("MaChuNhiemBM", cbbMaCNBM.Text);
-                        cmd.ExecuteNonQuery();
-                        DialogResult result;
-                        result = MessageBox.Show("THÊM DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        if (result == DialogResult.OK)
+                        if (td2.Rows.Count == 0)
                         {
-                            this.Close();
-                            frmThemBoMon frm = new frmThemBoMon();
-                            frm.Show();
+                            if (txtMaBM.Text.Length == 6)
+                            {
+                                cmd.CommandText = "InsertDataIntoBoMon";
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.AddWithValue("MaBM", txtMaBM.Text);
+                                cmd.Parameters.AddWithValue("TenBM", txtTenBM.Text);
+                                cmd.Parameters.AddWithValue("MaChuNhiemBM", cbxMaCNBM.Text);
+                                DialogResult result;
+                                result = MessageBox.Show("BẠN CÓ MUỐN THÊM MỚI BỘ MÔN NÀY KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                                if (result == DialogResult.Yes)
+                                {
+                                    cmd.ExecuteNonQuery();
+                                    MessageBox.Show("THÊM DỮ LIỆU THÀNH CÔNG");
+                                    this.Close();
+                                    frmDSBoMon frm = new frmDSBoMon();
+                                    frm.Show();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Mã Bộ Môn 6 Ký Tự Nhé", "Thông Báo");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Mã Bộ Môn Bị Trùng Nhé", "Thông Báo");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Mã Bộ Môn Bị Trùng Nhé", "Thông Báo");
+                        MessageBox.Show("Bạn phải nhập đủ các trường bắt buộc!", "Thông Báo");
                     }
                 }
-                else
+                catch
                 {
-                    MessageBox.Show("Mã Bộ Môn 6 Ký Tự Nhé", "Thông Báo");
+                    MessageBox.Show("Bạn phải nhập đủ các trường bắt buộc!");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -107,8 +121,8 @@ namespace QuanLySinhVien
         {
             SqlDataReader a;
             KetNoi kn = new KetNoi();
-            string selectTring = "select TenGV from GIAOVIEN where MaGV = '" + cbbMaCNBM.Text + "'";
-            a = kn.ThucThiTraVe1Record(selectTring);
+            string selectString = "select TenGV from GIAOVIEN where MaGV = '" + cbxMaCNBM.Text + "'";
+            a = kn.ThucThiTraVe1Record(selectString);
             while (a.Read())
             {
                 txtTenCNBM.Text = a["TenGV"].ToString();

@@ -27,28 +27,24 @@ namespace QuanLySinhVien
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = KetNoi.str;
                 con.Open();
-
                 SqlCommand cmd1 = new SqlCommand();
-
                 cmd1.Connection = con;
-
                 cmd1.CommandText = "DELETE FROM GIAOVIEN Where MaGV='" + MaGV + "'";
                 DialogResult result;
                 result = MessageBox.Show("BẠN CÓ MUỐN XÓA THÔNG TIN KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    //cmd.ExecuteNonQuery();
                     cmd1.ExecuteNonQuery();
                     MessageBox.Show("XÓA THÀNH CÔNG", "THÔNG BÁO");
                     con.Close();
                     this.Close();
-                    frmDSLopHocPhan frm = new frmDSLopHocPhan();
+                    frmDSGiaoVien frm = new frmDSGiaoVien();
                     frm.Show();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
+                MessageBox.Show(ex.ToString());
             }
         }
 

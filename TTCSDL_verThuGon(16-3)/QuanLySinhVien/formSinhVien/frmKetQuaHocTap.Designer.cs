@@ -36,7 +36,7 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.MonThi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.SoTrinh = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.SoTC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LanThi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DiemCC = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DiemTX = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -128,7 +128,7 @@
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.MonThi,
-            this.SoTrinh,
+            this.SoTC,
             this.LanThi,
             this.DiemCC,
             this.DiemTX,
@@ -153,10 +153,10 @@
             this.MonThi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.MonThi.Width = 120;
             // 
-            // SoTrinh
+            // SoTC
             // 
-            this.SoTrinh.Text = "Số Trình";
-            this.SoTrinh.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SoTC.Text = "Số TC";
+            this.SoTC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // LanThi
             // 
@@ -177,6 +177,7 @@
             // DiemThi
             // 
             this.DiemThi.Text = "Điểm Thi";
+            this.DiemThi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // DiemTK
             // 
@@ -274,6 +275,7 @@
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmKetQuaHocTap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bảng điểm";
@@ -293,7 +295,7 @@
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader MonThi;
-        private System.Windows.Forms.ColumnHeader SoTrinh;
+        private System.Windows.Forms.ColumnHeader SoTC;
         private System.Windows.Forms.ColumnHeader LanThi;
         private System.Windows.Forms.ColumnHeader DiemCC;
         private System.Windows.Forms.ColumnHeader DiemTX;

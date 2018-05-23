@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSuaGV));
             this.btnThoat = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxTenBM = new System.Windows.Forms.ComboBox();
             this.txtSdtGV = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,7 +41,8 @@
             this.txtMaGV = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSua = new System.Windows.Forms.Button();
-            this.cbbMaBM = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +53,7 @@
             this.btnThoat.ForeColor = System.Drawing.Color.Red;
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(290, 252);
+            this.btnThoat.Location = new System.Drawing.Point(295, 251);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 26);
             this.btnThoat.TabIndex = 13;
@@ -62,7 +64,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbbMaBM);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.cbxTenBM);
             this.groupBox1.Controls.Add(this.txtSdtGV);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -72,10 +76,20 @@
             this.groupBox1.Controls.Add(this.txtMaGV);
             this.groupBox1.Location = new System.Drawing.Point(12, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(356, 220);
+            this.groupBox1.Size = new System.Drawing.Size(358, 220);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // cbxTenBM
+            // 
+            this.cbxTenBM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbxTenBM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTenBM.FormattingEnabled = true;
+            this.cbxTenBM.Location = new System.Drawing.Point(155, 168);
+            this.cbxTenBM.Name = "cbxTenBM";
+            this.cbxTenBM.Size = new System.Drawing.Size(179, 21);
+            this.cbxTenBM.TabIndex = 5;
             // 
             // txtSdtGV
             // 
@@ -93,9 +107,9 @@
             this.label5.ForeColor = System.Drawing.Color.Blue;
             this.label5.Location = new System.Drawing.Point(6, 170);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 19);
+            this.label5.Size = new System.Drawing.Size(99, 19);
             this.label5.TabIndex = 3;
-            this.label5.Text = "Mã Bộ Môn:";
+            this.label5.Text = "Tên Bộ Môn:";
             // 
             // label4
             // 
@@ -141,6 +155,7 @@
             // txtMaGV
             // 
             this.txtMaGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txtMaGV.Enabled = false;
             this.txtMaGV.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaGV.Location = new System.Drawing.Point(155, 26);
             this.txtMaGV.Name = "txtMaGV";
@@ -165,7 +180,7 @@
             this.btnSua.ForeColor = System.Drawing.Color.Blue;
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
             this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSua.Location = new System.Drawing.Point(209, 252);
+            this.btnSua.Location = new System.Drawing.Point(214, 251);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(75, 28);
             this.btnSua.TabIndex = 14;
@@ -173,26 +188,40 @@
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.button1_Click);
             // 
-            // cbbMaBM
+            // label11
             // 
-            this.cbbMaBM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbbMaBM.FormattingEnabled = true;
-            this.cbbMaBM.Location = new System.Drawing.Point(155, 168);
-            this.cbbMaBM.Name = "cbbMaBM";
-            this.cbbMaBM.Size = new System.Drawing.Size(179, 21);
-            this.cbbMaBM.TabIndex = 5;
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(340, 81);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(11, 13);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "*";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(340, 176);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(11, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "*";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmSuaGV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(376, 289);
+            this.ClientSize = new System.Drawing.Size(383, 289);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmSuaGV";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa Giáo Viên";
@@ -217,6 +246,8 @@
         private System.Windows.Forms.TextBox txtMaGV;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.ComboBox cbbMaBM;
+        private System.Windows.Forms.ComboBox cbxTenBM;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label11;
     }
 }

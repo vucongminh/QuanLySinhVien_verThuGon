@@ -105,6 +105,7 @@
             // txtTenGV
             // 
             this.txtTenGV.BackColor = System.Drawing.Color.White;
+            this.txtTenGV.Enabled = false;
             this.txtTenGV.Location = new System.Drawing.Point(149, 127);
             this.txtTenGV.Name = "txtTenGV";
             this.txtTenGV.ReadOnly = true;
@@ -125,6 +126,7 @@
             // txtMaGV
             // 
             this.txtMaGV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txtMaGV.Enabled = false;
             this.txtMaGV.Location = new System.Drawing.Point(149, 94);
             this.txtMaGV.Name = "txtMaGV";
             this.txtMaGV.ReadOnly = true;
@@ -156,6 +158,7 @@
             // txtTenHP
             // 
             this.txtTenHP.BackColor = System.Drawing.Color.White;
+            this.txtTenHP.Enabled = false;
             this.txtTenHP.Location = new System.Drawing.Point(149, 60);
             this.txtTenHP.Name = "txtTenHP";
             this.txtTenHP.ReadOnly = true;
@@ -165,6 +168,7 @@
             // txtMaLHP
             // 
             this.txtMaLHP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txtMaLHP.Enabled = false;
             this.txtMaLHP.Location = new System.Drawing.Point(149, 28);
             this.txtMaLHP.Name = "txtMaLHP";
             this.txtMaLHP.ReadOnly = true;
@@ -193,6 +197,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmXoaLopHocPhan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xóa Lớp Học Phần";

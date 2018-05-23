@@ -110,7 +110,7 @@ namespace QuanLySinhVien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Khong co ket noi ! ");
+                MessageBox.Show(ex.ToString());
             }
         }
         private void getData2(AutoCompleteStringCollection dataCollection)
@@ -141,7 +141,7 @@ namespace QuanLySinhVien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Khong co ket noi ! ");
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -291,7 +291,7 @@ namespace QuanLySinhVien
                     }
                     else
                     {
-                        MessageBox.Show("Không Tồn Tại Học Phần Có Tên " + txtTuKhoa.Text);
+                        MessageBox.Show("Không Tồn Tại Lớp Học Phần Có Tên " + txtTuKhoa.Text);
                         frmDSLopHocPhan_Load_1(sender, e);
                     }
                     //this.txtTuKhoa.GotFocus += new EventHandler(textBox1_Focus); // enter event==get focus event 

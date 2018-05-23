@@ -59,7 +59,7 @@
             this.groupBox1.Controls.Add(this.txtMaHP);
             this.groupBox1.Location = new System.Drawing.Point(12, 31);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(299, 134);
+            this.groupBox1.Size = new System.Drawing.Size(284, 118);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -88,6 +88,7 @@
             // txtTenHP
             // 
             this.txtTenHP.BackColor = System.Drawing.Color.White;
+            this.txtTenHP.Enabled = false;
             this.txtTenHP.Location = new System.Drawing.Point(117, 74);
             this.txtTenHP.Name = "txtTenHP";
             this.txtTenHP.ReadOnly = true;
@@ -97,6 +98,7 @@
             // txtMaHP
             // 
             this.txtMaHP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txtMaHP.Enabled = false;
             this.txtMaHP.Location = new System.Drawing.Point(117, 27);
             this.txtMaHP.Name = "txtMaHP";
             this.txtMaHP.ReadOnly = true;
@@ -110,7 +112,7 @@
             this.btnXoa.ForeColor = System.Drawing.Color.Blue;
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
             this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXoa.Location = new System.Drawing.Point(136, 171);
+            this.btnXoa.Location = new System.Drawing.Point(121, 155);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(75, 29);
             this.btnXoa.TabIndex = 2;
@@ -125,7 +127,7 @@
             this.btnThoat.ForeColor = System.Drawing.Color.Red;
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(227, 171);
+            this.btnThoat.Location = new System.Drawing.Point(212, 155);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(84, 29);
             this.btnThoat.TabIndex = 2;
@@ -138,12 +140,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(327, 220);
+            this.ClientSize = new System.Drawing.Size(314, 196);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmXoaHocPhan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Xóa Học Phần";

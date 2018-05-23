@@ -15,16 +15,10 @@ namespace QuanLySinhVien
     public partial class frmDangKi : Form
     {
         public static string username = string.Empty;
-
         public frmDangKi()
         {
             InitializeComponent();
-            btnIn.BackColor = Color.Gray;
-            btnIn.Enabled = false;
-
         }
-
-
         private void frmDangKi_Load(object sender,EventArgs e)
         {
             SqlConnection con = new SqlConnection();
@@ -32,7 +26,7 @@ namespace QuanLySinhVien
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT distinct  h.MaHP,h.TenHP,h.SoTC,l.MaLHP,l.DiaDiemTCHP FROM LOPHOCPHAN as l,HOCPHAN as h,BANGDIEM as b where l.MaHP=h.MaHP and  l.MaHP not in (select LOPHOCPHAN.MaHP from bangdiem,LOPHOCPHAN where bangdiem.MaLHP=LOPHOCPHAN.MaLHP and BANGDIEM.MaSV='"+username+"') and l.MaHP not in (select LOPHOCPHAN.MaHP from DANGKI,LOPHOCPHAN where DANGKI.MaLHP=LOPHOCPHAN.MaLHP and DANGKI.MaSV='"+username+"') order by h.TenHP";
+            cmd.CommandText = "SELECT distinct  h.MaHP,h.TenHP,h.SoTC,l.MaLHP,l.DiaDiemTCHP FROM LOPHOCPHAN as l,HOCPHAN as h,BANGDIEM as b where l.MaHP=h.MaHP and  l.MaHP not in (select LOPHOCPHAN.MaHP from bangdiem,LOPHOCPHAN where bangdiem.MaLHP=LOPHOCPHAN.MaLHP and BANGDIEM.MaSV='"+username+"') and l.MaHP not in (select LOPHOCPHAN.MaHP from DANGKI,LOPHOCPHAN where DANGKI.MaLHP=LOPHOCPHAN.MaLHP and DANGKI.MaSV='"+username+"')";
             SqlDataReader rd;
             rd = cmd.ExecuteReader();
             DataTable td = new DataTable();
@@ -179,8 +173,9 @@ namespace QuanLySinhVien
                     }
                     con.Close();
                     MessageBox.Show("GHI NHẬN THÀNH CÔNG", "THÔNG BÁO");
-                    btnIn.Enabled = true;
-                    btnIn.BackColor = Color.Snow;
+                    this.Close();
+                    frmDangKi frm = new frmDangKi();
+                    frm.Show();
                 }
             }
             else

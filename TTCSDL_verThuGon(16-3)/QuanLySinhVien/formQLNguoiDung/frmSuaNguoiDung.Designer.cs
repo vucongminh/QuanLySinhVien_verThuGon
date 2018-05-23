@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSuaNguoiDung));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cboQuyenHan = new System.Windows.Forms.ComboBox();
             this.txtGmail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,7 +45,6 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.ptAvatar = new System.Windows.Forms.PictureBox();
             this.btnChange = new System.Windows.Forms.Button();
-            this.cboQuyenHan = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptAvatar)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +62,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.cboQuyenHan);
             this.groupBox1.Controls.Add(this.txtGmail);
             this.groupBox1.Controls.Add(this.label5);
@@ -70,9 +74,44 @@
             this.groupBox1.Controls.Add(this.txtTenDangNhap);
             this.groupBox1.Location = new System.Drawing.Point(158, 34);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(336, 147);
+            this.groupBox1.Size = new System.Drawing.Size(356, 147);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(336, 53);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(14, 18);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "*";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(336, 85);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(14, 18);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "*";
+            // 
+            // cboQuyenHan
+            // 
+            this.cboQuyenHan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboQuyenHan.FormattingEnabled = true;
+            this.cboQuyenHan.Items.AddRange(new object[] {
+            "Admin",
+            "OnlyRead",
+            "ReadUpdate"});
+            this.cboQuyenHan.Location = new System.Drawing.Point(127, 82);
+            this.cboQuyenHan.Name = "cboQuyenHan";
+            this.cboQuyenHan.Size = new System.Drawing.Size(203, 21);
+            this.cboQuyenHan.TabIndex = 4;
             // 
             // txtGmail
             // 
@@ -136,6 +175,7 @@
             // txtTenDangNhap
             // 
             this.txtTenDangNhap.BackColor = System.Drawing.Color.White;
+            this.txtTenDangNhap.Enabled = false;
             this.txtTenDangNhap.Location = new System.Drawing.Point(127, 19);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(203, 20);
@@ -149,7 +189,7 @@
             this.btnSua.ForeColor = System.Drawing.Color.Blue;
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
             this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSua.Location = new System.Drawing.Point(246, 201);
+            this.btnSua.Location = new System.Drawing.Point(272, 201);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(112, 26);
             this.btnSua.TabIndex = 1;
@@ -164,7 +204,7 @@
             this.btnThoat.ForeColor = System.Drawing.Color.Red;
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThoat.Location = new System.Drawing.Point(382, 201);
+            this.btnThoat.Location = new System.Drawing.Point(402, 201);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(112, 26);
             this.btnThoat.TabIndex = 2;
@@ -196,24 +236,12 @@
             this.btnChange.UseVisualStyleBackColor = false;
             this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
-            // cboQuyenHan
-            // 
-            this.cboQuyenHan.FormattingEnabled = true;
-            this.cboQuyenHan.Items.AddRange(new object[] {
-            "Admin",
-            "OnlyRead",
-            "ReadUpdate"});
-            this.cboQuyenHan.Location = new System.Drawing.Point(127, 82);
-            this.cboQuyenHan.Name = "cboQuyenHan";
-            this.cboQuyenHan.Size = new System.Drawing.Size(203, 21);
-            this.cboQuyenHan.TabIndex = 4;
-            // 
             // frmSuaNguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(506, 247);
+            this.ClientSize = new System.Drawing.Size(521, 234);
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.ptAvatar);
             this.Controls.Add(this.btnThoat);
@@ -221,6 +249,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmSuaNguoiDung";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa Người Dùng";
@@ -249,5 +278,7 @@
         private System.Windows.Forms.TextBox txtGmail;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cboQuyenHan;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

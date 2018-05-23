@@ -32,7 +32,7 @@ namespace QuanLySinhVien
             td.Load(rd);
             for (int i = 0; i < td.Rows.Count; i++)
             {
-                this.cbbMaBM.Items.Add(td.Rows[i][0]);
+                this.cbxMaBM.Items.Add(td.Rows[i][0]);
             }
             con.Close();
         }
@@ -54,47 +54,72 @@ namespace QuanLySinhVien
                 rd2 = cmd2.ExecuteReader();
                 DataTable td2 = new DataTable();
                 td2.Load(rd2);
-                if (txtMaHP.Text.Length == 6)
+                try
                 {
-                    if (td2.Rows.Count == 0)
+                    if (txtMaHP.Text != "" && txtTenHP.Text != "" && txtSoTC.Text != "" && txtHocKy.Text != "" && cbxMaBM.SelectedItem.ToString() != "")
                     {
-                        //int SoTrinh;
-                        int HocKy;
-                        //SoTrinh = Convert.ToInt16(txtSoTrinh.Text);
-                        HocKy = Convert.ToInt16(txtHocKy.Text);
-                        //cmd.CommandText = "INSERT INTO HOCPHAN VALUES('" + txtMaMonHoc.Text + "',N'" + txtTenMonHoc.Text + "','" + txtMaBoMon.Text + "'," + SoTrinh + "," + HocKy + ")";
-                        cmd.CommandText = "InsertDataIntoHocPhan";
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@mahp", txtMaHP.Text);
-                        cmd.Parameters.AddWithValue("@tenhp", txtTenHP.Text);
-                        cmd.Parameters.AddWithValue("@mabm", cbbMaBM.Text);
-                        cmd.Parameters.AddWithValue("@sotc", txtSoTC.Text);
-                        cmd.Parameters.AddWithValue("@hocky", HocKy);
-
-
-                        cmd.ExecuteNonQuery();
-                        DialogResult result;
-                        result = MessageBox.Show("THÊM DỮ LIỆU THÀNH CÔNG", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        if (result == DialogResult.OK)
+                        if (td2.Rows.Count == 0)
                         {
-                            this.Close();
-                            frmThemHocPhan frm = new frmThemHocPhan();
-                            frm.Show();
+                            if (txtMaHP.Text.Length == 6)
+                            {
+                                if (IsNumber(txtSoTC.Text))
+                                {
+                                    int SoTC = Convert.ToInt16(txtSoTC.Text);
+                                    if (IsNumber(txtHocKy.Text))
+                                    {
+                                        int HocKy = Convert.ToInt16(txtHocKy.Text);
+                                        cmd.CommandText = "InsertDataIntoHocPhan";
+                                        cmd.CommandType = CommandType.StoredProcedure;
+                                        cmd.Parameters.AddWithValue("@mahp", txtMaHP.Text);
+                                        cmd.Parameters.AddWithValue("@tenhp", txtTenHP.Text);
+                                        cmd.Parameters.AddWithValue("@mabm", cbxMaBM.Text);
+                                        cmd.Parameters.AddWithValue("@sotc", SoTC);
+                                        cmd.Parameters.AddWithValue("@hocky", HocKy);
+                                        DialogResult result;
+                                        result = MessageBox.Show("BẠN CÓ MUỐN THÊM MỚI HỌC PHẦN NÀY KHÔNG?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                                        if (result == DialogResult.Yes)
+                                        {
+                                            cmd.ExecuteNonQuery();
+                                            MessageBox.Show("THÊM DỮ LIỆU THÀNH CÔNG");
+                                            this.Close();
+                                            frmDSHocPhan frm = new frmDSHocPhan();
+                                            frm.Show();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Học kỳ nhập không đúng!");
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Số tín chỉ nhập không đúng!");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Mã Học Phần Phải Đúng 6 Ký Tự Nhé", "Thông Báo");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Mã Học Phần Bị Trùng Nhé", "Thông Báo");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Mã Học Phần Bị Trùng Nhé", "Thông Báo");
+                        MessageBox.Show("Bạn phải nhập đủ các trường bắt buộc!", "Thông Báo");
                     }
                 }
-                else
+                catch
                 {
-                    MessageBox.Show("Mã Học Phần 6 Ký Tự Nhé", "Thông Báo");
+                    MessageBox.Show("Bạn phải nhập đủ các trường bắt buộc!");
                 }
+
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Nhập Liệu Sai !", "Thông Báo");
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -115,13 +140,22 @@ namespace QuanLySinhVien
         {
             SqlDataReader a;
             KetNoi kn = new KetNoi();
-            string selectTring = "select TenBM from BOMON where MaBM = '" + cbbMaBM.Text + "'";
+            string selectTring = "select TenBM from BOMON where MaBM = '" + cbxMaBM.Text + "'";
             a = kn.ThucThiTraVe1Record(selectTring);
             while (a.Read())
             {
                 txtTenBM.Text = a["TenBM"].ToString();
 
             }
+        }
+        public bool IsNumber(string pValue)
+        {
+            foreach (Char c in pValue)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
         }
     }
 }

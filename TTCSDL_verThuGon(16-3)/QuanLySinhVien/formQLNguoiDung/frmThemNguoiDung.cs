@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using System.Net.Mail;
 
 namespace QuanLySinhVien
 {
@@ -38,35 +38,78 @@ namespace QuanLySinhVien
             con.Open();
             SqlCommand cmd1 = new SqlCommand();
             cmd1.Connection = con;
-            cmd1.CommandText = "SELECT count(*) FROM QuanLyNguoiDung where tendangnhap='"+txtTenDangNhap.Text+"'";
+            cmd1.CommandText = "SELECT count(*) FROM QuanLyNguoiDung where tendangnhap='" + txtTenDangNhap.Text + "'";
             SqlDataReader rd1;
             rd1 = cmd1.ExecuteReader();
             DataTable td1 = new DataTable();
             td1.Load(rd1);
             int a = int.Parse(td1.Rows[0][0].ToString());
-            if (a!=0)
+            if (a != 0)
             {
                 MessageBox.Show("Tên đăng nhập này đã có người sử dụng !", "THÔNG BÁO");
-            }else if (txtTenDangNhap.Text=="")
+            }
+            else if (txtTenDangNhap.Text == "")
             {
                 MessageBox.Show("Bạn cần nhập đủ các trường bắt buộc !", "THÔNG BÁO");
             }
-            else if (txtMatKhau.Text=="")
+            else if (txtMatKhau.Text == "")
             {
                 MessageBox.Show("Bạn cần nhập đủ các trường bắt buộc !", "THÔNG BÁO");
             }
-            else { 
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            string QuyenHan;
-            QuyenHan = this.cboQuyenHan.SelectedItem.ToString();
-            cmd.CommandText = "INSERT INTO QuanLyNguoiDung VALUES('" + txtTenDangNhap.Text + "','" + txtMatKhau.Text + "','" + QuyenHan + "','"+hinhAnh+"','"+txtGmail.Text+"')";
-            cmd.ExecuteNonQuery();
-            con.Close();
-            MessageBox.Show("Thêm Dữ Liệu Thành Công");
-            this.Close();
-            frmDanhSachNguoiDung frm = new frmDanhSachNguoiDung();
-            frm.Show();               
+            else
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                string QuyenHan;
+                if(txtGmail.Text == string.Empty)
+                {
+                    try
+                    {
+                        QuyenHan = this.cboQuyenHan.SelectedItem.ToString();
+                        cmd.CommandText = "INSERT INTO QuanLyNguoiDung VALUES('" + txtTenDangNhap.Text + "','" + txtMatKhau.Text + "','" + QuyenHan + "','" + hinhAnh + "','" + txtGmail.Text + "')";
+                        DialogResult result = MessageBox.Show("Bạn có muốn thêm người dùng này?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        if (result == DialogResult.Yes)
+                        {
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                            MessageBox.Show("Thêm Dữ Liệu Thành Công");
+                            this.Close();
+                            frmDanhSachNguoiDung frm = new frmDanhSachNguoiDung();
+                            frm.Show();
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Bạn cần nhập đủ các trường bắt buộc !", "THÔNG BÁO");
+                    }
+                }
+                else if (IsValid(txtGmail.Text))
+                {
+                    try
+                    {
+                        QuyenHan = this.cboQuyenHan.SelectedItem.ToString();
+                        cmd.CommandText = "INSERT INTO QuanLyNguoiDung VALUES('" + txtTenDangNhap.Text + "','" + txtMatKhau.Text + "','" + QuyenHan + "','" + hinhAnh + "','" + txtGmail.Text + "')";
+                        DialogResult result = MessageBox.Show("Bạn có muốn thêm người dùng này?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        if (result == DialogResult.Yes)
+                        {
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                            MessageBox.Show("Thêm Dữ Liệu Thành Công");
+                            this.Close();
+                            frmDanhSachNguoiDung frm = new frmDanhSachNguoiDung();
+                            frm.Show();
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Bạn cần nhập đủ các trường bắt buộc !", "THÔNG BÁO");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Email không hợp lệ. Vui lòng thử lại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
 
@@ -92,6 +135,18 @@ namespace QuanLySinhVien
             this.ptAvatar.Image = new Bitmap(Application.StartupPath + @"\hinhanh\vodien.jpg");
             ptAvatar.SizeMode = PictureBoxSizeMode.StretchImage;
         }
+        public bool IsValid(string emailAddress)
+        {
+            try
+            {
+                MailAddress mail = new MailAddress(emailAddress);
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
     }
-    }
+}
 
